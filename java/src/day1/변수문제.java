@@ -1,36 +1,36 @@
 package day1;
 
-public class º¯¼ö¹®Á¦ {
+public class ë³€ìˆ˜ë¬¸ì œ {
 
 	public static void main(String[] args) {
-		//¹®Á¦1. È¦±æµ¿ÀÇ ±¹¾î Á¡¼ö¸¦ ÀúÀåÇÏ·Á ÇÑ´Ù.
-		//ÀÌ¶§ ÇÊ¿äÇÑ º¯¼ö¸¦ ¼±¾ðÇÏ¼¼¿ä. ´Ü, Á¡¼ö´Â
-		//Á¤¼ö·Î ÀúÀåÇÑ´Ù.
+		//ë¬¸ì œ1. í™€ê¸¸ë™ì˜ êµ­ì–´ ì ìˆ˜ë¥¼ ì €ìž¥í•˜ë ¤ í•œë‹¤.
+		//ì´ë•Œ í•„ìš”í•œ ë³€ìˆ˜ë¥¼ ì„ ì–¸í•˜ì„¸ìš”. ë‹¨, ì ìˆ˜ëŠ”
+		//ì •ìˆ˜ë¡œ ì €ìž¥í•œë‹¤.
 		
 		int korScore;
 		
 		
-		//¹®Á¦2. È«±æµ¿ÀÇ ¼öÇÐ Á¡¼ö¸¦ ÀúÀåÇÏ·Á ÇÑ´Ù.
-		//ÀÌ¶§ ÇÊ¿äÇÑ º¯¼ö¸¦ ¼±¾ðÇÏ¼¼¿ä. ´Ü Á¡¼ö´Â
-		//A, B, C, D, F·Î ÀúÀåÇÑ´Ù.
+		//ë¬¸ì œ2. í™ê¸¸ë™ì˜ ìˆ˜í•™ ì ìˆ˜ë¥¼ ì €ìž¥í•˜ë ¤ í•œë‹¤.
+		//ì´ë•Œ í•„ìš”í•œ ë³€ìˆ˜ë¥¼ ì„ ì–¸í•˜ì„¸ìš”. ë‹¨ ì ìˆ˜ëŠ”
+		//A, B, C, D, Fë¡œ ì €ìž¥í•œë‹¤.
 		
 		char mathScore;
 		
 		
-		//¹®Á¦3. ´ÙÀ½°ú °°ÀÌ ±¹¾î(kor), ¼öÇÐ(math),
-		//¿µ¾î(eng) ¼ºÀûÀÌ ÀÖÀ» ¶§, ¼ºÀûÀÇ ÇÕ°ú
-		//Æò±ÕÀ» ÀúÀåÇÒ º¯¼ö¸¦ ¼±¾ðÇÏ¼¼¿ä.
+		//ë¬¸ì œ3. ë‹¤ìŒê³¼ ê°™ì´ êµ­ì–´(kor), ìˆ˜í•™(math),
+		//ì˜ì–´(eng) ì„±ì ì´ ìžˆì„ ë•Œ, ì„±ì ì˜ í•©ê³¼
+		//í‰ê· ì„ ì €ìž¥í•  ë³€ìˆ˜ë¥¼ ì„ ì–¸í•˜ì„¸ìš”.
 		
 		int kor = 100;
 		int math = 90;
 		int eng = 80;
 		
-		int sum;//ÇÕ
-		double avr;//Æò±Õ
+		int sum;//í•©
+		double avr;//í‰ê· 
 		
-		/*¹®Á¦ 4. ´ÙÀ½ Áß ¹®Á¦°¡ ÀÖ´Â º¯¼ö ¼±¾ðÀº? 2,4,5
+		/*ë¬¸ì œ 4. ë‹¤ìŒ ì¤‘ ë¬¸ì œê°€ ìžˆëŠ” ë³€ìˆ˜ ì„ ì–¸ì€? 2,4,5
 		 * 1. char ch1 = 'A';
-		 * 2. char ch2 = '11'; µÎ±ÛÀÚ
+		 * 2. char ch2 = '11'; ë‘ê¸€ìž
 		 * 3. char ch3 = '_'; 
 		 * 4. char ch4 = C; 
 		 * 4. char ch5 = "D";
