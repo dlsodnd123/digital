@@ -4,7 +4,7 @@ public class 연산자 {
 
 	public static void main(String[] args) {
 		// 대입 연산자 : =
-		// =을 기준으로 오른쪽에 이쓴ㄴ 값을 왼쪽에 저장
+		// =을 기준으로 오른쪽에 쓴 값을 왼쪽에 저장
 		// A = B
 		// B를 A에 저장(대입)해라/덮어쓰기
 		// A는 변수이어야한다.
@@ -21,10 +21,14 @@ public class 연산자 {
 		System.out.println(4-3);
 		System.out.println(4*3);
 		
+		System.out.println("-------------------");
+		
 		System.out.println(1.2+3.4);
 		System.out.println(1.2-3.4);
 		System.out.println(1.2*3.4);
 
+		System.out.println("-------------------");
+		
 		/* 나누기
 		 * 정수 / 정수 => 정수
 		 * 정수 / 실수 => 실수
@@ -60,7 +64,5 @@ public class 연산자 {
 		
 		System.out.println("총점 : " + sum);
 		System.out.println("평균 : " + avr);
-		
-		
 	}
 }
