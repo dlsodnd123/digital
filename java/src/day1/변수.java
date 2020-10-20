@@ -3,6 +3,12 @@ package day1;
 public class 변수 {
 
 	public static void main(String[] args) {
+		// 주석 : 코드의 영향을 미치지 않은 문구로, 
+		// 설명을 위해사용
+		// //는 한줄 주석
+		/* 주석입니다.
+		 * 여러줄 주석입니다.
+		* */
 		// 변수 선언 방법
 		// 변수 타입 변수명;
 		char ch; // 문자형 변수 ch를 선언
