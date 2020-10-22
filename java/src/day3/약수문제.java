@@ -18,14 +18,16 @@ public class 약수문제 {
 		
 		Scanner scan = new Scanner(System.in);
 		
+		int i, num;
 		System.out.print("정수를 입력하세요 : ");
-		int i, num = scan.nextInt();
+		num = scan.nextInt();
 		
 		for( i=1 ; i <= num ; i++ ) {
 			if(num % i == 0) {
 				System.out.print(i + " ");
 			}
 		}
+		
 		
 		scan.close();
 
