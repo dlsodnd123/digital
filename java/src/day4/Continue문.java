@@ -23,7 +23,7 @@ public class Continue문 {
 			if(i % 2 == 1) {
 				continue;
 			}
-			System.out.println(i + " ");
+			System.out.print(i + " ");
 			
 		}
 		
