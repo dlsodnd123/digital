@@ -14,6 +14,7 @@ public class 배열10 {
 			// count[arr[i]]++;
 			int index = arr[i];
 			count[index] = count[index] + 1;
+
 		}
 		// 숫자 출력
 		for(int i = 0 ; i < count.length ; i++) {
