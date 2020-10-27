@@ -8,7 +8,6 @@ public class 로또예제 {
 		int min = 1, max = 45;
 		randomArray(lotto, min, max);
 		printArray(lotto);
-		
 	}
 	/* 기능 : 원하는 정수 범위에 랜덤 값을 알려주는 메소드
 	 * 매개변수 : 원하는 정수 범위 => min부터 max까지 => int min, int max 
