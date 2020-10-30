@@ -32,6 +32,7 @@ public class 클래스4 {
 		
 		A a = new A();
 		a.num1 = 10;
+		System.out.println(a.num1);
 		
 //		SamsungTv tv1 = new SamsungTv();
 //		tv1.turnOn();
