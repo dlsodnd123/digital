@@ -26,7 +26,7 @@ public class 수강관리프로그램 {
 			menu = scan.next().charAt(0);
 			switch(menu) {
 			case '1': sm.insertStudent(scan);    break;
-			case '2': sm.printStudent();     break;
+			case '2': sm.printStudent();  	     break;
 			case '3': sm.searchStudent(scan);    break;
 			case '4': sm.registerSubject(scan);  break;
 			case '5': sm.deleteSubject(scan);    break;

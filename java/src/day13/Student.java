@@ -34,6 +34,9 @@ public class Student {
 		//배열이 꽉찬 경우
 		if(subjectCount == subjectList.length) {
 			//배열을 늘려주고 복사하는 작업
+			Subject [] tmp = new Subject[subjectCount + 20];
+			System.arraycopy(subjectList, 0, tmp, 0, subjectList.length);
+			subjectList = tmp;
 		}else {
 			subjectList[subjectCount] = subject;
 			subjectCount++;
@@ -62,7 +65,7 @@ public class Student {
 	}
 	public void print() {
 		if(subjectCount == 0)
-			System.out.println("---수강한 과목이 없습니다.--");
+			System.out.println("수강한 과목이 없습니다.");
 		for(int i = 0; i<subjectCount; i++) {
 			System.out.println(subjectList[i]);
 		}
