@@ -4,7 +4,7 @@ import java.util.Scanner;
 
 import day13.Program;
 
-public class LotteManager implements Program {
+public class LotteManager2 implements Program {
 
 	@Override
 	public void printStudent() {

@@ -1,7 +1,7 @@
 package day14;
 
 import javax.management.RuntimeErrorException;
-
+//당첨번호에 보너스 번호 추가
 public class LottoE extends Lotto2 {
 	private int bonus;
 
@@ -27,6 +27,10 @@ public class LottoE extends Lotto2 {
 		return super.toString()+", [" + bonus + "]";
 	}
 	public void insertNumber(int []arr,int bonus) {
+		if(arr.length < numbers.length)
+			throw new RuntimeException("저장하려는 배열의 숫자가 적습니다.");
+		super.insertNumber(arr);
+		this.bonus = bonus;
 
 	}
 	@Override
@@ -36,4 +40,9 @@ public class LottoE extends Lotto2 {
 		super.insertNumber(arr);
 		bonus = arr[numbers.length];
 	}
+	
+	public int getBonus() {
+		return bonus;
+	}
+	
 }

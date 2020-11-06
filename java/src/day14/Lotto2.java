@@ -24,7 +24,7 @@ public class Lotto2 {
 	}
 	//로또 번호 배열에 num가 있는지 체크
 	protected boolean contain(int num) throws RuntimeException {
-		if(num <= 0 || num > 45)
+		if(num < 0 || num > 45)
 			throw new RuntimeException("숫자는 1~45이어야 합니다.");
 		for(int tmp : numbers) {
 			if(tmp == num) {
@@ -54,5 +54,9 @@ public class Lotto2 {
 //		}
 		System.arraycopy(arr, 0, numbers, 0, numbers.length);
 	}
+	public int[] getNumbers() {
+		return numbers;
+	}
+	
 
 }
