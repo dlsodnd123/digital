@@ -7,6 +7,7 @@ public class 복습 {
 	 *   - List
 	 *    - 중복 가능
 	 *    - 순서 보장
+	 *    - 원하는 번지에 정보를 가져올 수 있다.
 	 *   - set
 	 *    - 중복 불가능
 	 *    - 순서 보장 X
@@ -14,6 +15,9 @@ public class 복습 {
 	 *   - key, value
 	 *   - key : 중복불가, value : 중복가능
 	 *  
+	 *  - List와 set은 Iterator를 이용하여 값을 가져올 수 있다.
+	 *  - List와 set은 하나의 정보를 다룬다.
+	 *  - Map과 Set에서 중복여부는 equals()메소드로 판별한다.
 	 *  - Collection, List, Set, Map은 다 인터페이스 == 기능만, 객체를 만들 수 없다.
 	 *  - List의 구현 클래스들 : Vector, ArrayList, LinkedList 등
 	 *  
