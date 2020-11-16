@@ -1,0 +1,96 @@
+수강관리 프로그램
+
+학생(student)
+ - 학번 : 숫자 => 2020160001, 기본키
+ - 이름 : 문자열 20
+ - 학과 : 문자열 20
+ - 학기 : 숫자
+ - 이수학점 :  숫자
+
+강의(course)
+ - 강의코드(기본키) : 문자열 20
+ - 강의명 : 문자열 20
+ - 담당교수 : 문자열 20
+ - 학점 : 숫자
+ - 시간 : 숫자 => 정수
+ - 시간표 : 문자열 20
+
+수강(attend)
+ - 수강번호(AI) : 문자열 20
+ - 학생학번 : 숫자
+ - 강의코드 : 문자열 20
+ - 기말 : 숫자
+ - 중간 : 숫자
+ - 출석 : 숫자
+ - 과제 : 숫자
+ - 재수강여부 : 문자 1
+ - 년도 : 숫자
+ - 학기 : 문자열 4
+ - 학점 : 문자 4
+
+필요한 테이블을 엔티티 객체
+
+학생,과목을 엔티티로 만듬
+
+학생은 학번을 가지고 있다
+학생은 이름을 가지고 있다
+학생은 어느 학과에 속해 있다
+학생은 학기를 이수하였다.
+학생은 총 몇 학점을 이수하였다.
+
+강의은 강의코드를 가지고 있다
+강의은 과목명을 가지고 있다
+강의은 담당교수를 배정한다
+강의은 학점을 가지고 있다
+강의은 시간을 가지고 있다
+강의은 시간표가 있다
+강의코드는 년도학기코드 중복되지 않도록 작성된다.
+
+학생은 강의를 수강한다
+학생 1명은 여러 강의를 들을 수 있다.
+한 강의에는 여러명이 올 수 있다.
+
+create table if not exists studend(
+std_num int not null,
+std_name varchar(20) default '',
+std_major varchar(20) default '',
+std_ternm int default '0',
+std_com_point int default '0',
+primary key(std_num));
+
+create table if not exists course(
+co_num varchar(20) default '',
+co_name varchar(20) default '',
+co_professor varchar(20) default '',
+co_point int default '0',
+co_time int default '0',
+co_timetable varchar(20) default '',
+primary key(co_num));
+
+create table if not exists attend(
+at_num int not null auto_increment,
+at_st_num int default '0',
+at_co_num varchar(20) default '',
+at_final int default '0',
+at_mid int default '0',
+at_attend int default '0',
+at_hw int default '0',
+at_repetition varchar(1) default '',
+at_year int default '0',
+at_term varchar(4) default '',
+at_score varchar(4) default '',
+primary key(at_num));
+
+alter table course change column co_num co_num varchar(20) not null default '';
+
+외래키지정
+alter table attend add constraint at_st_num
+foreign key(at_st_num)
+references student(std_num);
+
+alter table attend add constraint at_co_num
+foreign key(at_co_num)
+references course(co_num);
+
+insert into attend(at_st_num, at_co_num, at_repetition, at_year, at_term)
+valuse(2020160001, 'MSC001_2020_01_2', 'N', 2020, '1');

@@ -1,0 +1,85 @@
+11/11
+
+create table if not exists test02(
+name varchar(10) not null,
+age int not null,
+primary key(name));
+
+insert into test02(name, age)
+values('홍길동', 20),
+('임꺽정', 25),
+('유관순', 15),
+('이순신', 35);
+
+select sum(age) as '나이 합', avg(age) as '나이 평균',
+max(age) as '최대 나이', min(age) as '최소 나이'
+from test02;
+
+2020학번 학생들 중 각 과의 학생수를 출력하도록 쿼리문 작성
+
+select dep as '학과', count(*) as '2020학번 학생수' from test01
+where nu > 2020000000 and nu < 2021000000 group by dep;
+
+2019123002 학번 학생 이름을 임꺽정으로 수정
+
+test03 테이블에 age라는 속성을 추가하고 학번에 맞게 나이를 저장하세요
+
+age = 21 where nu => 2019000000 and nu < 2020000000 
+
+
+
+create table if not exists product(
+num int not null auto_increment,
+type_a varchar(20) default '',
+type_b varchar(20) default '',
+name varchar(20) default '',
+price int default '0',
+amount int default '0',
+sale_amount int default '0',
+register_date date,
+primary key(num));
+
+
+values('티셔츠', '긴소매', '폴라 티셔츠', 15000, 34, 100, '2020-10-15'),
+('티셔츠', '반소매', '순면라운드 반팔티', 15900, 10, 153, '2020-09-15'),
+('티셔츠', '민소매', '에이 나시', 9000, 33, 33, '2020-11-10'),
+('패션운동복', '트레이닝상의', '피트니스상의', 30000, 34, 55, '2020-11-05'),
+('패션운동복', '트레이닝하의', '피트니스하의', 50000, 55, 34, '2020-11-05'),
+('아우터', '재킷', '양면 롱 후리스 자켓', 23300, 100, 42, '2020-11-05'),
+('아우터', '코드', '양털 겨울 코드', 50000, 50, 30, '2020-10-31'),
+('아우터', '패팅', '롱 패딩 점퍼', 47400, 10, 45, '2020-11-01');
+
+상품을 최신순으로 검색하도록 쿼리문을 작성하세요
+
+티셔츠 상품들의 
+
+insert into buy(produc_name, price)
+select nu, name, dep, addr, tel from product where nu = 2020123001;
+
+select dep, count(*) from test03 where dep = '컴퓨터' group by dep;
+
+create table if not exists buy(
+num int not null auto_increment,
+customer varchar(20) default '',
+product_name varchar(20) default '',
+price int default '0',
+amount int default '0',
+buy_date date,
+primary key(num));
+
+insert into buy(customer, product_name, price, amount, buy_date)
+values('홍길동', '폴라 티셔츠', 15000, 3, '2020-11-11');
+
+// 데이터 가져오는 방법 예시
+insert into buy(custromer, product_name, price, amount, buy_date)
+select '홍길동', name, price, 3, '2020-11-11' from product where name ='폴라 티셔츠';
+
+11/12
+select name, case when nu like concat('2020', '%') then concat(nu, '(신입생)')
+else nu  end as '학번', name as '이름' from test01;
+
+
+select distinct dep as '학과명', count(*) as '학생수' from test01 group by dep;
+
+
+11/13
