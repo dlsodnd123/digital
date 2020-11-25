@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>박스배치예제</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        .header{
+            min-width: 1190px;
+            height: 161px;
+        }
+        .menu{
+            min-width: 1190px;
+            height: 50px;
+            border-top: 1px solid rgb(224,227,230);
+            border-bottom: 1px solid rgb(224,227,230);
+        }
+        .contents{
+            min-width: 1190px;
+            height: 500px;
+        }
+        .container{
+            height: 100%;
+            width: 1190px;
+            margin: 0 auto;
+        }
+        .contents>.container{
+            padding: 20px 30px;
+            box-sizing: border-box;
+        }
+        .left{
+            width: 750px;
+            height: 100%;
+            border: 2px solid orange;
+            float: left;
+        }
+        .right{
+            width: 350px;
+            height: 100%;
+            border: 2px solid blueviolet;
+            float: right;
+        }
+        .add img{
+            width:  750px;
+            height: 135px;
+            display: block;
+        }
+        .box{
+            margin-bottom: 12px;
+        }
+        .login-box{
+            width: 100%;
+            height: 135px;
+            border: 1px solid rgb(218,225,230);
+            background-color: rgb(247,249,250);
+            box-sizing: border-box;
+            padding: 16px 16px 12px 17px
+        }
+        .in-box{
+            width: 100%;
+            height: 100%;
+            border: 1px solid red;
+        }
+
+    </style>
+</head>
+<body>
+    <div class="header">
+        <div class="container"></div>
+    </div>
+    <div class="menu">
+        <div class="container"></div>
+    </div>
+    <div class="contents">
+        <div class="container">
+            <div class="left">
+                <div class="add box">
+                    <a target="_blank" href="https://siape.veta.naver.com/fxclick?eu=EU10041888&calp=-&oj=A4YjrwVVtw8fsPrA6QtFfFnp0bemvv%2BINGJZ7y1jWZBGYV6e%2BSf9t5wr9P1Ol%2BDQBQ8s619ph%2FWp3PSpWl%2F9wQ&ac=8197913&src=4707496&br=3317169&evtcd=C1034&x_ti=1311&tb=&oid=&sid1=&sid2=&rk=5ca51076426b2d76f9315e8df6c8a6c1&eltts=UcYa57UK0tsErSqCGHQ7Pw%3D%3D&lu=&brs=Y&">
+                        <img src="https://ssl.pstatic.net/tveta/libs/1303/1303395/e125457cb278168acdf9_20201124162155433.jpg" alt="광고">
+                    </a>
+                </div>
+            </div>
+            <div class="right">
+                <div class="login-box box">
+                    <div class="in-box"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
