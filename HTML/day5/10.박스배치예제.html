@@ -5,9 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>박스배치예제</title>
     <style>
-        *{
+        *{ /* 모든 태그들의 여백을 0으로 지정 */
             padding: 0;
             margin: 0;
+        }
+        a{
+            text-decoration: none;
         }
         .header{
             min-width: 1190px;
@@ -21,7 +24,6 @@
         }
         .contents{
             min-width: 1190px;
-            height: 500px;
         }
         .container{
             height: 100%;
@@ -35,13 +37,11 @@
         .left{
             width: 750px;
             height: 100%;
-            border: 2px solid orange;
             float: left;
         }
         .right{
             width: 350px;
             height: 100%;
-            border: 2px solid blueviolet;
             float: right;
         }
         .add img{
@@ -63,10 +63,226 @@
         .in-box{
             width: 100%;
             height: 100%;
-            border: 1px solid red;
+        }
+        .login-box .title{
+            color: gray;
+            font-size: 12px;
+            line-height: 16px;            
+        }
+        .login-btn{
+            display: block;
+            background-color:#19ce60;
+            border: 1px solid #15c654;
+            font-size: 16px;
+            line-height: 16px;
+            font-weight: bold;
+            color: #fff;
+            padding: 15px 0;
+            border-radius: 2px;
+            text-align: center;
+            text-decoration: none;
+            margin-top: 11px;
+        }
+        .login-box .sub-left{
+            float: left;
+        }
+        .login-box .sub-right{
+            float: right;
+        }
+        .login-box .sub-box::after{
+            content: '';
+            clear: both;
+            display: block;
+        }
+        .find-id,
+        .find-pw,
+        .signup{
+            color: #404040;
+            line-height: 16px;
+            font-size: 12px;
+            display: inline-block;
+        }
+        .login-box .sub-box{
+            margin: 10px 8px 0 4px;
+        }
+        .login-box .point{
+            display: inline-block;
+            height: 4px;
+            width: 4px;
+            background-color: #404040;
+            border-radius: 2px;
+        }
+        .issue-box{ /* 뉴스헤드박스 */
+            height: 49px;
+            box-sizing: border-box;
+            padding: 12px 15px 11px 15px;
+            line-height: 24px;
+            border: 1px solid #dae1e6;
+            background-color: #f7f9fa;
+            position: relative; /*  */            
+        }
+        .timesquare-box{ /* 로그인박스 밑에 박스 */
+            height: 49px;
+            box-sizing: border-box;
+            border: 1px solid #dae1e6;
+            position: relative;
+        }
+        .timesquare-card{  /* 자동으로 넘어가는 부분 */
+            height: 100%;
+            padding-right: 67px;
+            overflow: hidden;
+        }
+        .timesquare-box .btn-box{  /* 넘김 버튼 */
+            position: absolute;
+            top: 11px;
+            right: 10px;
+            overflow: hidden;
+        }
+        .timesquare-box .btn-box .prev,
+        .timesquare-box .btn-box .next{
+            float: left;
+            background-color: #fff;
+            border: 1px solid #e4e8eb;
+        }
+        .timesquare-box .btn-box .prev::before{
+            content: '';
+            width: 6px;
+            height: 9px;
+            display: inline-block;
+            vertical-align: top; 
+            margin: 7px 8px 6px;
+            background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
+            background-size: 440px 410px;
+            background-position: -351px -296px;
+        }
+        .timesquare-box .btn-box .next:{
+            margin-left: -1px
+        }
+        .timesquare-box .btn-box .next::before{
+            content: '';
+            width: 6px;
+            height: 9px;
+            display: inline-block;
+            vertical-align: top; 
+            margin: 7px 8px 6px;
+            background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
+            background-size: 440px 410px;
+            background-position: -335px -296px;
+        }
+        .issue-box .left-box{
+            float: left;
+        }
+        .issue-box .right-box{
+            float: right;
+        }
+        .issue-box .link-news{ /* 연합뉴스 부분 */
+            margin-right: 7px;
+            font-size: 13px;
+            color: #000;
+            font-weight: bold; 
+            line-height: 24px;
+            float: left;
+        }
+        .issue-box .link-news::after{ /* 연합뉴스 '>' 부분 */
+            display: inline-block;
+            width: 6px;
+            height: 10px;
+            background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
+            background-size: 440px 410px;
+            content: '';
+            background-position: -262px -125px;
+            margin: 7px 0 0 6px;
+        }
+        .rollong-news{
+            height: 24px;
+            width: 310px;
+            float: left;
+            background-color: yellow;            
+            overflow: hidden;
+        }
+        .issue-box .link-navernews,  /* 네이버뉴스 CSS */
+        .issue-box .link-enter,
+        .issue-box .link-sports,
+        .issue-box .link-econmic{
+            float: left;
+            height: 24px;
+            font-size: 13px;
+            line-height: 24px;
+            color: #202020;
+            font-weight: bold;
+        }
+        .issue-box .link-navernews{
+            color: #3565c9;
+        }
+        .issue-box .link-enter,
+        .issue-box .link-sports,
+        .issue-box .link-econmic{
+            margin: 0 4px 0 7px;
         }
 
+        .issue-box .link-navernews::after{
+            width: 3px;
+            height: 3px;
+            display: inline-block;
+            content: '';
+            border-radius: 50%;
+            vertical-align: 3px;
+            margin-left: 8px;
+            background-color: #c8ccd1;
+        }
+        .news-stand{ /* 뉴스 스텐드박스 */
+            height: 56px;
+            box-sizing: border-box;
+            padding: 22px 0 16px;
+            line-height: 18px;
+            font-size: 14px;
+        }
+        .news-stand .link-newsstand{ /* 뉴스 스텐드 */
+            float: left;
+            color: #000;
+            font-weight: bold;
+            text-decoration: none;
+            white-space: nowrap;
+        }
+        .news-stand .link-newsstand::before{ /* 뉴스 스텐드 앞 */
+            content: '';
+            display: inline-block;
+            width: 27px;
+            height: 24px;
+            background-position: -228px -296px;
+            background-repeat: no-repeat;
+            vertical-align: top;
+            margin: -6px 1px 0 0;
+            background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
+            background-size: 440px 410px;
+        }
+        .news-stand .link-newsstand::after{ /* 뉴스 스텐드 뒤에 '>' */
+            content: '';
+            display: inline-block;
+            width: 7px;
+            height: 11px;
+            background-position: -410px -226px;
+            background-repeat: no-repeat;
+            margin-left: 6px;
+            vertical-align: -1px;
+            background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
+            background-size: 440px 410px;
+        }
+        .news-stand .midea-box{  /* 구독언론사, 전체언론사 박스 CSS */
+            float: left;
+            margin-left: 10px;
+        }
+        .news-stand .subscribe-midea{ /* 구독언론사 CSS */
+            font-size: 14px;
+            color: #505050;
+            text-decoration: none;
+        }
+        .news-stand .all-midea{ /* 전체언론사 CSS */
+            color: #000;
+            font-weight: bold;
+        }
     </style>
+    <script src="https://kit.fontawesome.com/372f53c69c.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="header">
@@ -78,15 +294,58 @@
     <div class="contents">
         <div class="container">
             <div class="left">
-                <div class="add box">
+                <div class="add box"> <!-- 광고박스 -->
                     <a target="_blank" href="https://siape.veta.naver.com/fxclick?eu=EU10041888&calp=-&oj=A4YjrwVVtw8fsPrA6QtFfFnp0bemvv%2BINGJZ7y1jWZBGYV6e%2BSf9t5wr9P1Ol%2BDQBQ8s619ph%2FWp3PSpWl%2F9wQ&ac=8197913&src=4707496&br=3317169&evtcd=C1034&x_ti=1311&tb=&oid=&sid1=&sid2=&rk=5ca51076426b2d76f9315e8df6c8a6c1&eltts=UcYa57UK0tsErSqCGHQ7Pw%3D%3D&lu=&brs=Y&">
                         <img src="https://ssl.pstatic.net/tveta/libs/1303/1303395/e125457cb278168acdf9_20201124162155433.jpg" alt="광고">
                     </a>
                 </div>
+                <div class="issue-box box"> <!-- 뉴스 헤드박스 -->
+                    <div class="left-box"> <!-- 왼쪽 연합뉴스박스 -->
+                        <a class="link-news" href="https://news.naver.com/main/list.nhn?mode=LPOD&mid=sec&sid1=001&sid2=140&oid=001&isYeonhapFlash=Y">
+                            연합뉴스
+                        </a>
+                        <div class="rollong-news"></div>
+                    </div>
+                    <div class="right-box"> <!-- 오른쪽 네이버뉴스 연예 스포츠 경제 박스 -->
+                        <a class="link-navernews" href="https://news.naver.com/">네이버뉴스</a>
+                        <a class="link-enter" href="https://entertain.naver.com/home">연예</a>
+                        <a class="link-sports" href="https://sports.news.naver.com/index.nhn">스포츠</a>
+                        <a class="link-econmic" href="https://news.naver.com/main/main.nhn?mode=LSD&mid=shm&sid1=101">경제</a>
+                    </div>
+                </div>
+                <div class="news-stand"> <!-- 뉴스 스텐드박스 -->
+                    <a class="link-newsstand" href="https://newsstand.naver.com/">뉴스스텐드</a>
+                    <div class="midea-box box"> <!-- 구독언론사, 전체언론사 박스, box클래스 추가해서 밑에 여백 넣기 -->
+                        <a class="subscribe-midea" href="#">구독언론사</a>
+                        <a class="all-midea" href="#">전체언론사</a>
+                    </div> 
+                </div>
             </div>
-            <div class="right">
+            <div class="right"> <!-- 로그인박스 -->
                 <div class="login-box box">
-                    <div class="in-box"></div>
+                    <div class="in-box">
+                        <p class="title">네이버를 더 안전하고 편리하게 이용하세요</p>
+                            <a href="https://nid.naver.com/nidlogin.login?mode=form&url=https%3A%2F%2Fwww.naver.com" class="login-btn">
+                                NAVER 로그인
+                            </a>
+                        <div class="sub-box">
+                            <div class="sub-left">
+                                <a href="https://nid.naver.com/user2/help/idInquiry.nhn?menu=idinquiry" class="find-id"> <i class="fas fa-lock"></i> 아이디</a>
+                                <span class="point"></span>
+                                <a href="https://nid.naver.com/user2/help/pwInquiry.nhn?menu=pwinquiry" class="find-pw">비밀번호찾기</a>
+                            </div>
+                            <div class="sub-right">
+                                <a href="https://nid.naver.com/user2/V2Join.nhn?m=agree&lang=ko_KR&cpno=" class="signup"><i class="fas fa-user"></i>회원가입</a>
+                            </div>
+                        </div>
+                    </div>
+            </div>
+                <div class="timesquare-box box"> <!-- 로그인박스 밑  -->
+                    <div class="timesquare-cord"></div> <!-- 자동으로 넘어가는 부분 -->
+                    <div class="btn-box">  <!-- 넘김버튼 -->
+                        <a class="prev" href="#"></i></a>
+                        <a class="next" href="#"></i></a>
+                    </div>
                 </div>
             </div>
         </div>
