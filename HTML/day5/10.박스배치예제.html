@@ -230,56 +230,215 @@
             margin-left: 8px;
             background-color: #c8ccd1;
         }
-        .news-stand{ /* 뉴스 스텐드박스 */
-            height: 56px;
-            box-sizing: border-box;
+        .stand-box{
+            height: 18px;
             padding: 22px 0 16px;
             line-height: 18px;
+        }
+        .stand-box .left-box{
+            float: left;
+            height: 100%;
             font-size: 14px;
         }
-        .news-stand .link-newsstand{ /* 뉴스 스텐드 */
-            float: left;
-            color: #000;
-            font-weight: bold;
-            text-decoration: none;
-            white-space: nowrap;
+        .stand-box .right-box{
+            float: right;
+            height: 100%;
+
         }
-        .news-stand .link-newsstand::before{ /* 뉴스 스텐드 앞 */
+        .stand-box .news-stand-link{ /* 뉴스스탠드 CSS */
+            font-weight: bold;
+            color: #000;
+            float: left; /* 엔터에 의한 공백을 제거하기 위해 사용 */
+        }
+        .stand-box .news-stand-link::before{
             content: '';
             display: inline-block;
             width: 27px;
             height: 24px;
             background-position: -228px -296px;
-            background-repeat: no-repeat;
-            vertical-align: top;
-            margin: -6px 1px 0 0;
             background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
             background-size: 440px 410px;
+            margin: -6px 1px 0 0;
+            vertical-align: top;
         }
-        .news-stand .link-newsstand::after{ /* 뉴스 스텐드 뒤에 '>' */
+        .stand-box .news-stand-link::after{
             content: '';
             display: inline-block;
-            width: 7px;
-            height: 11px;
-            background-position: -410px -226px;
-            background-repeat: no-repeat;
-            margin-left: 6px;
-            vertical-align: -1px;
+            width: 6px;
+            height: 10px;
+            background-position: -262px -125px;
             background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
             background-size: 440px 410px;
+            margin: 7px 0 0 6px;
         }
-        .news-stand .midea-box{  /* 구독언론사, 전체언론사 박스 CSS */
-            float: left;
-            margin-left: 10px;
-        }
-        .news-stand .subscribe-midea{ /* 구독언론사 CSS */
-            font-size: 14px;
+        .stand-box .sub-press-link{
             color: #505050;
-            text-decoration: none;
+            margin-left: 10px;
+            float: left;
         }
-        .news-stand .all-midea{ /* 전체언론사 CSS */
+        .stand-box .all-press-link{
             color: #000;
             font-weight: bold;
+            float: left;
+        }
+        .stand-box .all-press-link::before{
+            width: 4px;
+            height: 4px;
+            border-radius: 50%;
+            display: inline-block;
+            content: '';
+            background-color: #c7ccd1;
+            margin: 0 8px 0 4px;
+            vertical-align: 3px;
+        }
+        .stand-box .list-btn,
+        .stand-box .press-btn,
+        .stand-box .setting-link{
+            float: left;
+            padding: 0 9px;
+        }
+        .stand-box .list-btn>.i-list{
+            display: inline-block;
+            width: 14px;
+            height: 13px;
+            background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
+            background-size: 440px 410px;
+            background-position: -420px -379px;
+            vertical-align: top;
+            opacity: .7;
+        }
+        .stand-box .setting-link>.i-setting{
+            display: inline-block;
+            width: 15px;
+            height: 15px;
+            background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
+            background-size: 440px 410px;
+            background-position: -420px -276px;
+            vertical-align: top;
+            opacity: .7;
+            margin: -1px 0 1px;
+        }
+        .stand-box .press-btn>.i-press{
+            display: inline-block;
+            width: 13px;
+            height: 13px;
+            background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
+            background-size: 440px 410px;
+            background-position: -153px -327px;
+            vertical-align: top;
+        }
+        .news-view-box{ 
+            height: 260px;
+            /* border: 1px solid #dae1e6; */
+        }
+        .news-view-box>div{
+            float: left;
+            box-sizing: border-box;
+            width: 125.61px;
+            height: 65px;
+            border: 1px solid #dae1e6;
+            margin: -1px 0 0 -1px;
+        }
+        .stand-list-box{ /* 뉴스박스 */
+            height: 260px;
+            position: relative;
+        }
+        .stand-list-box .stand-col-box{
+            width: calc(100% / 6);
+            float: left;
+            padding: 23px 0 22px;
+            text-align: center;
+            height: 20px;
+            position: relative;
+        }
+        .stand-list-box .stand-col-box>img{
+            height: 20px;
+        }
+        .bar-list-box{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            border: 1px solid #dae1e6;
+            z-index: -1;
+        }
+        .bar-list-box>div{
+            position: absolute;
+            background-color: #e4e8eb;
+        }
+        .bar-list-box>.bar-row1{
+            height: 1px;
+            left: 0;
+            right: 0;
+            top: 65px;
+        }
+        .bar-list-box>.bar-row2{
+            height: 1px;
+            left: 0;
+            right: 0;
+            top: 130px;
+        }
+        .bar-list-box>.bar-row3{
+            height: 1px;
+            left: 0;
+            right: 0;
+            top: 195px;
+        }
+        .bar-list-box>.bar-col1{
+            width: 1px;
+            top: 0;
+            bottom: 0;
+            left: 124px;
+        }
+        .bar-list-box>.bar-col2{
+            width: 1px;
+            top: 0;
+            bottom: 0;
+            left: 248px;
+        }
+        .bar-list-box>.bar-col3{
+            width: 1px;
+            top: 0;
+            bottom: 0;
+            left: 372px;
+        }
+        .bar-list-box>.bar-col4{
+            width: 1px;
+            top: 0;
+            bottom: 0;
+            left: 497px;
+        }
+        .bar-list-box>.bar-col5{
+            width: 1px;
+            top: 0;
+            bottom: 0;
+            left: 622px;
+        }
+        .stand-col-box .popup{
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            display: none;
+            overflow: hidden;
+            padding: 19px 0 18px;
+            background-color: #f7f9fa;
+            font-size: 0;
+            line-height: 0;
+            text-align: center;
+        }
+        .stand-col-box .popup>a{
+            display: inline-block;
+            padding: 7px 8px 5px;
+            background-color: #fff;
+            border: 1px solid #dae1e6;
+            font-size: 12px;
+            line-height: 16px;
+            color: #505050;
+            vertical-align: top;
+            text-decoration: none;
         }
     </style>
     <script src="https://kit.fontawesome.com/372f53c69c.js" crossorigin="anonymous"></script>
@@ -299,7 +458,7 @@
                         <img src="https://ssl.pstatic.net/tveta/libs/1303/1303395/e125457cb278168acdf9_20201124162155433.jpg" alt="광고">
                     </a>
                 </div>
-                <div class="issue-box box"> <!-- 뉴스 헤드박스 -->
+                <div class="issue-box"> <!-- 뉴스 헤드박스 -->
                     <div class="left-box"> <!-- 왼쪽 연합뉴스박스 -->
                         <a class="link-news" href="https://news.naver.com/main/list.nhn?mode=LPOD&mid=sec&sid1=001&sid2=140&oid=001&isYeonhapFlash=Y">
                             연합뉴스
@@ -313,11 +472,112 @@
                         <a class="link-econmic" href="https://news.naver.com/main/main.nhn?mode=LSD&mid=shm&sid1=101">경제</a>
                     </div>
                 </div>
-                <div class="news-stand"> <!-- 뉴스 스텐드박스 -->
-                    <a class="link-newsstand" href="https://newsstand.naver.com/">뉴스스텐드</a>
-                    <div class="midea-box box"> <!-- 구독언론사, 전체언론사 박스, box클래스 추가해서 밑에 여백 넣기 -->
-                        <a class="subscribe-midea" href="#">구독언론사</a>
-                        <a class="all-midea" href="#">전체언론사</a>
+                <div class="stand-box"> <!-- 뉴스 스텐드박스 -->
+                    <div class="left-box">
+                        <a href="#" class="news-stand-link">뉴스스탠드</a>
+                        <a href="#" class="sub-press-link">구독한 언론사</a>
+                        <a href="#" class="all-press-link">전체언론사</a>
+                    </div>
+                    <div class="right-box">
+                        <a href="#" class="list-btn"><i class="i-list"></i></a>
+                        <a href="#" class="press-btn"><i class="i-press"></i></a>
+                        <a href="#" class="setting-link"><i class="i-setting"></i></a>
+                    </div>
+                </div>
+                <div class="stand-list-box"> <!-- 뉴스 박스 -->
+                    <div class="stand-row-box"> <!-- 한 행으로 묶어주는 박스 -->
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="popup">
+                                <a href="#" class="subscribe">구독</a>
+                                <a href="#" class="news-view">기사보기</a>
+                            </div>
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                        </div>
+                    </div>
+                    <div class="stand-row-box"> <!-- 한 행으로 묶어주는 박스 -->
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                        </div>
+                    </div> 
+                    <div class="stand-row-box"> <!-- 한 행으로 묶어주는 박스 -->
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                        </div>
+                    </div> 
+                    <div class="stand-row-box"> <!-- 한 행으로 묶어주는 박스 -->
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                        </div>
+                    </div>
+                    <div class="bar-list-box"> <!-- 테두리선 --> 
+                        <div class="bar-row1"></div>
+                        <div class="bar-row2"></div>
+                        <div class="bar-row3"></div>
+                        <div class="bar-col1"></div>
+                        <div class="bar-col2"></div>
+                        <div class="bar-col3"></div>
+                        <div class="bar-col4"></div>
+                        <div class="bar-col5"></div>
                     </div> 
                 </div>
             </div>
