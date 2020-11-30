@@ -12,6 +12,9 @@
         a{
             text-decoration: none;
         }
+        ul, ol{
+            list-style: none;
+        }
         .header{
             min-width: 1190px;
             height: 161px;
@@ -415,30 +418,223 @@
             bottom: 0;
             left: 622px;
         }
-        .stand-col-box .popup{
+        .stand-list-box .thumb-box{
             position: absolute;
             top: 0;
+            bottom: 0;
             left: 0;
             right: 0;
-            bottom: 0;
-            display: none;
-            overflow: hidden;
-            padding: 19px 0 18px;
             background-color: #f7f9fa;
-            font-size: 0;
-            line-height: 0;
-            text-align: center;
+            /* background-color: yellow; */
+            display: none; /* 안보여지게 만들어줌 */
+            padding: 19px 0 18px;
         }
-        .stand-col-box .popup>a{
+        .stand-list-box .stand-col-box:hover .thumb-box{
+            display: block;
+        }
+        .stand-list-box .thumb-box>.btn-sub,
+        .stand-list-box .thumb-box>.btn-news{
             display: inline-block;
-            padding: 7px 8px 5px;
-            background-color: #fff;
-            border: 1px solid #dae1e6;
             font-size: 12px;
             line-height: 16px;
+            padding: 7px 8px 5px;
+            border: 1px solid #dae1e6;
+            /* border: 1px solid red; */
+            background-color: #fff;
             color: #505050;
+        }
+        .stand-list-box .thumb-box>.btn-news{
+            margin-left: -1px;
+        }
+        .stand-list-box .thumb-box>a:hover{
+            border-color: #bec8d8;
+            /* border-color: blue; */
+            position: relative;
+        }
+        .shop-box{
+            margin-top: 15px;
+        }
+        shop-box .shop-title{
+            padding: 12px 0 13px;
+            line-height: 17px;
+        }
+        .shop-box .shop-title>a{
+            float: left;
+            margin: 2px 0 0 1px;
+            color: #000;
+            line-height: 17px;
+            font-size: 13px;
+            font-weight: bold;
+        }
+        .shop-box .shop-title::after{
+            content: '';
+            display: block;
+            clear: both;
+        }
+        .shop-box .shop-title>a::before{
+            display: inline-block;
+            content: '';
+            width: 15px;
+            height: 15px;
+            margin-right: 4px;
+            vertical-align: -3px; /* 위아래를 조절하기 위해 사용 */
+            background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_shop_bffdc9.png);
+            background-size: 107px 78px;
+            background-position: -26px -54px;
+        }
+        .shop-box .shop-title>a::after{
+            display: inline-block;
+            content: '';
+            width: 5px;
+            height: 9px;
+            background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_shop_bffdc9.png);
+            background-size: 107px 78px;
+            background-position: -43px -54px;
+            margin-left: 7px;
+            vertical-align: 0px;
+        }
+        .shop-box .shop-title>ul{
+            float: right;
+            color: #000;
+            font-weight: 700;
+            list-style: none;
+            font-size: 13px;
+            line-height: 17px;
+        }
+        .shop-box .shop-title>ul>li{
+            float: left;
+            margin-left: 15px;
+        }
+        .shop-box .shop-title>ul>li>a{
+            display: block;
+            padding: 0 1px;
+            border-bottom: 2px solid transparent;
+            color: #202020;
+        }
+        .shop-box .shop-title>ul>li>a.select{
+            border-color: #19ce60;
+            color: #03c75a;
+        }
+        .add2{
+            height: 200px;
+            background-color: yellow;
+        }
+        .shop-box .shop-list{
+            overflow: hidden;
+            height: 1492px;
+            border: 1px solid #e4e8eb;
+        }
+        .shop-box .shop-list .shop-list-header{
+            overflow: hidden;
+            padding: 12px 9px 11px 17px;
+            background-color: #f7f9fa;
+            border-bottom: 1px solid #dae1e6;
+            font-size: 12px;
+            line-height: 23px;
+            color: #404040;
+        }
+        .after::after{
+            content: '';
+            clear: both;
+            display: block;
+        }
+        .shop-box .shop-list .shop-list-header li{
+            float: left;
+        }
+        .shop-box .shop-list .shop-list-header li>.point{
+            margin: 10px 8px 0;
+            background-color: #c9cccf;
+            display: inline-block;
+            width: 3px;
+            height: 3px;
+            border-radius: 50%;
             vertical-align: top;
+        }
+        .shop-box .shop-list .shop-list-header li>a{
+            color: #404040;
+        }
+        .shop-box .shop-list .shop-list-header li>a.bold{
+            color: #202020;
+            font-weight: bold;
+        }
+        .shop-list-body .shop-control{
+            margin-top: 10px;
+            float: right;
+            margin-right: 7px;
+        }
+        .shop-list-body .shop-control .num-box{
+            font-size: 12px;
+            color: #202020;
+            float: left;
+            padding: 5px 5px 0 0;
+        }
+        .shop-list-body .shop-control .but-box {
+            float: right;
+        }
+        .shop-list-body .shop-control .but-box .prev,
+        .shop-list-body .shop-control .but-box .next{
+            float: left;
+            background-color: #fff;
+            border: 1px solid #e4e8eb
+        }
+        .shop-list-body .shop-control .but-box .prev{
+            margin-right: -1px;
+        }
+        .shop-list-body .shop-control .but-box .prev::before{
+            display: inline-block;
+            width: 5px;
+            height: 9px;
+            background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_shop_bffdc9.png);
+            background-size: 107px 78px;
+            background-position: -71px -54px;
+            vertical-align: top;
+            content: '';
+            margin: 9px 12px 9px 10px;
+        }
+        .shop-list-body .shop-control .but-box .next::before{
+            display: inline-block;
+            width: 5px;
+            height: 9px;
+            background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_shop_bffdc9.png);
+            background-size: 107px 78px;
+            background-position: -57px -54px;
+            vertical-align: top;
+            content: '';
+            margin: 9px 10px 9px 12px;
+        }
+        .list-goods-box{
+            float: left;
+            margin-top: 10px;
+            margin-left: 7px;
+            overflow: hidden;
+        }
+        .list-goods-box .list-goods .goods-item{
+            float: left;
+            width: 33.3%;
+            margin-bottom: 15px;
+        }
+        .list-goods-box .list-goods .goods-item .thumb-cox .goods-img{
+            width: 107px;
+            height: 146px;
+            transition: transform 0.25s;
+        }
+        .list-goods-box .list-goods .goods-item .thumb-cox{
+            float: left;
+            overflow: hidden;
+        }
+        .list-goods-box .list-goods .goods-item>a{
             text-decoration: none;
+        }
+        .list-goods-box .list-goods .goods-item .thumb-cox .goods-img:hover{
+            transform: scale(1.05);
+        }
+        .list-goods-box .list-goods .goods-item .title-box>span{
+            font-size: 12px;
+            line-height: 16px;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            text-align: center;
+            color: #202020;
         }
     </style>
     <script src="https://kit.fontawesome.com/372f53c69c.js" crossorigin="anonymous"></script>
@@ -486,87 +682,155 @@
                 </div>
                 <div class="stand-list-box"> <!-- 뉴스 박스 -->
                     <div class="stand-row-box"> <!-- 한 행으로 묶어주는 박스 -->
-                        <div class="stand-col-box">
+                        <div class="stand-col-box"> <!-- 구독|기사보기 -->
                             <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
-                            <div class="popup">
-                                <a href="#" class="subscribe">구독</a>
-                                <a href="#" class="news-view">기사보기</a>
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
                             </div>
                         </div>
                         <div class="stand-col-box">
                             <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
                         </div>
                         <div class="stand-col-box">
                             <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
                         </div>
                         <div class="stand-col-box">
                             <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
                         </div>
                         <div class="stand-col-box">
                             <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
                         </div>
                         <div class="stand-col-box">
                             <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
                         </div>
                     </div>
                     <div class="stand-row-box"> <!-- 한 행으로 묶어주는 박스 -->
-                        <div class="stand-col-box">
+                        <div class="stand-col-box"> <!-- 구독|기사보기 -->
                             <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
                         </div>
                         <div class="stand-col-box">
                             <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
                         </div>
                         <div class="stand-col-box">
                             <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
                         </div>
                         <div class="stand-col-box">
                             <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
                         </div>
                         <div class="stand-col-box">
                             <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
                         </div>
                         <div class="stand-col-box">
                             <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
                         </div>
-                    </div> 
+                    </div>
                     <div class="stand-row-box"> <!-- 한 행으로 묶어주는 박스 -->
-                        <div class="stand-col-box">
+                        <div class="stand-col-box"> <!-- 구독|기사보기 -->
                             <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
                         </div>
                         <div class="stand-col-box">
                             <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
                         </div>
                         <div class="stand-col-box">
                             <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
                         </div>
                         <div class="stand-col-box">
                             <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
                         </div>
                         <div class="stand-col-box">
                             <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
                         </div>
                         <div class="stand-col-box">
                             <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
                         </div>
-                    </div> 
+                    </div>
                     <div class="stand-row-box"> <!-- 한 행으로 묶어주는 박스 -->
-                        <div class="stand-col-box">
+                        <div class="stand-col-box"> <!-- 구독|기사보기 -->
                             <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
                         </div>
                         <div class="stand-col-box">
                             <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
                         </div>
                         <div class="stand-col-box">
                             <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
                         </div>
                         <div class="stand-col-box">
                             <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
                         </div>
                         <div class="stand-col-box">
                             <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
                         </div>
                         <div class="stand-col-box">
                             <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
                         </div>
                     </div>
                     <div class="bar-list-box"> <!-- 테두리선 --> 
@@ -581,8 +845,8 @@
                     </div> 
                 </div>
             </div>
-            <div class="right"> <!-- 로그인박스 -->
-                <div class="login-box box">
+            <div class="right"> 
+                <div class="login-box box"> <!-- 로그인박스 -->
                     <div class="in-box">
                         <p class="title">네이버를 더 안전하고 편리하게 이용하세요</p>
                             <a href="https://nid.naver.com/nidlogin.login?mode=form&url=https%3A%2F%2Fwww.naver.com" class="login-btn">
@@ -599,12 +863,201 @@
                             </div>
                         </div>
                     </div>
-            </div>
+                </div>
                 <div class="timesquare-box box"> <!-- 로그인박스 밑  -->
                     <div class="timesquare-cord"></div> <!-- 자동으로 넘어가는 부분 -->
                     <div class="btn-box">  <!-- 넘김버튼 -->
                         <a class="prev" href="#"></i></a>
                         <a class="next" href="#"></i></a>
+                    </div>
+                </div>
+                <div class="add2 box"></div> <!-- 광고박스 -->
+                <div class="shop-box"> <!-- 트렌드 쇼핑-->
+                    <div class="shop-header">
+                        <div class="shop-title">
+                            <a href="#">트렌드쇼핑</a>
+                            <ul>
+                                <li><a href="#" class="select">상품</a></li>
+                                <li><a href="#">쇼핑몰</a></li>
+                                <li><a href="#">MEN</a></li>
+                            </ul>
+                        </div>
+                        <div class="shop-list">
+                            <div class="shop-list-header">
+                                <ul class="row1 after">
+                                    <li><a href="#">G마켓</a><span class="point"></span></li>
+                                    <li><a href="#" class="bold">옥션</a><span class="point"></span></li>
+                                    <li><a href="#">11번가</a><span class="point"></span></li>
+                                    <li><a href="#">위메프</a><span class="point"></span></li>
+                                    <li><a href="#" class="bold">이마트몰</a><span class="point"></span></li>
+                                    <li><a href="#">올리브영</a></li>
+                                </ul>
+                                <ul class="row2 after">
+                                    <li><a href="#" class="bold">티몬</a><span class="point"></span></li>
+                                    <li><a href="#">홈플러스</a><span class="point"></span></li>
+                                    <li><a href="#" class="bold">GS샵</a><span class="point"></span></li>
+                                    <li><a href="#">롯데i몰</a><span class="point"></span></li>
+                                    <li><a href="#">신세계몰</a><span class="point"></span></li>
+                                    <li><a href="#">CJmall</a></li>
+                                </ul>
+                            </div>
+                            <div class="shop-list-body">
+                                <div class="shop-control">
+                                    <div class="num-box">
+                                        <span><b>1</b></span>
+                                        <span> / 19</span>
+                                    </div>
+                                    <div class="but-box">
+                                        <a href="#" class="prev"></a>
+                                        <a href="#" class="next"></a>
+                                    </div>
+                                </div>
+                                <div class="list-goods-box">
+                                    <ul class="list-goods">
+                                        <li class="goods-item">
+                                            <a href="#">
+                                                <div class="thumb-cox">
+                                                    <img class="goods-img" src="https://s.pstatic.net/shopping.phinf/20201119_5/290afd44-45d2-458a-b29f-0ee9fa3f0ac0.jpg?type=f214_292" alt="">
+                                                </div>
+                                                <p class="title-box">
+                                                    <span>23%할인~단돈만원</span>
+                                                    <span>가격실화기모팬츠</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="goods-item">
+                                            <a href="#">
+                                                <div class="thumb-cox">
+                                                    <img class="goods-img" src="https://s.pstatic.net/shopping.phinf/20201119_5/290afd44-45d2-458a-b29f-0ee9fa3f0ac0.jpg?type=f214_292" alt="">
+                                                </div>
+                                                <p class="title-box">
+                                                    <span>23%할인~단돈만원</span>
+                                                    <span>가격실화기모팬츠</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="goods-item">
+                                            <a href="#">
+                                                <div class="thumb-cox">
+                                                    <img class="goods-img" src="https://s.pstatic.net/shopping.phinf/20201119_5/290afd44-45d2-458a-b29f-0ee9fa3f0ac0.jpg?type=f214_292" alt="">
+                                                </div>
+                                                <p class="title-box">
+                                                    <span>23%할인~단돈만원</span>
+                                                    <span>가격실화기모팬츠</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="goods-item">
+                                            <a href="#">
+                                                <div class="thumb-cox">
+                                                    <img class="goods-img" src="https://s.pstatic.net/shopping.phinf/20201119_5/290afd44-45d2-458a-b29f-0ee9fa3f0ac0.jpg?type=f214_292" alt="">
+                                                </div>
+                                                <p class="title-box">
+                                                    <span>23%할인~단돈만원</span>
+                                                    <span>가격실화기모팬츠</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="goods-item">
+                                            <a href="#">
+                                                <div class="thumb-cox">
+                                                    <img class="goods-img" src="https://s.pstatic.net/shopping.phinf/20201119_5/290afd44-45d2-458a-b29f-0ee9fa3f0ac0.jpg?type=f214_292" alt="">
+                                                </div>
+                                                <p class="title-box">
+                                                    <span>23%할인~단돈만원</span>
+                                                    <span>가격실화기모팬츠</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="goods-item">
+                                            <a href="#">
+                                                <div class="thumb-cox">
+                                                    <img class="goods-img" src="https://s.pstatic.net/shopping.phinf/20201119_5/290afd44-45d2-458a-b29f-0ee9fa3f0ac0.jpg?type=f214_292" alt="">
+                                                </div>
+                                                <p class="title-box">
+                                                    <span>23%할인~단돈만원</span>
+                                                    <span>가격실화기모팬츠</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="goods-item">
+                                            <a href="#">
+                                                <div class="thumb-cox">
+                                                    <img class="goods-img" src="https://s.pstatic.net/shopping.phinf/20201119_5/290afd44-45d2-458a-b29f-0ee9fa3f0ac0.jpg?type=f214_292" alt="">
+                                                </div>
+                                                <p class="title-box">
+                                                    <span>23%할인~단돈만원</span>
+                                                    <span>가격실화기모팬츠</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="goods-item">
+                                            <a href="#">
+                                                <div class="thumb-cox">
+                                                    <img class="goods-img" src="https://s.pstatic.net/shopping.phinf/20201119_5/290afd44-45d2-458a-b29f-0ee9fa3f0ac0.jpg?type=f214_292" alt="">
+                                                </div>
+                                                <p class="title-box">
+                                                    <span>23%할인~단돈만원</span>
+                                                    <span>가격실화기모팬츠</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="goods-item">
+                                            <a href="#">
+                                                <div class="thumb-cox">
+                                                    <img class="goods-img" src="https://s.pstatic.net/shopping.phinf/20201119_5/290afd44-45d2-458a-b29f-0ee9fa3f0ac0.jpg?type=f214_292" alt="">
+                                                </div>
+                                                <p class="title-box">
+                                                    <span>23%할인~단돈만원</span>
+                                                    <span>가격실화기모팬츠</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="goods-item">
+                                            <a href="#">
+                                                <div class="thumb-cox">
+                                                    <img class="goods-img" src="https://s.pstatic.net/shopping.phinf/20201119_5/290afd44-45d2-458a-b29f-0ee9fa3f0ac0.jpg?type=f214_292" alt="">
+                                                </div>
+                                                <p class="title-box">
+                                                    <span>23%할인~단돈만원</span>
+                                                    <span>가격실화기모팬츠</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="goods-item">
+                                            <a href="#">
+                                                <div class="thumb-cox">
+                                                    <img class="goods-img" src="https://s.pstatic.net/shopping.phinf/20201119_5/290afd44-45d2-458a-b29f-0ee9fa3f0ac0.jpg?type=f214_292" alt="">
+                                                </div>
+                                                <p class="title-box">
+                                                    <span>23%할인~단돈만원</span>
+                                                    <span>가격실화기모팬츠</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="goods-item">
+                                            <a href="#">
+                                                <div class="thumb-cox">
+                                                    <img class="goods-img" src="https://s.pstatic.net/shopping.phinf/20201119_5/290afd44-45d2-458a-b29f-0ee9fa3f0ac0.jpg?type=f214_292" alt="">
+                                                </div>
+                                                <p class="title-box">
+                                                    <span>23%할인~단돈만원</span>
+                                                    <span>가격실화기모팬츠</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="shop-page">
+                                    <a href=""></a>
+                                    <div class="num-box">
+                                        <span><b>1</b></span>
+                                        <span> / 19</span>
+                                    </div>
+                                    <a href=""></a>
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
             </div>
