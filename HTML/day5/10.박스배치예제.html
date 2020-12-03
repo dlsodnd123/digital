@@ -698,11 +698,13 @@
             width: 107px;
         }
         .shop-box .shop-list-body .list-body-box .goods-item:hover .thumb-box img,
-        .shop-box .shop-list-footer .shop-footer-body a:hover .thumb-box img{
+        .shop-box .shop-list-footer .shop-footer-body a:hover .thumb-box img,
+        .footer .banner-box .banner:hover .thumb-box img{
             transform: scale(1.05);
         }
         .shop-box .shop-list-body .list-body-box .goods-item .thumb-box img,
-        .shop-box .shop-list-footer .shop-footer-body a .thumb-box img{
+        .shop-box .shop-list-footer .shop-footer-body a .thumb-box img,
+        .footer .banner-box .banner .thumb-box img{
             transition: transform 0.3s;
         }
         .shop-box .shop-list-body .list-body-box .goods-item .thumb-title span{
@@ -956,18 +958,432 @@
         .left .themecast-box .food.select      { background-color: #e77c43; }
         .left .themecast-box .game.select      { background-color: #5bb8e1; }
         .left .themecast-box .movie.select     { background-color: #1a2f63; }
+        .footer{
+            background-color: #fafbfc;
+            border-top: 1px solid #e4e8eb;
+            min-width: 1190px;
+        }
+        .footer .container{
+            padding: 0 30px 92px;
+            box-sizing: border-box;
+        }
+        .footer .banner-box{
+            padding: 24px 0;
+        }
+        .footer .banner-box .thumb-box{
+            width: 160px;
+            height: 86px;
+            overflow: hidden;
+            float: left;
+        }
+        .footer .banner-box .cont-box{
+            padding: 2px 0 0 16px;
+            font-size: 12px;
+            line-height: 1.25;
+            height: 86px;
+            box-sizing: border-box;
+            float: left;
+            width: 190px;
+        }
+        .footer .banner-box .banner{
+            display: block;
+            float: left;
+            margin-left: 40px;
+        }
+        .footer .banner-box .banner:first-of-type{
+            margin-left: 0;
+        }
+        .footer .cont-box .sub-title{
+            color: #58c464;
+            font-weight: bold;
+            letter-spacing: -0.25px;
+        }
+        .footer .cont-box .pub-title{
+            color: #242424;
+            margin-top: 6px;
+            font-size: 13px;
+            letter-spacing: -0.26px;
+            line-height: 16px;
+            font-weight: bold;
+        }
+        .footer .cont-box .dsc,
+        .footer .cont-box .dsc2{
+            color: #424242;
+            letter-spacing: 0.25px;
+            line-height: 18px;
+            margin-top: 8px;
+            font-size: 12px;
+        }
+        .footer .cont-box .dsc2{
+            margin: 0;
+        }
+        .footer .notice-box{
+            padding: 16px 0 15px;
+            border-top: 1px solid #e4e8eb;
+            font-size: 12px;
+            line-height: 16px;
+        }
+        .footer .notice-box .notice{
+            color: #202020;
+            font-weight: bold;
+            float: left;
+        }
+        .footer .notice-box .link-all{
+            color: #202020;
+            font-weight: bold;
+            float: right;
+        }
+        .footer .notice-box .link-all::after{
+            display: inline-block;
+            width: 8px;
+            height: 12px;
+            margin-left: 10px;
+            vertical-align: -2px;
+            content: '';
+            background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
+            background-size: 440px 410px;
+            background-position: -408px -110px;
+        }
+        .footer .notice-box a:hover,
+        .footer .cont-box:hover .pub-title,
+        .footer .aside-box .service-box .service .service-info .dsc:hover{
+            text-decoration: underline;
+        }
+        .footer .aside-box{
+            border-top: 1px solid #e4e8eb;
+        }
+        .footer .aside-box .partner-box{
+            float: left;
+            width: 780px;
+            padding: 20px 0;
+        }
+        .footer .aside-box .service-box{
+            float: right;
+            padding: 28px 0;
+            width: 350px;
+        }
+        .footer .aside-box .service-box .service{
+            float: left;
+            max-width: 150px;
+        }
+        .footer .aside-box .service-box .service .service-info{
+            float: left;
+            font-size: 12px;
+            line-height: 16px;
+        }
+        .footer .aside-box .service-box .service .service-info .title{
+            padding-top: 2px;
+            font-weight: bold;
+            color: #202020;
+        }
+        .footer .aside-box .service-box .service .service-info .dsc{
+            padding-top: 2px;
+            color: gray;
+            display: block;
+        }
+        .footer .aside-box .service-box .service .service-logo{
+            display: block;
+            float: left;
+            margin-left: 12px;
+        }
+        .footer .aside-box .service-box .service:last-of-type{
+            margin-left: 50px;
+        }
+        .footer .aside-box .partner-box .partner{
+            line-height: 16px;
+            font-size: 12px;
+            color: #202020;
+        }
+        .footer .aside-box .partner-box .partner .title{
+            display: block;
+            float: left;
+            width: 87px;
+            font-weight: bold;
+        }
+        .footer .aside-box .partner-box .partner .dsc{
+            display: block;
+            float: left;
+            color: #777;
+        }
+        /* 
+            A + B는 A와 B는 형제이고 A뒤에 B
+            dsc뒤에 있는 dsc를 찾는역활 
+        */
+        .footer .aside-box .partner-box .partner .dsc+.dsc::before,
+        .footer .corp-box .corp-item+.corp-item::before{ 
+            content: '';
+            display: inline-block;
+            width: 1px;
+            height: 11px;
+            background-color: #bec8d8;
+            vertical-align: -1px;
+            margin: 0 8px;
+        }
+        .footer .aside-box .partner-box .partner+.partner{
+            margin-top: 9px;
+        }
+        .footer .corp-box{
+            padding-top: 25px;
+            border-top: 1px solid #e4e8eb;
+            line-height: 16px;
+            font-size: 12px;
+        }
+        .footer .corp-box .corp-item{
+            float: left;
+            color: #777;
+        }
+        .footer .corp-box .corp-addr{
+            color: #202020;
+            font-weight: bold;
+            float: left;
+            margin-left: 13px;
+        }
+        .dark-mode{
+            position: fixed;
+            right: 78px;
+            bottom: 19px;
+            display: block;
+            width: 136px;
+            height: 53px;
+            background-position: -270px -55px;
+            background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
+            background-size: 440px 410px;
+            cursor: pointer;
+            z-index: 100;
+            border: none;
+            background-color: transparent;
+        }
+        .dark-mode:hover{
+            background-position: -270px -110px;
+        }
+        .up-btn{
+            position: fixed;
+            right: 24px;
+            bottom: 20px;
+            z-index: 100;
+        }
+        .up-btn::before{
+            content: '';
+            display: inline-block;
+            width: 51px;
+            height: 51px;
+            background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
+            background-size: 440px 410px;
+            background-position: -203px -212px;
+            vertical-align: top;
+        }
+        .header .container{
+            position: relative;
+            padding: 0 30px;
+            box-sizing: border-box;
+        }
+        .header .logo-img{
+            position: absolute;
+            top: 0;
+            left: -70px;
+            bottom: 0;
+        }
+        .header .naver-logo{
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 25px;
+            width: 243px;
+            cursor: pointer;
+        }
+        .header form{
+            position: absolute;
+            top: 50%;
+            margin-top: -28px;
+            left: 268px;
+            height: 56px;
+            width: 586px;
+        }
+        .header .search-left{
+            border: 2px solid #00db52;
+            border-radius: 2px;
+            width: 100%;
+            height: 100%;
+            box-sizing: border-box;
+        }
+        .header .search-box .search-btn{
+            position: absolute;
+            right: 0;
+            top: 0;
+            bottom: 0;
+            width: 56px;
+            cursor: pointer;
+            border-radius: 0 2px 2px 0 ;
+            background-color: #00db52;
+            border: none;
+        }
+        .header .search-box .search-ico{
+            display: inline-block;
+            width: 22px;
+            height: 22px;
+            vertical-align: top;
+            background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
+            background-size: 440px 410px;
+            background-position: -180px -386px;
+        }
+        .header .search-box .search-in{
+            width: 440px;
+            height: 24px;
+            padding: 13px 15px;
+            margin: 1px;
+            background-color: #fff;
+            font-size: 18px;
+            color: #000;
+            font-weight: bold;
+            border: none;
+            outline: none;
+        }
+        .header .search-box .kbd-btn{
+            position: absolute;
+            top: 0;
+            right: 84px;
+            bottom: 0;
+            width: 36px;
+        }
+        .header .search-box .kbd-ico{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            display: inline-block;
+            width: 20px;
+            height: 12px;
+            background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
+            background-size: 440px 410px;
+            background-position: -420px -248px;
+            vertical-align: top;
+            margin: -6px 0 0 -10px;
+        }
+        .header .search-box .auto-btn{
+            position: absolute;
+            top: 0;
+            right: 64px;
+            bottom: 0;
+            width: 22px;
+        }
+        .header .search-box .auto-ico{
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            display: inline-block;
+            width: 10px;
+            height: 5px;
+            background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
+            background-size: 440px 410px;
+            background-position: -404px -258px;
+            vertical-align: top;
+            margin: -2px 0 0 -5px;
+        }
+        .header .service-box{
+            position: absolute;
+            top: 12px;
+            right: 27px;
+        }
+        .header .service-box .set-home-btn{
+            float: left;
+            font-size: 11px;
+            color: #404040;
+            line-height: 16px;
+        }
+        .header .service-box .set-home-btn:hover{
+            text-decoration: underline;
+        }
+        .header .service-box .set-home-btn::after{
+            content: '';
+            display: inline-block;
+            width: 26px;
+            height: 26px;
+            vertical-align: top;
+            margin: -3px 0 0 3px;
+            background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
+            background-size: 440px 410px;
+            background-position: -382px -213px;
+        }
+        .header .service-box .bar{
+            float: left;
+            width: 1px;
+            height: 10px;
+            margin: 3px 7px;
+            background-color: #e4e8eb;
+        }
+        .header .service-box .jrnaver-link{
+            float: left;
+        }
+        .header .service-box .hb-link{
+            float: left;
+            margin-left: 6px;
+        }
+        .header .service-box .jrnaver-ico{
+            content: '';
+            display: inline-block;
+            width: 60px;
+            height: 10px;
+            vertical-align: top;
+            margin: 3px;
+            background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
+            background-size: 440px 410px;
+            background-position: -333px -267px;
+        }
+        .header .service-box  .jrnaver-link:hover .jrnaver-ico{
+            background-position: -257px -296px;
+        }
+        .header .service-box .hb-ico{
+            content: '';
+            display: inline-block;
+            width: 34px;
+            height: 11px;
+            vertical-align: top;
+            margin: 3px 3px 2px;
+            background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
+            background-size: 440px 410px;
+            background-position: -257px -308px;
+        }
+        .header .service-box .hb-link:hover .hb-ico{
+            background-position: -380px -199px;
+        }
     </style>
     <script src="https://kit.fontawesome.com/372f53c69c.js" crossorigin="anonymous"></script>
 </head>
 <body>
     <div class="header">
-        <div class="container"></div>
+        <div class="container">
+            <img class="logo-img" width="415" height="160" src="https://s.pstatic.net/static/www/mobile/edit/2020/1202/mobile_10322693172.png" alt="">
+            <a href="#" class="naver-logo"></a>
+            <form action="" class="search-box">
+                <div class="search-left">
+                    <input type="text" class="search-in">
+                    <a href="#" class="kbd-btn">
+                        <i class="kbd-ico"></i>
+                    </a>
+                    <a href="#" class="auto-btn">
+                        <i class="auto-ico"></i>
+                    </a>
+                </div>
+                <button class="search-btn">
+                    <span class="search-ico"></span>
+                </button>
+            </form>
+            <div class="service-box">
+                <a href="#" class="set-home-btn">네이버를 시작페이지로</a>
+                <i class="bar"></i>
+                <a href="#" class="jrnaver-link">
+                    <i class="jrnaver-ico"></i>
+                </a>
+                <a href="#" class="hb-link">
+                    <i class="hb-ico"></i>
+                </a>
+            </div>
+        </div>
     </div>
     <div class="menu">
         <div class="container"></div>
     </div>
     <div class="contents">
-        <div class="container">
+        <div class="container after">
             <div class="left">
                 <div class="add box"> <!-- 광고박스 -->
                     <a target="_blank" href="https://siape.veta.naver.com/fxclick?eu=EU10041888&calp=-&oj=A4YjrwVVtw8fsPrA6QtFfFnp0bemvv%2BINGJZ7y1jWZBGYV6e%2BSf9t5wr9P1Ol%2BDQBQ8s619ph%2FWp3PSpWl%2F9wQ&ac=8197913&src=4707496&br=3317169&evtcd=C1034&x_ti=1311&tb=&oid=&sid1=&sid2=&rk=5ca51076426b2d76f9315e8df6c8a6c1&eltts=UcYa57UK0tsErSqCGHQ7Pw%3D%3D&lu=&brs=Y&">
@@ -1536,6 +1952,107 @@
                 </div>
             </div>
         </div>
+        <div class="footer">
+            <div class="container">
+                <div class="banner-box after">
+                    <a class="banner after">
+                        <div class="thumb-box">
+                            <img width="160" height="86" src="https://ssl.pstatic.net/tveta/libs/1287/1287046/0f7b23a1965983a8e886_20201127154728127.jpg" alt="">
+                        </div>
+                        <div class="cont-box">
+                            <div class="sub-title">온스테이즈 2.0</div>
+                            <div class="pub-title">전유동</div>
+                            <div class="dsc">식물학접 팝 뮤직</div>
+                            <div class="dsc2">싱어송라이터, 전유동</div>
+                        </div>
+                    </a>
+                    <a class="banner after">
+                        <div class="thumb-box">
+                            <img width="160" height="86" src="https://ssl.pstatic.net/tveta/libs/1287/1287075/3f9218dd26a829c73e8d_20201130100810166.jpg" alt="">
+                        </div>
+                        <div class="cont-box">
+                            <div class="sub-title">네이버커넥트 재단</div>
+                            <div class="pub-title">프로그래밍 입문에 딱</div>
+                            <div class="dsc">IT기업 신입이 배우는</div>
+                            <div class="dsc2">현업에서 인정한 강의</div>
+                        </div>
+                    </a>
+                    <a class="banner after">
+                        <div class="thumb-box">
+                            <img width="160" height="86" src="https://ssl.pstatic.net/tveta/libs/1287/1287075/5ecdc3b5ef01d96506ae_20201118184709774.jpg" alt="">
+                        </div>
+                        <div class="cont-box">
+                            <div class="sub-title">네이버커넥트 재단 AI교육</div>
+                            <div class="pub-title">12월 14일까지 지원</div>
+                            <div class="dsc">총 5개월의 교육 기간</div>
+                            <div class="dsc2">최고 AI엔지니어로 성장</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="notice-box after">
+                    <a href="#" class="notice">공지사항</a>
+                    <a href="#" class="link-all">서비스 전체보기</a>
+                </div>
+                <div class="aside-box after">
+                    <div class="partner-box">
+                        <div class="partner after">
+                            <div class="title">Creators</div>
+                            <a href="#" class="dsc">크리에이터</a>
+                            <a href="#" class="dsc">스몰비지니스</a>
+                        </div>
+                        <div class="partner after">
+                            <div class="title">partners</div>
+                            <a href="#" class="dsc">비즈니스 · 광고</a>
+                            <a href="#" class="dsc">스토어 개설</a>
+                            <a href="#" class="dsc">지역업체 등록</a>
+                            <a href="#" class="dsc">엑스퍼트 등록</a>
+                        </div>
+                        <div class="partner after">
+                            <div class="title">Developers</div>
+                            <a href="#" class="dsc">네이버 개발자 센터</a>
+                            <a href="#" class="dsc">오픈 API</a>
+                            <a href="#" class="dsc">오픈소스</a>
+                            <a href="#" class="dsc">네이버 D2</a>
+                            <a href="#" class="dsc">네이버 D2SF</a>
+                            <a href="#" class="dsc">네이버 랩스</a>
+                        </div>
+                    </div>
+                    <div class="service-box">
+                        <div class="service">
+                            <div class="service-info">
+                                <div class="title">웨일 브라우저</div>
+                                <a href="#" class="dsc">다운받기</a>
+                            </div>
+                            <a href="#" class="service-logo">
+                                <img width="48" height="48" src="../img/웨일_로그.png" alt="">
+                            </a>
+                        </div>
+                        <div class="service">
+                            <div class="service-info">
+                                <div class="title">프로젝트 꽃</div>
+                                <a href="#" class="dsc">바로가기</a>
+                            </div>
+                            <a href="#" class="service-logo">
+                                <img width="48" height="48" src="../img/꽃_로그.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="corp-box after">
+                    <a href="#" class="corp-item">회사소개</a>
+                    <a href="#" class="corp-item">인재채용</a>
+                    <a href="#" class="corp-item">제휴제안</a>
+                    <a href="#" class="corp-item">이용약관</a>
+                    <a href="#" class="corp-item bold">개인정보처리방침</a>
+                    <a href="#" class="corp-item">청소년보호정책</a>
+                    <a href="#" class="corp-item">네이버 정책</a>
+                    <a href="#" class="corp-item">고객센터</a>
+                    <a href="#" class="corp-addr">ⓒ NAVER Corp.</a>
+                </div>
+            </div>
+        </div>
     </div>
+    <button class="dark-mode"></button>
+    <a href="#body" class="up-btn"></a>
 </body>
 </html>
