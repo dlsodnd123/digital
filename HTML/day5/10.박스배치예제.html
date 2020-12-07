@@ -699,12 +699,18 @@
         }
         .shop-box .shop-list-body .list-body-box .goods-item:hover .thumb-box img,
         .shop-box .shop-list-footer .shop-footer-body a:hover .thumb-box img,
-        .footer .banner-box .banner:hover .thumb-box img{
+        .footer .banner-box .banner:hover .thumb-box img,
+        .theme-cont-box .top-box .left-box:hover .thumb-box img,
+        .theme-cont-box .top-box .right-box:hover .thumb-box img,
+        .theme-cont-box .bottom-box .box:hover .thumb-box img{
             transform: scale(1.05);
         }
         .shop-box .shop-list-body .list-body-box .goods-item .thumb-box img,
         .shop-box .shop-list-footer .shop-footer-body a .thumb-box img,
-        .footer .banner-box .banner .thumb-box img{
+        .footer .banner-box .banner .thumb-box img,
+        .theme-cont-box .top-box .left-box .thumb-box img,
+        .theme-cont-box .top-box .right-box .thumb-box img,
+        .theme-cont-box .bottom-box .box .thumb-box img{
             transition: transform 0.3s;
         }
         .shop-box .shop-list-body .list-body-box .goods-item .thumb-title span{
@@ -1458,12 +1464,222 @@
             margin: 8px 5px 0 0;
             vertical-align: top;
         }
+        .theme-cont-box .top-box{
+            padding: 22px 0 18px;
+        }
+        .theme-cont-box .top-box .left-box{
+            width: 364px;
+            float: left;
+        }
+        .theme-cont-box .top-box .right-box{
+            width: 364px;
+            float: right;
+        }
+        .theme-cont-box .top-box .thumb-box{
+            width: 364px;
+            height: 180px;
+            overflow: hidden;
+            display: block;
+            position: relative;
+        }
+        .theme-cont-box .top-box .thumb-box .play-ico{
+            position: absolute;
+            bottom: 9px;
+            left: 12px;
+            width: 24px;
+            height: 28px;
+            vertical-align: top;
+            background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
+            background-size: 440px 410px;
+            background-position: -202px -296px;
+        }
+        .theme-cont-box .top-box .thumb-box .runtime-box{
+            position: absolute;
+            bottom: 8px;
+            right: 10px;
+            padding: 3px 6px;
+            font-size: 12px;
+            border-radius: 2px;
+            line-height: 14px;
+            color: #fff;
+        }
+        .theme-cont-box .top-box .thumb-box .runtime-bg{
+            position: absolute;
+            top: 0;
+            right: 0;
+            bottom: 0;
+            left: 0;
+            background-color: #000;
+            opacity: .7;
+        }
+        .theme-cont-box .top-box .thumb-box .runtime{
+            position: relative;
+            font-style: normal;
+        }
+        .theme-cont-box .top-box .info-box{
+            display: block;
+            padding: 16px 18px 0 0;
+        }
+        .theme-cont-box .top-box .info-box .category,
+        .theme-cont-box .bottom-box .info-box .category{
+            color: #0147b5;;
+            display: block;
+            font-weight: 700;
+            font-size: 12px;
+            line-height: 16px;
+        }
+        .theme-cont-box .bottom-box .info-box .category{
+            line-height: 20px;
+        }
+        .theme-cont-box .bottom-box .info-box{
+            padding-top: 12px;
+            display: block;
+        }
+        .theme-cont-box .top-box .info-box .title,
+        .theme-cont-box .bottom-box .info-box .title{
+            margin-top: 3px;
+            line-height: 22px;
+            max-height: 44px;
+            font-size: 13px;
+            color: #202020;
+            font-weight: bold;
+        }
+        .theme-cont-box .bottom-box .info-box .title{
+            max-height: 40px;
+            line-height: 20px;
+            display: -webkit-box;
+            -webkit-line-clamp: 2;
+            -webkit-box-orient: vertical;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .theme-cont-box .top-box .info-box .source,
+        .theme-cont-box .bottom-box .info-box .source{
+            display: block;
+            max-width: 100%;
+            margin-top: 4px;
+            vertical-align: top;
+            line-height: 16px;
+            color: #505050;
+            font-size: 12px;
+        }
+        .theme-cont-box .bottom-box .info-box .source{
+            line-height: 20px;
+            overflow: hidden;
+            white-space: nowrap;
+            text-overflow: ellipsis;
+            float: left;
+        }
+        .theme-cont-box .bottom-box .info-box .source-right{
+            float: left;
+            color: #505050;
+            line-height: 20xp;
+            margin-top: 4px;
+        }
+        .theme-cont-box .bottom-box .info-box .source-right::before{
+            background-color: gray;
+            display: inline-block;
+            width: 2px;
+            height: 2px;
+            border-radius: 50%;
+            content: '';
+            margin: 0 5px;
+            vertical-align: 3px;
+        }
+        .theme-cont-box .top-box .info-box:hover .title{
+            text-decoration: underline;
+        }
+        .theme-cont-box .middle-box{
+            padding: 11px 18px;
+            background-color: #f7f9fa;
+            border: 1px solid #dae1e6;
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 16px;
+        }
+        .theme-cont-box .middle-box .sports-link{
+            display: block;
+            float: left;
+            color: #0147b5;
+            padding: 5px 16px 4px 0;
+            border-right: 1px solid #dae1e6;
+        }   
+        .theme-cont-box .middle-box .category-link{
+            float: left;
+            padding-left: 17px;
+        }
+        .theme-cont-box .middle-box .category-link li{
+            float: left;
+        }
+        .theme-cont-box .middle-box .category-link li+li{
+            margin-left: 28px;
+        }
+        .theme-cont-box .middle-box .category-link a{
+            padding: 5px 0 4px;
+            display: inline-block;
+            vertical-align: top;
+            color: #404040;
+        }
+        .theme-cont-box .middle-box .category-link a:hover{
+            text-decoration: underline;
+        }
+        .theme-cont-box .bottom-box{
+            padding: 18px 0 17px;
+        }
+        .theme-cont-box .bottom-box .box{
+            margin: 0 27px 31px 0;
+            display: block;
+            width: 232px;
+            font-size: 12px;
+            line-height: 20px;
+            vertical-align: top;
+            float: left;
+        }
+        .theme-cont-box .bottom-box .box .thumb-box{
+            width: 232px;
+            height: 130px;
+            overflow: hidden;
+        }
+        .theme-cont-box .bottom-box .row-box .box:nth-of-type(3){
+            margin-right: 0;
+        }
+        .theme-cont-box .bottom-box.box2{
+            border-top: 1px solid #e4e8eb;
+        }
+        .theme-cont-box .more-box{
+            position: relative;
+            padding: 18px;
+            margin-bottom: 42px;
+            border-bottom: 1px solid #e4e8eb;
+        }
+        .theme-cont-box .more-box button{
+            position: absolute;
+            top: 0;
+            left: 334px;
+            cursor: pointer;
+            border: none;
+            background-color: transparent;
+            font-size: 12px;
+            line-height: 16px;
+            color: #202020;
+        }
+        .theme-cont-box .more-box .more-ico{
+            width: 43px;
+            height: 42px;
+            display: block;
+            margin: 0 atuo 3px;
+            vertical-align: top;
+            background-image: url(https://s.pstatic.net/static/www/img/uit/2020/sp_main_1f05c0.png);
+            background-size: 440px 410px;
+            background-position: 0 -342px;
+        }
+
     </style>
     <script src="https://kit.fontawesome.com/372f53c69c.js" crossorigin="anonymous"></script>
 </head>
 <body>
-    <div class="header">
-        <div class="container"> <!-- 상단 박스 -->
+    <div class="header"> <!-- 상단 박스 -->
+        <div class="container"> 
             <img class="logo-img" width="415" height="160" src="https://s.pstatic.net/static/www/mobile/edit/2020/1202/mobile_10322693172.png" alt="">
             <a href="#" class="naver-logo"></a>
             <form action="" class="search-box">
@@ -1831,6 +2047,363 @@
                         </div>
                     </div>
                     <div class="theme-cont"></div>
+                </div>
+                <div class="theme-cont-box">
+                    <div class="top-box after">
+                        <div class="left-box">
+                            <a href="#" class="thumb-box">
+                                <img width="364" height="180" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fphinf.pstatic.net%2Ftvcast%2F20201207_62%2FFKEvC_1607300188908i2Qa6_JPEG%2F1607300053886.jpg%22&type=nf728_360" alt="">
+                                <i class="play-ico"></i>
+                                <span class="runtime-box">
+                                    <span class="runtime-bg"></span>
+                                    <em class="runtime">10:20</em>
+                                </span>
+                            </a>
+                            <a href="#" class="info-box">
+                                <div class="category">핫클립</div>
+                                <div class="title">창단 첫 가을야구, 어떤 점이 좋았을까?…로하스 잔류 여부 중요</div>
+                                <div class="source">구독허구연</div>
+                            </a>
+                        </div>
+                        <div class="right-box">
+                            <a href="#" class="thumb-box">
+                                <img width="364" height="180" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fsports-phinf.pstatic.net%2F20201207_91%2F1607270872138Gs2j4_JPEG%2F13.jpg%22&type=nf728_360" alt="">
+                                <i class="play-ico"></i>
+                                <span class="runtime-box">
+                                    <span class="runtime-bg"></span>
+                                    <em class="runtime">09:07</em>
+                                </span>
+                            </a>
+                            <a href="#" class="info-box">
+                                <div class="category">하이라이트</div>
+                                <div class="title">울산 현대-멜버른 빅토리 하이라이트</div>
+                                <div class="source">AFC 챔피언스리그 네이버스포츠</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="middle-box after">
+                        <a href="#" class="sports-link">스포츠 홈</a>
+                        <ul class="category-link">
+                            <li><a href="#">야구</a></li>
+                            <li><a href="#">해외야구</a></li>
+                            <li><a href="#">축구</a></li>
+                            <li><a href="#">해외추구</a></li>
+                            <li><a href="#">농구</a></li>
+                            <li><a href="#">배구</a></li>
+                            <li><a href="#">골프</a></li>
+                            <li><a href="#">일반</a></li>
+                            <li><a href="#">e스포츠&게임</a></li>
+                        </ul>
+                    </div>
+                    <div class="bottom-box box1">
+                        <div class="row-box after">
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fphinf.pstatic.net%2Ftvcast%2F20201207_244%2FdgWXZ_1607300284857K6djq_JPEG%2F1607300202262.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fsports-phinf.pstatic.net%2F20201207_91%2F1607270872138Gs2j4_JPEG%2F13.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fphinf.pstatic.net%2Ftvcast%2F20201207_244%2FdgWXZ_1607300284857K6djq_JPEG%2F1607300202262.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row-box after">
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fphinf.pstatic.net%2Ftvcast%2F20201207_244%2FdgWXZ_1607300284857K6djq_JPEG%2F1607300202262.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fsports-phinf.pstatic.net%2F20201207_91%2F1607270872138Gs2j4_JPEG%2F13.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fphinf.pstatic.net%2Ftvcast%2F20201207_244%2FdgWXZ_1607300284857K6djq_JPEG%2F1607300202262.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row-box after">
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fphinf.pstatic.net%2Ftvcast%2F20201207_244%2FdgWXZ_1607300284857K6djq_JPEG%2F1607300202262.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fsports-phinf.pstatic.net%2F20201207_91%2F1607270872138Gs2j4_JPEG%2F13.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fphinf.pstatic.net%2Ftvcast%2F20201207_244%2FdgWXZ_1607300284857K6djq_JPEG%2F1607300202262.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-box box2">
+                        <div class="row-box after">
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fphinf.pstatic.net%2Ftvcast%2F20201207_244%2FdgWXZ_1607300284857K6djq_JPEG%2F1607300202262.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fsports-phinf.pstatic.net%2F20201207_91%2F1607270872138Gs2j4_JPEG%2F13.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fphinf.pstatic.net%2Ftvcast%2F20201207_244%2FdgWXZ_1607300284857K6djq_JPEG%2F1607300202262.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row-box after">
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fphinf.pstatic.net%2Ftvcast%2F20201207_244%2FdgWXZ_1607300284857K6djq_JPEG%2F1607300202262.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fsports-phinf.pstatic.net%2F20201207_91%2F1607270872138Gs2j4_JPEG%2F13.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fphinf.pstatic.net%2Ftvcast%2F20201207_244%2FdgWXZ_1607300284857K6djq_JPEG%2F1607300202262.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row-box after">
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fphinf.pstatic.net%2Ftvcast%2F20201207_244%2FdgWXZ_1607300284857K6djq_JPEG%2F1607300202262.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fsports-phinf.pstatic.net%2F20201207_91%2F1607270872138Gs2j4_JPEG%2F13.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fphinf.pstatic.net%2Ftvcast%2F20201207_244%2FdgWXZ_1607300284857K6djq_JPEG%2F1607300202262.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="more-box">
+                            <button>
+                                <i class="more-ico"></i>새로운글 더보기
+                            </button>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div class="right"> 
