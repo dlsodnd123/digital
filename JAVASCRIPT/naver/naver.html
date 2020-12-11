@@ -1,0 +1,1212 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>네이버</title>
+    <link rel="stylesheet" href="css/naver.css">
+    <script src="../js/jquery.js"></script>
+    <script src="https://kit.fontawesome.com/372f53c69c.js" crossorigin="anonymous"></script>
+    <script>
+        $(function(){
+            // 검색창에서 자동완성버튼을 클릭
+            $('.search-box .auto-btn').click(function(e){
+                //이벤트 function부분에 매개변수로 e를 추가하면 이벤트 정보가 e에 담겨옴
+                //태그마다 기본 실행하는 동작이 있는데 해당 동작을 막아주는 역할
+                e.preventDefault();
+                // $('.search-box .auto-btn .auto-ico').toggleClass('reverse-auto-ico');
+                $(this).toggleClass('rev');
+            });
+            // .shop-list-body에 있는 >버튼을 클릭하면
+            $('.shop-list-body .next-btn').click(function(e){
+                e.preventDefault();
+                var currentPage = $(this).parents('.c-box').find('.current').text();
+                currentPage = getpage(++currentPage, 1, 19);
+                $('.shop-list-body .current').text(currentPage);
+            });
+            // .shop-list-body에 있는 <버튼을 클릭하면
+            $('.shop-list-body .prev-btn').click(function(e){
+                e.preventDefault();
+                var currentPage = $(this).parents('.c-box').find('.current').text();
+                currentPage = getpage(--currentPage, 1, 19);
+                $('.shop-list-body .current').text(currentPage);
+            });
+            // shop-list-middle에 있는 <버튼을 클릭하거나 shop-list-footer에 있는 <버튼을 클릭
+            $('.shop-list-middle .prev-btn, .shop-list-footer .prev-btn').click(function(e){
+                e.preventDefault();
+                var currentPage = $(this).parent().siblings('.num-box').find('.current').text();
+                currentPage = getpage(--currentPage, 1, 4);
+                $(this).parent().siblings('.num-box').find('.current').text(currentPage);
+            });
+            $('.shop-list-middle .next-btn, .shop-list-footer .next-btn').click(function(e){
+                e.preventDefault();
+                var currentPage = $(this).parent().siblings('.num-box').find('.current').text();
+                currentPage = getpage(++currentPage, 1, 4);
+                $(this).parent().siblings('.num-box').find('.current').text(currentPage);
+            });
+        });
+        function getpage(page,min,max){
+            if(page < min)  return max;
+            if(page > max)  return min;
+            return page;
+        }
+    </script>
+</head>
+<body>
+    <div class="header"> <!-- 상단 박스 -->
+        <div class="container"> 
+            <img class="logo-img" width="415" height="160" src="https://s.pstatic.net/static/www/mobile/edit/2020/1202/mobile_10322693172.png" alt="">
+            <a href="#" class="naver-logo"></a>
+            <form action="" class="search-box">
+                <div class="search-left">
+                    <input type="text" class="search-in">
+                    <a href="#" class="kbd-btn">
+                        <i class="kbd-ico"></i>
+                    </a>
+                    <a href="#" class="auto-btn">
+                        <i class="auto-ico"></i>
+                    </a>
+                </div>
+                <button class="search-btn">
+                    <span class="search-ico"></span>
+                </button>
+            </form>
+            <div class="service-box">
+                <a href="#" class="set-home-btn">네이버를 시작페이지로</a>
+                <i class="bar"></i>
+                <a href="#" class="jrnaver-link">
+                    <i class="jrnaver-ico"></i>
+                </a>
+                <a href="#" class="hb-link">
+                    <i class="hb-ico"></i>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="menu"> <!-- 메뉴박스 -->
+        <div class="container">
+            <ul class="green-menu-box after">
+                <li class="green-menu">
+                    <a href="#" class="link mail">
+                        <i class="mail-ico"></i>메일
+                    </a>
+                </li>
+                <li class="green-menu">
+                    <a href="#" class="link mail">
+                        카페
+                    </a>
+                </li>
+                <li class="green-menu">
+                    <a href="#" class="link mail">
+                        블로그
+                    </a>
+                </li>
+                <li class="green-menu">
+                    <a href="#" class="link mail">
+                        지식iN
+                    </a>
+                </li>
+                <li class="green-menu">
+                    <a href="#" class="link mail">
+                        쇼핑
+                    </a>
+                </li>
+                <li class="green-menu">
+                    <a href="#" class="link mail">
+                       Pay
+                    </a>
+                </li>
+                <li class="green-menu">
+                    <a href="#" class="link mail">
+                        <i class="tv-ico"></i>TV
+                    </a>
+                </li>
+            </ul>
+            <ul class="black-menu-box">
+                <li class="black-menu">
+                    <a href="#" class="link">
+                        블로그
+                    </a>
+                </li>
+                <li class="black-menu">
+                    <a href="#" class="link">
+                        뉴스
+                    </a>
+                </li>
+                <li class="black-menu">
+                    <a href="#" class="link">
+                        증권
+                    </a>
+                </li>
+                <li class="black-menu">
+                    <a href="#" class="link">
+                        부동산
+                    </a>
+                </li>
+                <li class="black-menu">
+                    <a href="#" class="link">
+                        지도
+                    </a>
+                </li>
+                <li class="black-menu">
+                    <a href="#" class="link">
+                        영화
+                    </a>
+                </li>
+                <li class="black-menu">
+                    <a href="#" class="link">
+                        VIBE
+                    </a>
+                </li>
+                <li class="black-menu">
+                    <a href="#" class="link">
+                        책
+                    </a>
+                </li>
+                <li class="black-menu">
+                    <a href="#" class="link">
+                        웹툰
+                    </a>
+                </li>
+            </ul>
+            <a href="#" class="more-btn">더보기</a>
+            <div class="filt-box">
+                <a href="#" class="filt-btn">
+                    <i class="error-ico"></i>
+                    <span>검색어 필터 설정이 필요합니다</span>
+                </a>
+            </div>
+        </div>
+    </div>
+    <div class="contents">
+        <div class="container after">
+            <div class="left">
+                <div class="add box"> <!-- 광고박스 -->
+                    <a target="_blank" href="https://siape.veta.naver.com/fxclick?eu=EU10041888&calp=-&oj=A4YjrwVVtw8fsPrA6QtFfFnp0bemvv%2BINGJZ7y1jWZBGYV6e%2BSf9t5wr9P1Ol%2BDQBQ8s619ph%2FWp3PSpWl%2F9wQ&ac=8197913&src=4707496&br=3317169&evtcd=C1034&x_ti=1311&tb=&oid=&sid1=&sid2=&rk=5ca51076426b2d76f9315e8df6c8a6c1&eltts=UcYa57UK0tsErSqCGHQ7Pw%3D%3D&lu=&brs=Y&">
+                        <img src="https://ssl.pstatic.net/tveta/libs/1303/1303395/e125457cb278168acdf9_20201124162155433.jpg" alt="광고">
+                    </a>
+                </div>
+                <div class="issue-box"> <!-- 뉴스 헤드박스 -->
+                    <div class="left-box"> <!-- 왼쪽 연합뉴스박스 -->
+                        <a class="link-news" href="https://news.naver.com/main/list.nhn?mode=LPOD&mid=sec&sid1=001&sid2=140&oid=001&isYeonhapFlash=Y">
+                            연합뉴스
+                        </a>
+                        <div class="rollong-news"></div>
+                    </div>
+                    <div class="right-box"> <!-- 오른쪽 네이버뉴스 연예 스포츠 경제 박스 -->
+                        <a class="link-navernews" href="https://news.naver.com/">네이버뉴스</a>
+                        <a class="link-enter" href="https://entertain.naver.com/home">연예</a>
+                        <a class="link-sports" href="https://sports.news.naver.com/index.nhn">스포츠</a>
+                        <a class="link-econmic" href="https://news.naver.com/main/main.nhn?mode=LSD&mid=shm&sid1=101">경제</a>
+                    </div>
+                </div>
+                <div class="stand-box"> <!-- 뉴스 스텐드박스 -->
+                    <div class="left-box">
+                        <a href="#" class="news-stand-link">뉴스스탠드</a>
+                        <a href="#" class="sub-press-link">구독한 언론사</a>
+                        <a href="#" class="all-press-link">전체언론사</a>
+                    </div>
+                    <div class="right-box">
+                        <a href="#" class="list-btn"><i class="i-list"></i></a>
+                        <a href="#" class="press-btn"><i class="i-press"></i></a>
+                        <a href="#" class="setting-link"><i class="i-setting"></i></a>
+                    </div>
+                </div>
+                <div class="stand-list-box"> <!-- 뉴스 박스 -->
+                    <div class="stand-row-box"> <!-- 한 행으로 묶어주는 박스 -->
+                        <div class="stand-col-box"> <!-- 구독|기사보기 -->
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stand-row-box"> <!-- 한 행으로 묶어주는 박스 -->
+                        <div class="stand-col-box"> <!-- 구독|기사보기 -->
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stand-row-box"> <!-- 한 행으로 묶어주는 박스 -->
+                        <div class="stand-col-box"> <!-- 구독|기사보기 -->
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="stand-row-box"> <!-- 한 행으로 묶어주는 박스 -->
+                        <div class="stand-col-box"> <!-- 구독|기사보기 -->
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
+                        </div>
+                        <div class="stand-col-box">
+                            <img src="https://s.pstatic.net/static/newsstand/up/2020/0708/nsd94830278.png" alt="">
+                            <div class="thumb-box">
+                                <a href="#" class="btn-sub">구독</a><a href="#" class="btn-news">기사보기</a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bar-list-box"> <!-- 테두리선 --> 
+                        <div class="bar-row1"></div>
+                        <div class="bar-row2"></div>
+                        <div class="bar-row3"></div>
+                        <div class="bar-col1"></div>
+                        <div class="bar-col2"></div>
+                        <div class="bar-col3"></div>
+                        <div class="bar-col4"></div>
+                        <div class="bar-col5"></div>
+                    </div> 
+                </div>
+                <div class="themecast-box">
+                    <div class="theme-head"> 
+                        <div class="group-title after">
+                            <div class="left-box">
+                                <span class="title">오늘 읽을만한 글</span>
+                                <span class="dsc">주제별로 분류된 다양한 글 모음</span>
+                            </div>
+                            <div class="right-box">
+                                <div class="info-box float-left">
+                                    <span class="info">
+                                        <span class="bold">1,857</span> 개의 글
+                                    </span>
+                                </div>
+                                <a href="#" class="btn-set float-left">관심주제 설정</a>
+                            </div>
+                        </div>
+                        <div class="group-menu">
+                            <ul>
+                                <li>
+                                    <a href="#"class="enter">엔터</a>
+                                </li>
+                                <li>
+                                    <a href="#"class="sports select">스포츠</a>
+                                </li>
+                                <li>
+                                    <a href="#"class="car">자동차</a>
+                                </li>
+                                <li>
+                                    <a href="#"class="webtoon">웹툰</a>
+                                </li>
+                                <li>
+                                    <a href="#"class="finance">경제M</a>
+                                </li>
+                                <li>
+                                    <a href="#"class="food">푸드</a>
+                                </li>
+                                <li>
+                                    <a href="#"class="game">게임</a>
+                                </li>
+                                <li>
+                                    <a href="#"class="movie">영화</a>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                    <div class="theme-cont"></div>
+                </div>
+                <div class="theme-cont-box"> 
+                    <div class="top-box after">
+                        <div class="left-box">
+                            <a href="#" class="thumb-box">
+                                <img width="364" height="180" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fphinf.pstatic.net%2Ftvcast%2F20201207_62%2FFKEvC_1607300188908i2Qa6_JPEG%2F1607300053886.jpg%22&type=nf728_360" alt="">
+                                <i class="play-ico"></i>
+                                <span class="runtime-box">
+                                    <span class="runtime-bg"></span>
+                                    <em class="runtime">10:20</em>
+                                </span>
+                            </a>
+                            <a href="#" class="info-box">
+                                <div class="category">핫클립</div>
+                                <div class="title">창단 첫 가을야구, 어떤 점이 좋았을까?…로하스 잔류 여부 중요</div>
+                                <div class="source">구독허구연</div>
+                            </a>
+                        </div>
+                        <div class="right-box">
+                            <a href="#" class="thumb-box">
+                                <img width="364" height="180" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fsports-phinf.pstatic.net%2F20201207_91%2F1607270872138Gs2j4_JPEG%2F13.jpg%22&type=nf728_360" alt="">
+                                <i class="play-ico"></i>
+                                <span class="runtime-box">
+                                    <span class="runtime-bg"></span>
+                                    <em class="runtime">09:07</em>
+                                </span>
+                            </a>
+                            <a href="#" class="info-box">
+                                <div class="category">하이라이트</div>
+                                <div class="title">울산 현대-멜버른 빅토리 하이라이트</div>
+                                <div class="source">AFC 챔피언스리그 네이버스포츠</div>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="middle-box after">
+                        <a href="#" class="sports-link">스포츠 홈</a>
+                        <ul class="category-link">
+                            <li><a href="#">야구</a></li>
+                            <li><a href="#">해외야구</a></li>
+                            <li><a href="#">축구</a></li>
+                            <li><a href="#">해외추구</a></li>
+                            <li><a href="#">농구</a></li>
+                            <li><a href="#">배구</a></li>
+                            <li><a href="#">골프</a></li>
+                            <li><a href="#">일반</a></li>
+                            <li><a href="#">e스포츠&게임</a></li>
+                        </ul>
+                    </div>
+                    <div class="bottom-box box1">
+                        <div class="row-box after">
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fphinf.pstatic.net%2Ftvcast%2F20201207_244%2FdgWXZ_1607300284857K6djq_JPEG%2F1607300202262.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fsports-phinf.pstatic.net%2F20201207_91%2F1607270872138Gs2j4_JPEG%2F13.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fphinf.pstatic.net%2Ftvcast%2F20201207_244%2FdgWXZ_1607300284857K6djq_JPEG%2F1607300202262.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row-box after">
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fphinf.pstatic.net%2Ftvcast%2F20201207_244%2FdgWXZ_1607300284857K6djq_JPEG%2F1607300202262.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fsports-phinf.pstatic.net%2F20201207_91%2F1607270872138Gs2j4_JPEG%2F13.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fphinf.pstatic.net%2Ftvcast%2F20201207_244%2FdgWXZ_1607300284857K6djq_JPEG%2F1607300202262.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row-box after">
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fphinf.pstatic.net%2Ftvcast%2F20201207_244%2FdgWXZ_1607300284857K6djq_JPEG%2F1607300202262.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fsports-phinf.pstatic.net%2F20201207_91%2F1607270872138Gs2j4_JPEG%2F13.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fphinf.pstatic.net%2Ftvcast%2F20201207_244%2FdgWXZ_1607300284857K6djq_JPEG%2F1607300202262.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="bottom-box box2">
+                        <div class="row-box after">
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fphinf.pstatic.net%2Ftvcast%2F20201207_244%2FdgWXZ_1607300284857K6djq_JPEG%2F1607300202262.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fsports-phinf.pstatic.net%2F20201207_91%2F1607270872138Gs2j4_JPEG%2F13.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fphinf.pstatic.net%2Ftvcast%2F20201207_244%2FdgWXZ_1607300284857K6djq_JPEG%2F1607300202262.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row-box after">
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fphinf.pstatic.net%2Ftvcast%2F20201207_244%2FdgWXZ_1607300284857K6djq_JPEG%2F1607300202262.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fsports-phinf.pstatic.net%2F20201207_91%2F1607270872138Gs2j4_JPEG%2F13.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fphinf.pstatic.net%2Ftvcast%2F20201207_244%2FdgWXZ_1607300284857K6djq_JPEG%2F1607300202262.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="row-box after">
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fphinf.pstatic.net%2Ftvcast%2F20201207_244%2FdgWXZ_1607300284857K6djq_JPEG%2F1607300202262.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">  
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fsports-phinf.pstatic.net%2F20201207_91%2F1607270872138Gs2j4_JPEG%2F13.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="source-right">2시간전</div>
+                                </a>
+                            </div>
+                            <div class="box">
+                                <a href="#" class="thumb-box">
+                                    <img width="232" height="130" class="thumbnail" src="https://s.pstatic.net/dthumb.phinf/?src=%22https%3A%2F%2Fphinf.pstatic.net%2Ftvcast%2F20201207_244%2FdgWXZ_1607300284857K6djq_JPEG%2F1607300202262.jpg%22&type=nf464_260" alt="">
+                                    <i class="play-ico"></i>
+                                    <span class="runtime-box">
+                                        <span class="runtime-bg"></span>
+                                        <em class="runtime">03:55</em>
+                                    </span>
+                                </a>
+                                <a href="#" class="info-box">
+                                    <div class="category">특집영상</div>
+                                    <div class="title">여자농구에는 벤치를 지휘하는 마에스트로가 있다? ｜벤치에서 생긴일 : KB스타즈 편</div>
+                                    <div class="source">WKBL(한국여자농구연맹)</div>
+                                    <div class="souece-right">2시간전</div>
+                                </a>
+                            </div>
+                        </div>
+                        <div class="more-box">
+                            <button>
+                                <i class="more-ico"></i>새로운글 더보기
+                            </button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="right"> 
+                <div class="login-box box"> <!-- 로그인박스 -->
+                    <div class="in-box">
+                        <p class="title">네이버를 더 안전하고 편리하게 이용하세요</p>
+                            <a href="https://nid.naver.com/nidlogin.login?mode=form&url=https%3A%2F%2Fwww.naver.com" class="login-btn">
+                                NAVER 로그인
+                            </a>
+                        <div class="sub-box">
+                            <div class="sub-left">
+                                <a href="https://nid.naver.com/user2/help/idInquiry.nhn?menu=idinquiry" class="find-id"> <i class="fas fa-lock"></i> 아이디</a>
+                                <span class="point"></span>
+                                <a href="https://nid.naver.com/user2/help/pwInquiry.nhn?menu=pwinquiry" class="find-pw">비밀번호찾기</a>
+                            </div>
+                            <div class="sub-right">
+                                <a href="https://nid.naver.com/user2/V2Join.nhn?m=agree&lang=ko_KR&cpno=" class="signup"><i class="fas fa-user"></i>회원가입</a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="timesquare-box box"> <!-- 로그인박스 밑  -->
+                    <div class="timesquare-cord"></div> <!-- 자동으로 넘어가는 부분 -->
+                    <div class="btn-box">  <!-- 넘김버튼 -->
+                        <a class="prev" href="#"></i></a>
+                        <a class="next" href="#"></i></a>
+                    </div>
+                </div>
+                <div class="add2 box"> <!-- 광고박스 -->
+                </div> 
+                <div class="shop-box"> <!-- 트렌드 쇼핑-->
+                    <div class="shop-header">
+                        <div class="shop-title">
+                            <a href="#">트렌드쇼핑</a>
+                            <ul>
+                                <li><a href="#" class="select">상품</a></li>
+                                <li><a href="#">쇼핑몰</a></li>
+                                <li><a href="#">MEN</a></li>
+                            </ul>
+                        </div>
+                        <div class="shop-list"> 
+                            <div class="shop-list-header">
+                                <ul class="row1 after">
+                                    <li><a href="#">G마켓</a><span class="point"></span></li>
+                                    <li><a href="#" class="bold">옥션</a><span class="point"></span></li>
+                                    <li><a href="#">11번가</a><span class="point"></span></li>
+                                    <li><a href="#">위메프</a><span class="point"></span></li>
+                                    <li><a href="#" class="bold">이마트몰</a><span class="point"></span></li>
+                                    <li><a href="#">올리브영</a></li>
+                                </ul>
+                                <ul class="row2 after">
+                                    <li><a href="#" class="bold">티몬</a><span class="point"></span></li>
+                                    <li><a href="#">홈플러스</a><span class="point"></span></li>
+                                    <li><a href="#" class="bold">GS샵</a><span class="point"></span></li>
+                                    <li><a href="#">롯데i몰</a><span class="point"></span></li>
+                                    <li><a href="#">신세계몰</a><span class="point"></span></li>
+                                    <li><a href="#">CJmall</a></li>
+                                </ul>
+                            </div>
+                            <div class="shop-list-body after">
+                                <div class="list-header-box">
+                                    <div class="list-control-box c-box">
+                                        <div class="num-box">
+                                            <span class="current">1</span>/19
+                                        </div>
+                                        <div class="btn-box">
+                                            <a href="#" class="prev-btn"></a>
+                                            <a href="#" class="next-btn"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-body-box">
+                                    <ul>
+                                        <li class="goods-item">
+                                            <a href="#">
+                                                <div class="thumb-box">
+                                                    <img height="146" src="https://s.pstatic.net/shopping.phinf/20201130_20/ffdb700b-8fa5-4455-ba5f-710d00622907.jpg?type=f214_292" alt="">
+                                                </div>
+                                                <p class="thumb-title">
+                                                    <span class="bold">이런게 있었다니?</span>
+                                                    <span>역대급 최고반응!</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="goods-item">
+                                            <a href="#">
+                                                <div class="thumb-box">
+                                                    <img height="146" src="https://s.pstatic.net/shopping.phinf/20201130_20/ffdb700b-8fa5-4455-ba5f-710d00622907.jpg?type=f214_292" alt="">
+                                                </div>
+                                                <p class="thumb-title">
+                                                    <span class="bold">이런게 있었다니?</span>
+                                                    <span>역대급 최고반응!</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="goods-item">
+                                            <a href="#">
+                                                <div class="thumb-box">
+                                                    <img height="146" src="https://s.pstatic.net/shopping.phinf/20201130_20/ffdb700b-8fa5-4455-ba5f-710d00622907.jpg?type=f214_292" alt="">
+                                                </div>
+                                                <p class="thumb-title">
+                                                    <span class="bold">이런게 있었다니?</span>
+                                                    <span>역대급 최고반응!</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="goods-item">
+                                            <a href="#">
+                                                <div class="thumb-box">
+                                                    <img height="146" src="https://s.pstatic.net/shopping.phinf/20201130_20/ffdb700b-8fa5-4455-ba5f-710d00622907.jpg?type=f214_292" alt="">
+                                                </div>
+                                                <p class="thumb-title">
+                                                    <span class="bold">이런게 있었다니?</span>
+                                                    <span>역대급 최고반응!</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="goods-item">
+                                            <a href="#">
+                                                <div class="thumb-box">
+                                                    <img height="146" src="https://s.pstatic.net/shopping.phinf/20201130_20/ffdb700b-8fa5-4455-ba5f-710d00622907.jpg?type=f214_292" alt="">
+                                                </div>
+                                                <p class="thumb-title">
+                                                    <span class="bold">이런게 있었다니?</span>
+                                                    <span>역대급 최고반응!</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="goods-item">
+                                            <a href="#">
+                                                <div class="thumb-box">
+                                                    <img height="146" src="https://s.pstatic.net/shopping.phinf/20201130_20/ffdb700b-8fa5-4455-ba5f-710d00622907.jpg?type=f214_292" alt="">
+                                                </div>
+                                                <p class="thumb-title">
+                                                    <span class="bold">이런게 있었다니?</span>
+                                                    <span>역대급 최고반응!</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="goods-item">
+                                            <a href="#">
+                                                <div class="thumb-box">
+                                                    <img height="146" src="https://s.pstatic.net/shopping.phinf/20201130_20/ffdb700b-8fa5-4455-ba5f-710d00622907.jpg?type=f214_292" alt="">
+                                                </div>
+                                                <p class="thumb-title">
+                                                    <span class="bold">이런게 있었다니?</span>
+                                                    <span>역대급 최고반응!</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="goods-item">
+                                            <a href="#">
+                                                <div class="thumb-box">
+                                                    <img height="146" src="https://s.pstatic.net/shopping.phinf/20201130_20/ffdb700b-8fa5-4455-ba5f-710d00622907.jpg?type=f214_292" alt="">
+                                                </div>
+                                                <p class="thumb-title">
+                                                    <span class="bold">이런게 있었다니?</span>
+                                                    <span>역대급 최고반응!</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="goods-item">
+                                            <a href="#">
+                                                <div class="thumb-box">
+                                                    <img height="146" src="https://s.pstatic.net/shopping.phinf/20201130_20/ffdb700b-8fa5-4455-ba5f-710d00622907.jpg?type=f214_292" alt="">
+                                                </div>
+                                                <p class="thumb-title">
+                                                    <span class="bold">이런게 있었다니?</span>
+                                                    <span>역대급 최고반응!</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="goods-item">
+                                            <a href="#">
+                                                <div class="thumb-box">
+                                                    <img height="146" src="https://s.pstatic.net/shopping.phinf/20201130_20/ffdb700b-8fa5-4455-ba5f-710d00622907.jpg?type=f214_292" alt="">
+                                                </div>
+                                                <p class="thumb-title">
+                                                    <span class="bold">이런게 있었다니?</span>
+                                                    <span>역대급 최고반응!</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="goods-item">
+                                            <a href="#">
+                                                <div class="thumb-box">
+                                                    <img height="146" src="https://s.pstatic.net/shopping.phinf/20201130_20/ffdb700b-8fa5-4455-ba5f-710d00622907.jpg?type=f214_292" alt="">
+                                                </div>
+                                                <p class="thumb-title">
+                                                    <span class="bold">이런게 있었다니?</span>
+                                                    <span>역대급 최고반응!</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                        <li class="goods-item">
+                                            <a href="#">
+                                                <div class="thumb-box">
+                                                    <img height="146" src="https://s.pstatic.net/shopping.phinf/20201130_20/ffdb700b-8fa5-4455-ba5f-710d00622907.jpg?type=f214_292" alt="">
+                                                </div>
+                                                <p class="thumb-title">
+                                                    <span class="bold">이런게 있었다니?</span>
+                                                    <span>역대급 최고반응!</span>
+                                                </p>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                                <div class="list-footer-box c-box">
+                                    <a href="#" class="prev-btn"></a>
+                                    <div class="num-box">
+                                        <span class="current">1</span>/19
+                                    </div>
+                                    <a href="#" class="next-btn"></a>
+                                </div>
+                            </div>
+                            <div class="shop-list-middle"> 
+                                <div class="list-middle-header after">
+                                    <div class="left-box">반갑다! 쇼핑뉴스</div>
+                                    <div class="right-box after">
+                                        <div class="num-box">
+                                            <span class="current">1</span>/4
+                                        </div>
+                                        <div class="btn-box">
+                                            <a href="#" class="prev-btn"></a>
+                                            <a href="#" class="next-btn"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="list-middle-body"> 
+                                    <ul>
+                                        <li>
+                                            <a href="">
+                                            <span class="title">줄로그</span>
+                                            <span>김성령이 반했어~</span>
+                                            <span>시그니처템 OPEN!</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <span class="title">룸페커</span>
+                                            <span>세상 편한옷~</span>
+                                            <span>매일신상할인중!</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <span class="title">시크헤라</span>
+                                            <span>블렉프라이데이!</span>
+                                            <span>UPTO 60% SALE!</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <span class="title">옥션</span>
+                                            <span>메일 쏟아지는</span>
+                                            <span>프리미엄 혜택!</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <span class="title">STL</span>
+                                            <span>상의 1+1특가</span>
+                                            <span>2개 1만원대!</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <span class="title">서울샵</span>
+                                            <span>중소기업우 수</span>
+                                            <span>추천상품 모음전</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="">
+                                                <span class="title">어린숨</span>
+                                            <span>KF94 1매</span>
+                                            <span>최소 290원</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>                            
+                            </div>
+                            <div class="shop-list-footer">
+                                <div class="shop-footer-head after">
+                                    <div class="left-box">
+                                        <a href="#" class="category">패션</a>
+                                        <a href="#" class="category">라이프</a>
+                                        <a href="#" class="category">디지털･레저</a>
+                                        <a href="#" class="category select">뷰티</a>
+                                    </div>
+                                    <div class="right-box after">
+                                        <div class="num-box">
+                                            <span class="current">1</span>/4
+                                        </div>
+                                        <div class="btn-box">
+                                            <a href="#" class="prev-btn"></a>
+                                            <a href="#" class="next-btn"></a>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="shop-footer-body">
+                                    <ul class="after">
+                                        <li>
+                                            <a href="#">
+                                                <div class="thumb-box">
+                                                    <img width="163" height="163" src="https://s.pstatic.net/shopping.phinf/20200925_18/0b2e1242-7098-4526-b865-2e95bf636a77.jpg" alt="">
+                                                </div>
+                                                <span class="bold">오후 되면 코 옆 피지폭팔</span>
+                                            </a>
+                                        </li>
+                                        <li>
+                                            <a href="#">
+                                                <div class="thumb-box">
+                                                    <img width="163" height="163" src="https://s.pstatic.net/shopping.phinf/20200925_18/0b2e1242-7098-4526-b865-2e95bf636a77.jpg" alt="">
+                                                </div>
+                                                <span class="bold">오후 되면 코 옆 피지폭팔</span>
+                                            </a>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="footer">
+            <div class="container">
+                <div class="banner-box after">
+                    <a class="banner after">
+                        <div class="thumb-box">
+                            <img width="160" height="86" src="https://ssl.pstatic.net/tveta/libs/1287/1287046/0f7b23a1965983a8e886_20201127154728127.jpg" alt="">
+                        </div>
+                        <div class="cont-box">
+                            <div class="sub-title">온스테이즈 2.0</div>
+                            <div class="pub-title">전유동</div>
+                            <div class="dsc">식물학접 팝 뮤직</div>
+                            <div class="dsc2">싱어송라이터, 전유동</div>
+                        </div>
+                    </a>
+                    <a class="banner after">
+                        <div class="thumb-box">
+                            <img width="160" height="86" src="https://ssl.pstatic.net/tveta/libs/1287/1287075/3f9218dd26a829c73e8d_20201130100810166.jpg" alt="">
+                        </div>
+                        <div class="cont-box">
+                            <div class="sub-title">네이버커넥트 재단</div>
+                            <div class="pub-title">프로그래밍 입문에 딱</div>
+                            <div class="dsc">IT기업 신입이 배우는</div>
+                            <div class="dsc2">현업에서 인정한 강의</div>
+                        </div>
+                    </a>
+                    <a class="banner after">
+                        <div class="thumb-box">
+                            <img width="160" height="86" src="https://ssl.pstatic.net/tveta/libs/1287/1287075/5ecdc3b5ef01d96506ae_20201118184709774.jpg" alt="">
+                        </div>
+                        <div class="cont-box">
+                            <div class="sub-title">네이버커넥트 재단 AI교육</div>
+                            <div class="pub-title">12월 14일까지 지원</div>
+                            <div class="dsc">총 5개월의 교육 기간</div>
+                            <div class="dsc2">최고 AI엔지니어로 성장</div>
+                        </div>
+                    </a>
+                </div>
+                <div class="notice-box after">
+                    <a href="#" class="notice">공지사항</a>
+                    <a href="#" class="link-all">서비스 전체보기</a>
+                </div>
+                <div class="aside-box after">
+                    <div class="partner-box">
+                        <div class="partner after">
+                            <div class="title">Creators</div>
+                            <a href="#" class="dsc">크리에이터</a>
+                            <a href="#" class="dsc">스몰비지니스</a>
+                        </div>
+                        <div class="partner after">
+                            <div class="title">partners</div>
+                            <a href="#" class="dsc">비즈니스 · 광고</a>
+                            <a href="#" class="dsc">스토어 개설</a>
+                            <a href="#" class="dsc">지역업체 등록</a>
+                            <a href="#" class="dsc">엑스퍼트 등록</a>
+                        </div>
+                        <div class="partner after">
+                            <div class="title">Developers</div>
+                            <a href="#" class="dsc">네이버 개발자 센터</a>
+                            <a href="#" class="dsc">오픈 API</a>
+                            <a href="#" class="dsc">오픈소스</a>
+                            <a href="#" class="dsc">네이버 D2</a>
+                            <a href="#" class="dsc">네이버 D2SF</a>
+                            <a href="#" class="dsc">네이버 랩스</a>
+                        </div>
+                    </div>
+                    <div class="service-box">
+                        <div class="service">
+                            <div class="service-info">
+                                <div class="title">웨일 브라우저</div>
+                                <a href="#" class="dsc">다운받기</a>
+                            </div>
+                            <a href="#" class="service-logo">
+                                <img width="48" height="48" src="../img/웨일_로그.png" alt="">
+                            </a>
+                        </div>
+                        <div class="service">
+                            <div class="service-info">
+                                <div class="title">프로젝트 꽃</div>
+                                <a href="#" class="dsc">바로가기</a>
+                            </div>
+                            <a href="#" class="service-logo">
+                                <img width="48" height="48" src="../img/꽃_로그.png" alt="">
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="corp-box after">
+                    <a href="#" class="corp-item">회사소개</a>
+                    <a href="#" class="corp-item">인재채용</a>
+                    <a href="#" class="corp-item">제휴제안</a>
+                    <a href="#" class="corp-item">이용약관</a>
+                    <a href="#" class="corp-item bold">개인정보처리방침</a>
+                    <a href="#" class="corp-item">청소년보호정책</a>
+                    <a href="#" class="corp-item">네이버 정책</a>
+                    <a href="#" class="corp-item">고객센터</a>
+                    <a href="#" class="corp-addr">ⓒ NAVER Corp.</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <button class="dark-mode"></button>
+    <a href="#body" class="up-btn"></a>
+
+</body>
+</html>
