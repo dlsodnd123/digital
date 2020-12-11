@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>class 예제2</title>
+    <script src="../js/jquery.js"></script>
+    <style>
+        .box{
+            background-image: url(https://image.news1.kr/system/hp/2020/10/22/4442510/dims/optimize);
+            background-size: 500px 500px;
+            width: 500px;
+            height: 500px;
+        }
+        .change{
+            background-image: url(https://dimg.donga.com/wps/NEWS/IMAGE/2020/10/24/103602623.1.jpg);
+        }
+    </style>
+</head>
+<body>
+    <div class="box"></div>
+    <button class="btn">변경</button>
+    <script>
+        $('.btn').click(function(){
+            $('.box').toggleClass('change');
+        })
+        $('.box').hover(function(){
+            $(this).toggleClass('change');
+        })
+    </script>
+</body>
+</html>
