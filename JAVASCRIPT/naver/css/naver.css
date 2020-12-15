@@ -13,11 +13,18 @@ ul, ol{
     min-width: 1190px;
     height: 161px;
 }
+.header .auto-box .left-box{
+    float: left;
+}
+.header .auto-box .right-box{
+    float: right;
+}
 .menu{
     min-width: 1190px;
     height: 50px;
     border-top: 1px solid rgb(224,227,230);
     border-bottom: 1px solid rgb(224,227,230);
+    position: relative;
 }
 .contents{
     min-width: 1190px;
@@ -1282,6 +1289,50 @@ shop-box .shop-title{
 .header .search-box .rev .auto-ico{
     background-position: -158px -151px;
 }
+.header .auto-box{
+    height: 40px;
+    background-color: #f9fafb;
+    position: absolute;
+    right: 1px;
+    top: 55px;
+    width: 584px;
+    box-sizing: border-box;
+    border: 1px solid #f1f4f6;
+    border-radius: 0 0 6px 6px;
+    line-height: 38px;
+    display: none;
+}
+.header .auto-box .left-box{
+    padding-left: 12px;
+}
+.header .auto-box .right-box{
+    padding-right: 12px;
+}
+.header .auto-box .help,
+.header .auto-box .close-auto-btn{
+    color: gray;
+    float: left;
+    vertical-align: top;
+    padding: 0 6px;
+    font-size: 13px;
+}
+.header .auto-box .report{
+    padding: 0 6px;
+    vertical-align: top;
+    color: #03c75a;
+    float: left;
+    font-size: 13px;
+}
+.header .auto-box .report::before{
+    content: '';
+    float: left;
+    width: 1px;
+    height: 11px;
+    margin-top: 14px;
+    background-color: #e2e2e2;
+    margin-left: -6px;
+    margin-right: 6px;
+}
 .header .service-box{
     position: absolute;
     top: 12px;
@@ -1414,6 +1465,9 @@ shop-box .shop-title{
     color: #202020;
     text-align: right;
 }
+.menu .more-btn.fold{
+    color: #0ecd5a;
+}
 .menu .more-btn::after{
     display: inline-block;
     content: '';
@@ -1424,6 +1478,10 @@ shop-box .shop-title{
     background-position: -319px -258px;
     margin-left: 7px;
     vertical-align: 2px;
+}
+.menu .more-btn.fold:after{
+    color: #0ecd5a;
+    background-position: -332px -258px;
 }
 .menu .filt-box{
     float: right;
@@ -1462,6 +1520,40 @@ shop-box .shop-title{
     margin: 8px 5px 0 0;
     vertical-align: top;
 }
+.menu .menu-service-box{
+    background-color: #fff;
+    z-index: 100;
+    position: absolute;
+    left: 0;
+    right: 0;
+    padding: 20px 30px 22px;
+    box-shadow: 0 4px 4px 0 rgba(0,0,0,.12);
+    /* display: none; */
+}
+/* ------------------------------------------------------------------------------ */
+.menu .menu-service-box .in-box{
+    width: 1128px;
+    margin : 0 auto;
+    overflow: hidden;
+    border: 1px solid #e4e8eb;
+    border-width: 0 1px;
+}
+.menu .menu-service-box .in-box .service-list-box{
+    float: left;
+    padding: 0 18px 0 19px;
+    font-size: 13px;
+    line-height: 26px;
+}
+.menu .menu-service-box .in-box .service-list-box .service-title{
+    display: block;
+    margin-bottom: 3px;
+    color: #000;
+}
+.menu .menu-service-box .in-box .service-list-box .service-list{
+    display: block;
+    color: #000;
+}
+/* ------------------------------------------------------------------------------ */
 .theme-cont-box .top-box{
     padding: 22px 0 18px;
 }
