@@ -16,6 +16,7 @@
                 e.preventDefault();
                 // $('.search-box .auto-btn .auto-ico').toggleClass('reverse-auto-ico');
                 $(this).toggleClass('rev');
+                $('.header .auto-box').toggle()
             });
             // .shop-list-body에 있는 >버튼을 클릭하면
             $('.shop-list-body .next-btn').click(function(e){
@@ -44,6 +45,16 @@
                 currentPage = getpage(++currentPage, 1, 4);
                 $(this).parent().siblings('.num-box').find('.current').text(currentPage);
             });
+            //메뉴에 더보기 버튼/접기 버튼을 클릭
+            $('.more-btn').click(function(){
+                $('.menu .menu-service-box').toggle();
+                if(!$(this).hasClass('fold')){
+                    $(this).text('접기')
+                }else{
+                    $(this).text('더보기')
+                }
+                $(this).toggleClass('fold');
+            })
         });
         function getpage(page,min,max){
             if(page < min)  return max;
@@ -66,10 +77,20 @@
                     <a href="#" class="auto-btn">
                         <i class="auto-ico"></i>
                     </a>
+                    <button class="search-btn">
+                        <span class="search-ico"></span>
+                    </button>
+                    <div class="auto-box">
+                        <div class="left-box">
+                            <a href="#" class="help">도움말</a>
+                            <a href="#" class="report">신고</a>
+                        </div>
+                        <div class="right-box">
+                            <a href="#" class="close-auto-btn">자동완성 끄기</a>
+                        </div>
+                    </div>
+                    </div>
                 </div>
-                <button class="search-btn">
-                    <span class="search-ico"></span>
-                </button>
             </form>
             <div class="service-box">
                 <a href="#" class="set-home-btn">네이버를 시작페이지로</a>
@@ -169,12 +190,27 @@
                     </a>
                 </li>
             </ul>
-            <a href="#" class="more-btn">더보기</a>
+            <a href="#" class="more-btn">더보기</a> 
             <div class="filt-box">
                 <a href="#" class="filt-btn">
                     <i class="error-ico"></i>
                     <span>검색어 필터 설정이 필요합니다</span>
                 </a>
+            </div>
+        </div>
+        <div class="menu-service-box">
+            <div class="in-box">
+                <div class="service-list-box">
+                    <span class="service-title">ㄱ-ㅁ</span>
+                    <a href="#" class="service-list">날씨</a>
+                    <a href="#" class="service-list">네이버 MY CAR</a>
+                    <a href="#" class="service-list">네이버 게임</a>
+                    <a href="#" class="service-list">네이버 예약</a>
+                    <a href="#" class="service-list">네이버플러스 멤버십</a>
+                    <a href="#" class="service-list">뉴스</a>
+                    <a href="#" class="service-list">데이터랩</a>
+                    <a href="#" class="service-list">메모</a>
+                </div>
             </div>
         </div>
     </div>
