@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>타이머 예제</title>
+    <script src="js/jquery.js"></script>
+    <style>
+        .timer-box{
+            width: 300px;
+            height: 500px;
+            margin: 0 auto
+            ;
+        }
+        .timer{
+            width: 300px;
+            height: 150px;
+            border: 1px solid black;
+            margin-bottom: 25px;
+            text-align: center;
+            line-height: 150px;
+            font-size: 30px;
+        }
+        .start-btn,
+        .stop-btn{
+            float: left;
+            font-size: 20px;
+        }
+        .stop-btn{
+            display: none;
+        }
+        .save-btn{
+            float: right;
+            font-size: 20px;
+        }
+        .reset-btn{
+            font-size: 20px;
+            margin: 0 55px;
+        }
+        .record-box{
+            width: 300px;
+            height: 250px;
+            border: 1px solid black;
+            float: left;
+            margin-top: 25px;
+            overflow: auto;
+            padding: 3px 10px;
+        }
+        .time-record{
+            height: 50px;
+            line-height: 50px;
+            font-size: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="timer-box">
+        <div class="timer">00:00:00.00</div>
+        <button class="start-btn">시작</button>
+        <button class="stop-btn">정지</button>
+        <button class="reset-btn">초기화</button>
+        <button class="save-btn">저장</button>
+        <div class="record-box">
+            <ul>
+                
+            </ul>
+        </div>
+    </div>
+    <script>
+        $(function(){
+            var time = 0;
+            var interval;
+            // 시작버튼 클릭
+            $('.start-btn').click(function(){
+                $(this).hide();
+                $('.stop-btn').show();
+                interval = setInterval(() => {
+                    time++;
+                    $('.timer').html(getTime(time));
+                }, 10);
+            })
+            // 정지버튼 클릭
+            $('.stop-btn').click(function(){
+                $(this).hide();
+                $('.start-btn').show();
+                clearInterval(interval);
+            })
+            $('.save-btn').click(function(){
+                var str = '<div class = "time-record">' + getTime(time) + '<div>'
+                $('.record-box').prepend(str);
+            })
+            //시간을 문자열로 반환하는 함수
+            function getTime(time){
+                var s = parseInt(time / 100);
+                var m = parseInt(time / (60*100));
+                var h = parseInt(time / (60 * 60 *100));
+                var ms = time % 100;
+                s = s < 10 ? '0' + s : s; 
+                m = m < 10 ? '0' + m : m;
+                h = h < 10 ? '0' + h : h;
+                ms = ms < 10 ? '0' + ms : ms;
+                return h + ':' + m + ':' + s + '.' + ms
+            }
+        })
+    </script>
+</body>
+</html>
