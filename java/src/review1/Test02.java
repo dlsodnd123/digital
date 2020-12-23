@@ -3,10 +3,11 @@ package review1;
 public class Test02 {
 
 	public static void main(String[] args) {
-		
+	
 	}
 
 }
+
 class Point{
 	//멤버변수 : 정보
 	private int x, y;
@@ -40,5 +41,6 @@ class Point{
 		x= pt.x;
 		y= pt.y;
 	}
+	
 	
 }
