@@ -1,6 +1,7 @@
 package review3;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Scanner;
 
 public class BoardMain {
@@ -21,10 +22,17 @@ public class BoardMain {
 		
 		int menu;
 		ArrayList<Board> list = new ArrayList<Board>();
+//		Board tmp = new Board(1, "1", "1111111111", "홍길동", "2020-12-20");
+//		list.add(tmp);
+//		Board tmp2 = new Board(2, "2", "2222222222", "이순신", "2020-12-22");
+//		list.add(tmp2);
+//		Board tmp3 = new Board(3, "3", "33333333333", "임꺽정", "2020-12-24");
+//		list.add(tmp3);
 		do {
 			printMenu();
 			menu = scan.nextInt();
 			String tmpTitle;
+			int num;
 			switch(menu) {
 			case 1:
 				// 게시판에 게시글 등록
@@ -40,19 +48,19 @@ public class BoardMain {
 			case 3:
 				// 게시글의 제목을 검색하여 제목과 같은 게시글 수정
 				System.out.println("게시글 수정");
-				// inputNum();
-				// modifyBoard();
+				tmpTitle = inputtitle();
+				modifyBoard(list, tmpTitle);
 				break;
 			case 4:
 				// 게시글의 제목을 검색하여 제목과 같은 게시글 삭제
 				System.out.println("게시글 삭제");
-				tmpTitle = inputtitle();
-				deleteBoard(list, tmpTitle);
+				num = inputNum();
+				deleteBoard(list, num);
 				break;
 			case 5:
 				// 게시글 목록을 번호순서대로(최신글이 위로)정렬하여 출력
 				System.out.println("게시글 목록");
-				//sortBorad();
+				sortBorad(list);
 				printBorad(list);
 				break;
 			case 6:
@@ -65,7 +73,7 @@ public class BoardMain {
 		scan.close();
 	}
 	private static void printMenu() {
-		System.out.println("------------------------");
+		System.out.println("--------- 메  뉴 ---------");
 		System.out.println("1. 게시글 등록");
 		System.out.println("2. 게시글 조회");
 		System.out.println("3. 게시글 수정");
@@ -97,7 +105,7 @@ public class BoardMain {
 	}
 	/* 기능 : 검색/수정/삭제할 게시글의 제목을 입력받는 메소드
 	 * 매개변수 : 없음
-	 * 리턴타입 : 게시글의 제목 => Board
+	 * 리턴타입 : 게시글의 제목 => String
 	 * 메소드명 : inputTitle
 	 * */
 	private static String inputtitle() {
@@ -108,42 +116,78 @@ public class BoardMain {
 		String tmp = scan.next();
 		return tmp;
 	}
+	/* 기능 : 수정할 게시글의 번호를 입력받는 메소드
+	 * 매개변수 : 없음
+	 * 리턴타입 : 게시글의 번호 => num
+	 * 메소드명 : inputNum
+	 * */
+	private static int inputNum() {
+		System.out.println("------------------------");
+		System.out.println("	게시글 제목 입력");
+		System.out.println("------------------------");
+		System.out.print("번호 : ");
+		int num = scan.nextInt();
+		return num;
+	}
+	
 	/* 기능 : 게시글의 제목을 검색하여 해당하는 게시글을 콘솔에 출력하는 메소드
 	 * 매개변수 : 게시글, 제목 => ArrayList<Board> list, Board title
 	 * 리턴타입 : 없음 
 	 * 메소드명 : searchTilte
 	 * */
 	private static void searchTilte(ArrayList<Board> list, String title){
+		int cnt = 0;
 		for(Board tmp : list) {
-			if(tmp.equals(title.getTitle())) {
+			if(tmp.equals(title)) {
 				System.out.println("---------검색결과---------");
 				System.out.println(tmp);
+				cnt++;
 			}
 		}
-		System.out.println("------------------------");
-		System.out.println("해당 게시글이 없습니다.");
+		if(cnt == 0) {
+			System.out.println("------------------------");
+			System.out.println("해당 게시글이 없습니다.");
+		}
 	}
 	/* 기능 : 게시글의 제목을 검색하여 제목과 같은 게시글의 내용 수정
 	 * 매개변수 : 게시글, 제목 => ArrayList<Board> list, Board title
 	 * 리턴타입 : 없음
 	 * 메소드명 : modifyBoard
 	 * */
-	private static void modifyBoard(ArrayList<Board> list, Board title) {
-		
+	private static void modifyBoard(ArrayList<Board> list, String title) {
+		for(int i=0; i<list.size(); i++) {
+			Board tmp = list.get(i);
+			if(tmp.equals(title)) {
+				list.remove(i);
+				System.out.println("------------------------");
+				System.out.println("	게시글 수정");
+				System.out.println("------------------------");
+				System.out.print("제목 : ");
+				tmp.setTitle(scan.next());
+				System.out.println("내용 : ");
+				tmp.setContents(scan.next());
+				list.add(tmp);
+				System.out.println("내용이 수정되었습니다.");
+				return;
+			}
+		}
+		System.out.println("해당 게시글이 없습니다.");
 	}
 	
-	/* 기능 : 게시글의 제목을 검색하여 해당하는 게시글 삭제하는 메소드
-	 * 매개변수 : 게시글, 제목 => ArrayList<Board> list, Board title
+	/* 기능 : 게시글의 번호를 검색하여 해당하는 게시글 삭제하는 메소드
+	 * 매개변수 : 게시글, 제목 => ArrayList<Board> list, int num
 	 * 리턴타입 : 없음
 	 * 메소드명 : deleteBoard
 	 * */
-	private static void deleteBoard(ArrayList<Board> list, Board title) {
+	private static void deleteBoard(ArrayList<Board> list, int num) {
 		for(int i=0; i<list.size(); i++) {
 			Board tmp = list.get(i);
-			if(tmp.equals(title.getTitle())) {
+			if(tmp.equals(num)) {
 				list.remove(i);
+				return ;
 			}
 		}
+		System.out.println("해당 게시글이 없습니다.");
 	}
 	/* 기능 : 게시글을 정렬하는 메소드
 	 * 매개변수 : 게시글 => ArraryList<Board> list
@@ -151,7 +195,7 @@ public class BoardMain {
 	 * 메소드명 : sortBorad
 	 * */
 	private static void sortBorad(ArrayList<Board> list)  {
-		
+		Collections.sort(list);
 	}
 	/* 기능 : 게시글 목록을 출력하는 메소드
 	 * 매개변수 : 게시글 => ArraryList<Board> list
