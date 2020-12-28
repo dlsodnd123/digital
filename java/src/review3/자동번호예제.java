@@ -2,7 +2,7 @@ package review3;
 
 import java.util.ArrayList;
 
-public class 번호예제 {
+public class 자동번호예제 {
 
 	public static void main(String[] args) {
 		ArrayList<A> list = new ArrayList<A>();
