@@ -22,12 +22,12 @@ public class BoardMain {
 		
 		int menu;
 		ArrayList<Board> list = new ArrayList<Board>();
-//		Board tmp = new Board(1, "1", "1111111111", "홍길동", "2020-12-20");
-//		list.add(tmp);
-//		Board tmp2 = new Board(2, "2", "2222222222", "이순신", "2020-12-22");
-//		list.add(tmp2);
-//		Board tmp3 = new Board(3, "3", "33333333333", "임꺽정", "2020-12-24");
-//		list.add(tmp3);
+		Board tmp = new Board(1, "1", "1111111111", "홍길동", "2020-12-20");
+		list.add(tmp);
+		Board tmp3 = new Board(3, "3", "33333333333", "임꺽정", "2020-12-24");
+		list.add(tmp3);
+		Board tmp2 = new Board(2, "2", "2222222222", "이순신", "2020-12-22");
+		list.add(tmp2);
 		do {
 			printMenu();
 			menu = scan.nextInt();

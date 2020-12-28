@@ -12,7 +12,7 @@ public class TimeMain2 {
 		SimpleDateFormat simpleFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss"); // = new SimpleDateFormat("yyyy-MM-dd E요일");
 		String dateString = simpleFormat.format(date);
 		System.out.println(dateString);
-		//날짜는 문자열로
+		//문자열로 날짜로
 		String dateString2 = "2020-01-01 14:30:00";
 		SimpleDateFormat simpleFormat2 = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
 		Date date2 = simpleFormat2.parse(dateString2);
