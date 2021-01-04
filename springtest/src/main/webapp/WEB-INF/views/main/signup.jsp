@@ -22,7 +22,7 @@
     </style>
 </head>
 <body>
-	<form action="/test/signup" id="form" class="container" method="post">
+	<form action="" id="form" class="container" method="post">
         <h1 class="title">회원가입</h1>
         <div class="form-group">
 			<input type="text" class="form-control" id="id" name="id" placeholder="아이디" value="${user.id}">
@@ -54,5 +54,6 @@
         </div>
         <button type="submit" class="btn btn-outline-success col-12">회원가입</button>
 	  </form>
+	  ${user.test}
 </body>
 </html>

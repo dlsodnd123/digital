@@ -1,0 +1,146 @@
+서버 -> 화면으로 데이터 전송
+	서버 : model에 값을 추가
+	컨트롤러
+		public ModelAndView 메소드명(ModelAndView mv) {
+		mv.addObject("변수명", 값);
+		return mv;
+		}
+
+	model.addAttrbute("변수명", 값)을 통하여 전달
+	화면 : ${변수명}을 이용하여 서버에서 전달한 값을 활용
+
+화면 -> 서버로 전송
+	get : url을 통해 정보를 전달, url에 직접 입력
+	 - a태그를 이용
+	 - 화면 : 서버에 name이라는 변수로 임꺽정이라는 값을 전달 하려면 아래와 같이 입력해야한다.
+		- http://url주소?name=임꺽정
+	 - 서버 : 변수명과 일치하는 매개변수를 생성(변수명이 name이고 문자열을 저장해야하기 때문에 String name 으로 매개변수 생성)
+	
+	post
+	 - 화면 : form태그 안 input/select/textarea태그를 이용, button태그의 타입 submit인 버튼을 이용하여 전송
+		- form태그의 method를 post로 설정
+		- input/select/textarea 태그의 속성 name이 변수명이 되고
+		- input/select/textarea 태그의 속성 value가 값이 됨
+		  (value는 값을 입력하면 자동으로 value에 저장)
+	 - 서버 : get방식과 동일, ReuqestMapping 부분에 method란에 RequesteMehotd.Post로 변경
+
+	 
+
+localhost:8080/spring/signup
+을 url에 입력했을 때 회원가입 페이지가 나오고
+
+해당 칸에 값을 입력하여 전송하면
+서버에서 회원 정보가 출력되도록 작업해보세요
+
+12/30 수업 내용 요약
+
+스프링 프로젝트 생성
+인코딩설정
+web.xml
+jsp상단
+화면과 서버간의 데이터 전송
+타일즈 템플릿 설정
+
+
+12/31
+ 1. localhost:8080/spring/list 입력
+ 2. Controller들 중 /list를 처리할 수 있는 메소드가 있는지 확인
+  => RwqustMapping의 value가 "/list"인 메소드를 확인
+ 3. UserService의 getEmail 메서드 호출
+  => UserserviceImp의 getEmail 메소드가 실행
+ 4. UserDao의 getEmail 메소드 호출
+  => userDao와 연결된 XML인 UserMapper.xml에서 getEmail이 실행
+  => DB에서 작업을 시작
+    => select인 경우 검색 결과를 돌려줌
+    => insert나 update인 경우 결과 값이 없음
+
+controller > service		>dao
+	    Sercice(인터페이스)	Dao(클래스)
+	   serviceImp(클래스)	  Mapper.xml
+
+localhost:8080/spring/login
+
+/main/login.jsp을 만든 후 연결
+
+서버에서 입력받은 아이디와 로그인 정보가 일치하면 메인화면으로
+일치하지 않으면 로그인화면으로 보냄
+ - HomeController는 userService에게 아이디와 비밀번호를 전달 하여 회원인지 아닌지 알려달라고 요청
+ - UserServiceImp은 userDao에게 아이디를 전달하여 해당 아이디와 일치하는 회원정보를 요청을 해서 가져옴
+ - 회원 정보가 있으면 UserServiceImp은 userDao가 보내준 정보의 비밀번호와 HomeCotroller에서 보내준 비밀번호를 비교하여
+   같으면 로그인 성공, 다르면 로그인 실패라고 알려줌.
+
+1/4
+localhost:8080/test/login
+
+1. controller에 작업
+  - 메소드 추가
+  - RequestMappiing의 값이 /login인 메소드 추가
+  - method는 화면이기 때문에 GET
+  - 화명 파일을 지정 => 어떤 jps와 연결할 건지를 지정
+    main/login
+
+2. 파일의 추가
+  - main폴더 밑에 login.jsp 파일 추가
+  - 로그인 화면 구현
+
+login 화면에서 아이디와 비밀번호를 입력하여 로그인 하는 과정
+1. form태그에 속성 정보를 확인 또는 수정한다.
+  - 로그인 정보는 다른 사람들이 url을 통해 확인하면 안되기 때문에 method를 post로 한다.
+  - 입력한 정보를 보낼 url을 action을 통해 지정한다.
+  
+2. jsp에서 보낸 데이터를 처리하기 위한 controller 작업
+  - 메소드 추가
+  - RequestMappiing의 값이 /login인 메소드 추가
+  - method는 POST
+  - 화면에서 보내준 ID와 PW의 값을 받아옴 => 매개변수로
+
+3. 컨트롤러에서 서비스에게 일을 시킴 -> 메소드로 일을 시킴
+  - username과 password를 넘겨주고, 해당 정보가 회원 정보인지 확인하는 작업을 시킴
+  - 확인해서 회원이면 true를 회원이 아니면 false를 반환 시킴
+
+4. 서비스가 Dao에게 일을 시킴 -> 메소드
+  - dao에게 id가 일치하는 회원정보를 달라고 시킴
+  - 서비스는 Dao  보내준 회원 정보를 이용하여 회원인지 아닌지 판별
+
+5. 컨트롤러에서 회원이면 메인페이지로, 아니면 login으로 이동
+
+localhost:8080/test/signup
+- 위 url을 입력하면 회원가입 화면이 나오게 하는 과정 => GET
+1. controller에 작업
+  - 메소드 추가
+  - RequestMappiing의 값이 /signup인 메소드 추가
+  - method는 화면이기 때문에 GET
+  - 화명 파일을 지정 => 어떤 jps와 연결할 건지를 지정
+    main/signup
+
+2. 파일의 추가
+  - main폴더 밑에 signup.jsp 파일 추가
+  - 회원가입 화면 구현
+
+signup 화면에서 회원정보를 입력하여 회원가입 하는 과정
+1. form태그에 속성 정보를 확인 또는 수정한다.
+  - 로그인 정보는 다른 사람들이 url을 통해 확인하면 안되기 때문에 method를 post로 한다.
+  - 입력한 정보를 보낼 url을 action을 통해 지정한다.
+
+2. jsp에서 보낸 데이터를 처리하기 위한 controller 작업
+  - 메소드 추가
+  - RequestMappiing의 값이 /signup인 메소드 추가
+  - method는 POST
+  - 화면에서 보내준 회원 정보를 UserVo에 담는다
+   => 매개변수로
+   => UserVo의 멤버 변수 이름과 화면에서 input태그의 name을 일치시켜야 한다.
+
+3. 컨트롤러에서 서비스에게 일을 시킴 -> 메소드로 일을 시킴
+  - 컨트롤로는 서비스에게 회원 정보를 전달하고, 서비스는 전달 받은 회원정보를 통해 회원 가입을 진행하고,
+    진행에 성공하면 true를, 실패하면 false를 반환시킴
+  - 확인해서 회원이면 true를 회원이 아니면 false를 반환 시킴
+
+4. 서비스가 Dao에게 일을 시킴 -> 메소드
+  - dao에게 id가 일치하는 회원정보를 달라고 시킴(아이디 중복)
+  - dao가 준 회원 정보가 있으면 회원가입을 하지않고,  false를 반환
+  - 없으면 서비스는 Dao에게 회원 정보를 보내주고, 다오는 받은 회원 정보를 이용하여 회원가입을 진행
+
+5. Mapper는 Dao가 넘겨준 정보를 이용하여 회원가입을 진행
+  - insert문을 이용
+
+6. 컨트롤러에서 회원에 성공하면 메인페이지로, 실패하면 signup으로 이동
