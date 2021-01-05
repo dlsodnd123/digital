@@ -12,11 +12,11 @@ public interface UserService {
 
 	UserVo getUser(String id);
 
-	Integer getAge(String id);
+	int getAge(String id);
 
 	ArrayList<UserVo> getAllUser();
 
-	boolean isUser(String id, String pw);
+	UserVo isUser(String id, String pw);
 
 	boolean signup(UserVo user);
 

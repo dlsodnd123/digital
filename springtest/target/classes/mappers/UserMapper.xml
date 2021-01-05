@@ -7,4 +7,8 @@
   <select id="getUser" resultType="kr.green.test.vo.UserVo">
     select * from spring.user where id = #{id}
   </select>
+  <insert id="insertUser" parameterType="kr.green.test.vo.UserVo">
+  	insert into user(id,pw,name,age,home,email)
+  		values(#{user.id}, #{user.pw}, #{user.name}, #{user.age}, #{user.home}, #{user.email}) 
+  </insert>
 </mapper>

@@ -22,6 +22,7 @@
 	</beans:bean>
 	
 	<context:component-scan base-package="kr.green.spring.*" />
+	
 	<beans:bean id="tilesViewResolver"
 		class="org.springframework.web.servlet.view.UrlBasedViewResolver">
 		<beans:property name="viewClass" 
@@ -38,6 +39,16 @@
 			</beans:list>
 		</beans:property>
 	</beans:bean>
+	
+	<beans:bean id="loginInterceptor" 
+		class="kr.green.spring.interceptor.LoginInterceptor"></beans:bean>
+	
+	<interceptors>
+	    <interceptor>
+	        <mapping path="/login"/>
+	        <beans:ref bean="loginInterceptor"/>
+	    </interceptor>
+	</interceptors>
 	
 	
 </beans:beans>

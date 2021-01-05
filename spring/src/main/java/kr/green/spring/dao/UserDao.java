@@ -13,10 +13,10 @@ public interface UserDao {
 
 	public UserVo getUser(String id);
 
-	public Integer getAge(String id);
+	public int getAge(String id);
 
 	public ArrayList<UserVo> getAllUser();
 
 	public void insertUser(@Param("user")UserVo user);
-
 }
+
