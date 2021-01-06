@@ -76,7 +76,7 @@ localhost:8080/test/login
   - 메소드 추가
   - RequestMappiing의 값이 /login인 메소드 추가
   - method는 화면이기 때문에 GET
-  - 화명 파일을 지정 => 어떤 jps와 연결할 건지를 지정
+  - 화면 파일을 지정 => 어떤 jps와 연결할 건지를 지정
     main/login
 
 2. 파일의 추가
