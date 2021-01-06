@@ -1,4 +1,4 @@
-package kr.green.spring2;
+package kr.green.spring2.controller;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
