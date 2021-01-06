@@ -2,6 +2,8 @@ package kr.green.spring.service;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -91,6 +93,12 @@ public class UserServiceImp implements UserService{
 		userDao.insertUser(user);
 		
 		return true;
+	}
+
+	@Override
+	public UserVo getUser(HttpServletRequest request) {
+		UserVo user = (UserVo)request.getSession().getAttribute("user");
+		return user;
 	}
 }
 

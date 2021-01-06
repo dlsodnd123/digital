@@ -2,6 +2,8 @@ package kr.green.spring.service;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+
 import kr.green.spring.vo.UserVo;
 
 public interface UserService {
@@ -19,5 +21,7 @@ public interface UserService {
 	UserVo isUser(String id, String pw);
 
 	boolean signup(UserVo user);
+	
+	UserVo getUser(HttpServletRequest request);
 
 }

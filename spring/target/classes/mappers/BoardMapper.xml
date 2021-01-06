@@ -3,9 +3,30 @@
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.green.spring.dao.BoardDao">
+  <!-- 게시글을 검색해서 전달하는 쿼리문 -->
   <select id="getBoardList" resultType="kr.green.spring.vo.BoardVo">
-  	select * from board
+  	<!-- where은 게시글 삭제 부분에서 추가됨 -->
+  	select * from board where isDel = 'N'
   </select>
+  <!-- 번호를 받아 번호와 일치하는 게시글을 전달하는 쿼리문 -->
+  <select id="getBoard" resultType="kr.green.spring.vo.BoardVo">
+  	select * from board where num = #{num}
+  </select>
+  <!-- 새로운 게시글 등록하는 쿼리문 -->
+  <insert id="insertBoard" parameterType="kr.green.spring.vo.BoardVo">
+  	insert into
+  		board(title, writer, content)
+  		values(#{board.title}, #{board.writer}, #{board.content})
+  </insert>
+  <!-- 5-13.수정된 게시글로 DB에 업데이트 -->
+  <update id="updateBoard" parameterType="kr.green.spring.vo.BoardVo">
+  	update board
+  		set 
+  			title = #{board.title},
+  			content = #{board.content},
+  			isDel = #{board.isDel}
+  		where num = #{board.num}
+  </update>
 </mapper>
 
 

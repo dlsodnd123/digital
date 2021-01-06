@@ -8,7 +8,7 @@ public interface UserService {
 
 	UserVo getUser(String id);
 
-	UserVo isUser(String id, String pw);
+	boolean isUser(String id, String pw);
 
 	boolean signup(UserVo user);
 

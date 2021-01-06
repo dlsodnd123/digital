@@ -1,14 +1,12 @@
 package kr.green.test.vo;
 
 public class UserVo {
-	
 	private String id;
 	private String pw;
 	private String name;
 	private int age;
 	private String email;
 	private String home;
-	
 	public String getId() {
 		return id;
 	}
@@ -47,10 +45,9 @@ public class UserVo {
 	}
 	@Override
 	public String toString() {
-		return "UserVo [id=" + id + ", pw=" + pw + ", name=" + name + ", age=" + age + ", email=" + email + ", home="
-				+ home + "]";
+		return "UserVo [id=" + id + ", pw=" + pw + ", name=" + name + ", age=" + age + ", email=" + email + ", home=" + home
+				+ "]";
 	}
-	
 	
 	
 }
