@@ -39,7 +39,7 @@
 			<label for="pw" class="error" id="pw-error"></label>
 		</div>
 		<div class="form-group">
-			<input type="password" class="form-control" id="pw2" name="pw2" placeholder="비밀번호 확인"value="${user.pw2}">
+			<input type="password" class="form-control" id="pw2" name="pw2" placeholder="비밀번호 확인"value="">
 			<label for="pw2" class="error" id="pw2-error"></label>
 		</div>
 		<div class="form-group">

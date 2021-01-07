@@ -55,7 +55,7 @@ jsp상단
     => insert나 update인 경우 결과 값이 없음
 
 controller > service		>dao
-	    Sercice(인터페이스)	Dao(클래스)
+	    Service(인터페이스)	Dao(클래스)
 	   serviceImp(클래스)	  Mapper.xml
 
 localhost:8080/spring/login
