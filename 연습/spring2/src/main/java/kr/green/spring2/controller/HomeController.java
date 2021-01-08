@@ -13,15 +13,15 @@ import kr.green.spring2.service.UserService;
 @Controller
 public class HomeController {
 	
+	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
+	
 	@Autowired
 	private UserService userService;
-	
-	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView homeGet(ModelAndView mv) {
 		
-		mv.setViewName("/main/login");
+		mv.setViewName("/main/home");
 		return mv;
 	}
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
