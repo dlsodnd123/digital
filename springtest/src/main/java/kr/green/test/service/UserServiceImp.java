@@ -1,5 +1,7 @@
 package kr.green.test.service;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -64,6 +66,11 @@ public class UserServiceImp implements UserService {
 		user.setPw(encPw);
 		userDao.insertUser(user);
 		return true;
+	}
+
+	@Override
+	public UserVo getUser(HttpServletRequest request) {
+		return (UserVo)request.getSession().getAttribute("user");
 	}
 	
 }

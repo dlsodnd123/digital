@@ -10,29 +10,35 @@
 <body>
 	<div class="container">
 	  <h3>게시글 상세 내용</h3>
-	  <form action="/action_page.php">
+	  <form action="">
 	    <c:if test="${board != null}">
 	  	<div class="form-group">
-	      <label for="usr">번호:</label>
-	      <input type="text" class="form-control" id="usr" name="num" value="${board.num}" readonly>
+	      <label for="num">번호</label>
+	      <input type="text" class="form-control" name="num" value="${board.num}" readonly>
 	    </div>
 	    <div class="form-group">
-	      <label for="usr">제목:</label>
-	      <input type="text" class="form-control" id="usr" name="title" value="${board.title}" readonly>
+	      <label>제목</label>
+	      <input type="text" class="form-control" name="title" value="${board.title}" readonly>
 	    </div>
 	    <div class="form-group">
-	      <label for="usr">작성자:</label>
-	      <input type="text" class="form-control" id="usr" name="writer" value="${board.writer}" readonly>
+	      <label>작성자</label>
+	      <input type="text" class="form-control" name="writer" value="${board.writer}" readonly>
 	    </div>
 	    <div class="form-group">
-	      <label for="usr">내용:</label>
-	      <input type="text" class="form-control" id="usr" name="content" value="${board.content}" readonly>
+	      <label>작성일</label>
+	      <input type="text" class="form-control" name="writer" value="${board.registerDate}" readonly>
+	    </div>
+	    <div class="form-group">
+	      <label>내용</label>
+	      <textarea class="form-control" rows="10" name="content" readonly>${board.content}</textarea>
 	    </div>
 	    <a href="<%=request.getContextPath()%>/board/list"><button type="button" class="btn btn-outline-secondary">목록</button></a>
+	    <a href="<%=request.getContextPath()%>/board/register"><button type="button" class="btn btn-outline-secondary">글쓰기</button></a>
+	    <a href="<%=request.getContextPath()%>/board/modify?num=${board.num}"><button type="button" class="btn btn-outline-secondary">수정</button></a>
 	    </c:if>
 	    <c:if test="${board == null}">
 	    <br> <h2>존재하지 않는 게시글 입니다.</h2> <br>
-	    <a href="<%=request.getContextPath()%>/board/list"><button type="button" class="btn btn-outline-secondary">목록</button></a>
+	    <a href="<%=request.getContextPath()%>/board/list"><button type="button" class="btn btn-outline-secondary">목록</button></a> <br>
 	    </c:if>
 	  </form>
 	</div>

@@ -7,6 +7,17 @@
 		select * from board where isDel = 'N' order by num desc 
 	</select>
 	<select id="getBoard" resultType="kr.green.test.vo.BoardVo">
-		select * from board where num = #{num}
+		select * from board where num = #{num} and isDel = 'N'
 	</select>
+	<insert id="insertBoard" parameterType="kr.green.test.vo.BoardVo">
+		insert into
+			board(title, writer, content)
+			values(#{board.title}, #{board.writer}, #{board.content})
+	</insert>
+	<update id="updateBoard" parameterType="kr.green.test.vo.BoardVo">
+		update board
+			set
+				title=#{board.title}, content=#{board.content}, isDel=#{board.isDel}
+			where num = #{board.num}
+	</update>
 </mapper>
