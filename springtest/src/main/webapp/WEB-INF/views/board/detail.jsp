@@ -10,8 +10,8 @@
 <body>
 	<div class="container">
 	  <h3>게시글 상세 내용</h3>
+	  <c:if test="${board != null}">
 	  <form action="">
-	    <c:if test="${board != null}">
 	  	<div class="form-group">
 	      <label for="num">번호</label>
 	      <input type="text" class="form-control" name="num" value="${board.num}" readonly>
@@ -34,13 +34,16 @@
 	    </div>
 	    <a href="<%=request.getContextPath()%>/board/list"><button type="button" class="btn btn-outline-secondary">목록</button></a>
 	    <a href="<%=request.getContextPath()%>/board/register"><button type="button" class="btn btn-outline-secondary">글쓰기</button></a>
+	    <c:if test="${user != null && user.id == board.writer}">
 	    <a href="<%=request.getContextPath()%>/board/modify?num=${board.num}"><button type="button" class="btn btn-outline-secondary">수정</button></a>
-	    </c:if>
-	    <c:if test="${board == null}">
-	    <br> <h2>존재하지 않는 게시글 입니다.</h2> <br>
-	    <a href="<%=request.getContextPath()%>/board/list"><button type="button" class="btn btn-outline-secondary">목록</button></a> <br>
-	    </c:if>
+	    <a href="<%=request.getContextPath()%>/board/delete?num=${board.num}"><button type="button" class="btn btn-outline-secondary">삭제</button></a>
+	    </c:if>	    
 	  </form>
+	  </c:if>
+	  <c:if test="${board == null}">
+	  	<br> <h1>존재하지 않는 게시글 입니다.</h1> <br>
+	  	<a href="<%=request.getContextPath()%>/board/list"><button type="button" class="btn btn-outline-secondary">목록</button></a> <br>
+	  </c:if>
 	</div>
 </body>
 </html>

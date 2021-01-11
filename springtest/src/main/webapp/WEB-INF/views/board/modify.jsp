@@ -8,7 +8,9 @@
 <title>게시글 수정</title>
 </head>
 <body>
+	<div class="container">
 	<h3>게시글 수정</h3>
+	  <c:if test="${board != null && board.writer == user.id}">
 	  <form action="<%=request.getContextPath()%>/board/modify" method="post">
 	  	<div class="form-group">
 	      <label for="num">번호</label>
@@ -34,6 +36,10 @@
 	    <a href="<%=request.getContextPath()%>/board/list"><button type="button" class="btn btn-outline-secondary">목록</button></a>
 	    <a href="<%=request.getContextPath()%>/board/register"><button type="button" class="btn btn-outline-secondary">글쓰기</button></a> <br>
 	  </form>
-	</div>
+	  </c:if>
+	  <c:if test="${board == null || board.writer != user.id}">
+	  	<br> <h1> 존재하지 않은 게시글이거나 작성자가 아닙니다. </h1> <br>
+	  </c:if>
+	 </div>
 </body>
 </html>

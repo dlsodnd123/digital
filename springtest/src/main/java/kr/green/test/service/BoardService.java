@@ -15,4 +15,6 @@ public interface BoardService {
 
 	void modifyBoard(UserVo user, BoardVo board);
 
+	void deleteBoard(Integer num, UserVo user);
+
 }

@@ -39,13 +39,29 @@ public class BoardSerivceImp implements BoardService {
 	public void modifyBoard(UserVo user, BoardVo board) {
 		BoardVo oriBoard = boardDao.getBoard(board.getNum());
 		if(oriBoard == null || !oriBoard.getWriter().equals(board.getWriter()) || !oriBoard.getWriter().equals(user.getId())) {
-			System.out.println("메소드종료");
 			return ;
 		}
 		oriBoard.setTitle(board.getTitle());
 		oriBoard.setContent(board.getContent());
 		System.out.println("수정된 게시글 : " + oriBoard);
 		boardDao.updateBoard(oriBoard);			
+	}
+
+	@Override
+	public void deleteBoard(Integer num, UserVo user) {
+		if(num == null) {
+			return ;
+		}
+		BoardVo board = boardDao.getBoard(num);
+		// 없는 게시글이거나 이미 삭제된 게시글이면
+		if(board == null) {
+			return ;
+		}
+		if(!user.getId().equals(board.getWriter())) {
+			return ;
+		}
+		board.setIsDel("Y");
+		boardDao.updateBoard(board);
 	}
 
 
