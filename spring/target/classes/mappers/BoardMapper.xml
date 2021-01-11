@@ -7,6 +7,7 @@
   <select id="getBoardList" resultType="kr.green.spring.vo.BoardVo">
   	<!-- where은 게시글 삭제 부분에서 추가됨 -->
   	select * from board where isDel = 'N' order by num desc
+  		limit #{cri.pageStart}, #{cri.perPageNum}
   </select>
   <!-- 번호를 받아 번호와 일치하는 게시글을 전달하는 쿼리문 -->
   <select id="getBoard" resultType="kr.green.spring.vo.BoardVo">
@@ -27,11 +28,15 @@
   			isDel = #{board.isDel}
   		where num = #{board.num}
   </update>
-  <!--  -->
+  <!-- 조회수를 증가시키는 쿼리문 -->
   <update id="updateViews">
   	update board
   		set views = views+1 where num = #{num} and isDel = 'N'
-  </update> 
+  </update>
+  <!-- 게시글의 총 갯수를 세는 쿼리문  -->
+  <select id="getTotalCount" resultType="int">
+  	select count(*) from board where isDel = 'N'
+  </select>
 </mapper>
 
 
