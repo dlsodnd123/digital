@@ -33,10 +33,7 @@ public class BoardController {
 		ArrayList<BoardVo> list = boardService.getBoardList(cri);
 		int totalCount = boardService.getTotalCount();
 		
-		PageMaker pm = new PageMaker();
-		pm.setCriteria(cri);		
-		pm.setDisplayPageNum(2);	
-		pm.setTotalCount(totalCount);
+		PageMaker pm = new PageMaker(cri, 2, totalCount);
 		
 		mv.addObject("pm", pm);
 		mv.addObject("list", list);		

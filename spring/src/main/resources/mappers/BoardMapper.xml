@@ -6,7 +6,22 @@
   <!-- 게시글을 검색해서 전달하는 쿼리문 -->
   <select id="getBoardList" resultType="kr.green.spring.vo.BoardVo">
   	<!-- where은 게시글 삭제 부분에서 추가됨 -->
-  	select * from board where isDel = 'N' order by num desc
+  	select * from board where isDel = 'N'
+  		<if test="cri.type == 1">
+  			and (title like concat('%',#{cri.search}, '%')
+  			or content like concat('%',#{cri.search}, '%') 
+  			or writer like concat('%',#{cri.search}, '%'))
+  		</if>
+  		<if test="cri.type == 2">
+  			and title like concat('%',#{cri.search}, '%') 
+  		</if>
+  		<if test="cri.type == 3">
+  			and content like concat('%',#{cri.search}, '%') 
+  		</if>
+  		<if test="cri.type == 4">
+  			and writer like concat('%',#{cri.search}, '%') 
+  		</if>
+  		order by num desc
   		limit #{cri.pageStart}, #{cri.perPageNum}
   </select>
   <!-- 번호를 받아 번호와 일치하는 게시글을 전달하는 쿼리문 -->

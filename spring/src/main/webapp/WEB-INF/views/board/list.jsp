@@ -10,8 +10,20 @@
 </head>
 <body>
 	<div class="container">
-	  <h2>Hoverable Dark Table</h2>
-	  <p>The .table-hover class adds a hover effect (grey background color) on table rows:</p>            
+	  <form class="input-group mb-3">
+	  	<div class="input-group-append">
+	      <select class="form-control" name="type">
+	      	<option value="1">전체</option>
+	      	<option value="2">제목</option>
+	      	<option value="3">내용</option>
+	      	<option value="4">작성자</option>
+	      </select>
+	    </div>
+	    <input type="text" class="form-control" name="search" placeholder="Search">
+	    <div class="input-group-append">
+	      <button class="btn btn-success" type="submit">Go</button>  
+	    </div>
+	  </form> 
 	  <table class="table table-dark table-hover">
 	    <thead>
 	      <tr>

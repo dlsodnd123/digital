@@ -1,14 +1,19 @@
 package kr.green.spring.Pagination;
 
 public class PageMaker {
-	private int totalCount;
+	private int totalCount; 
 	private int startPage;
 	private int endPage;
 	private boolean prev;
 	private boolean next;
 	private int displayPageNum;
-	private Criteria criteria;
+	private Criteria criteria; // 현재페이지 정보
 	
+	public PageMaker(Criteria cri, int displayPageNum, int totalCount) {
+		this.criteria = cri;
+		this.displayPageNum = displayPageNum;
+		this.setTotalCount(totalCount);
+	}
 	/* endPage, startPage, prev, next 값 계산 */
 	public void calcData() {
 		/* starPage와 endPage는 현재 페이지 정보인 criteria와 displayPageNum을 이용하여 계산
