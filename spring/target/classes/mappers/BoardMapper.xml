@@ -6,11 +6,11 @@
   <!-- 게시글을 검색해서 전달하는 쿼리문 -->
   <select id="getBoardList" resultType="kr.green.spring.vo.BoardVo">
   	<!-- where은 게시글 삭제 부분에서 추가됨 -->
-  	select * from board where isDel = 'N'
+  	select * from board where isDel = 'N' order by num desc
   </select>
   <!-- 번호를 받아 번호와 일치하는 게시글을 전달하는 쿼리문 -->
   <select id="getBoard" resultType="kr.green.spring.vo.BoardVo">
-  	select * from board where num = #{num}
+  	select * from board where num = #{num} and isDel = 'N'
   </select>
   <!-- 새로운 게시글 등록하는 쿼리문 -->
   <insert id="insertBoard" parameterType="kr.green.spring.vo.BoardVo">
@@ -27,6 +27,11 @@
   			isDel = #{board.isDel}
   		where num = #{board.num}
   </update>
+  <!--  -->
+  <update id="updateViews">
+  	update board
+  		set views = views+1 where num = #{num} and isDel = 'N'
+  </update> 
 </mapper>
 
 

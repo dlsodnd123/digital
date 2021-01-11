@@ -8,6 +8,7 @@ public class UserVo {
 	private String home;
 	private String name;
 	private Integer age;
+	
 	public String getId() {
 		return id;
 	}

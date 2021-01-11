@@ -35,8 +35,9 @@ public class BoardController {
 	}
 	@RequestMapping(value = "/board/detail", method = RequestMethod.GET)
 	public ModelAndView boardDetailGet(ModelAndView mv, Integer num) {
+		//해당 게시글의 조회수를 증가
+		boardService.view(num);
 		BoardVo board = boardService.getBoard(num);
-		System.out.println(board);
 		mv.addObject("board", board);
 		mv.setViewName("/board/detail");
 		return mv;
