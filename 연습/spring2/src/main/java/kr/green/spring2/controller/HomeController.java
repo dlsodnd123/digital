@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.green.spring2.service.UserService;
+import kr.green.spring2.vo.UserVo;
 
 @Controller
 public class HomeController {
@@ -24,6 +25,12 @@ public class HomeController {
 		mv.setViewName("/main/home");
 		return mv;
 	}
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public ModelAndView loginGet(ModelAndView mv) {
+		
+		mv.setViewName("/main/login");
+		return mv;
+	}
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ModelAndView loginPost(ModelAndView mv, String id, String pw) {
 		
@@ -36,6 +43,19 @@ public class HomeController {
 			mv.setViewName("redirect:/login");
 		}
 		mv.setViewName("/main/login");
+		return mv;
+	}
+	@RequestMapping(value = "/signup", method = RequestMethod.GET)
+	public ModelAndView signupGet(ModelAndView mv) {
+		
+		mv.setViewName("/main/signup");
+		return mv;
+	}
+	@RequestMapping(value = "/signup", method = RequestMethod.POST)
+	public ModelAndView signupPost(ModelAndView mv, UserVo user) {
+		System.out.println(user);
+		
+		mv.setViewName("redirect:/");
 		return mv;
 	}
 	
