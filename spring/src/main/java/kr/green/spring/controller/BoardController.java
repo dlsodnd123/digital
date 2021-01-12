@@ -31,7 +31,7 @@ public class BoardController {
 	public ModelAndView boardListGet(ModelAndView mv, Criteria cri) {
 		System.out.println("현재페이지 정보" + cri);
 		ArrayList<BoardVo> list = boardService.getBoardList(cri);
-		int totalCount = boardService.getTotalCount();
+		int totalCount = boardService.getTotalCount(cri);
 		
 		PageMaker pm = new PageMaker(cri, 2, totalCount);
 		
@@ -41,11 +41,12 @@ public class BoardController {
 		return mv;
 	}
 	@RequestMapping(value = "/board/detail", method = RequestMethod.GET)
-	public ModelAndView boardDetailGet(ModelAndView mv, Integer num) {
+	public ModelAndView boardDetailGet(ModelAndView mv, Integer num, Criteria cri) {
 		//해당 게시글의 조회수를 증가
 		boardService.view(num);
 		BoardVo board = boardService.getBoard(num);
 		mv.addObject("board", board);
+		mv.addObject("cri", cri);
 		mv.setViewName("/board/detail");
 		return mv;
 	}

@@ -40,7 +40,7 @@
 	    <c:if test="${board == null}">
 	    	<h1>존재하지 않는 게시물입니다.</h1>
 	    </c:if>
-	    <a href="<%=request.getContextPath()%>/board/list">
+	    <a href="<%=request.getContextPath()%>/board/list?page=${cri.page}&search=${cri.search}&type=${cri.type}">
 		    <button type="button" class="btn btn-outline-info">목록</button>
 	    </a>
 	    <a href="<%=request.getContextPath()%>/board/register">

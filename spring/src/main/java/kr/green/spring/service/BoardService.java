@@ -20,6 +20,6 @@ public interface BoardService {
 
 	void view(Integer num);
 
-	int getTotalCount();
+	int getTotalCount(Criteria cri);
 
 }
