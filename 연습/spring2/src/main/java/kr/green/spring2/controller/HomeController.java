@@ -34,7 +34,8 @@ public class HomeController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ModelAndView loginPost(ModelAndView mv, String id, String pw) {
 		
-		boolean isUser = userService.isUser(id, pw);
+		boolean isUser = userService.login(id, pw);
+		System.out.println(isUser);
 		if(isUser) {
 			// 로그인 성공(isUser = true)시 홈화면으로 이동
 			mv.setViewName("redirect:/");
@@ -42,7 +43,6 @@ public class HomeController {
 			// 로그인 실패(isUser = false)시 로그인화면으로 이동
 			mv.setViewName("redirect:/login");
 		}
-		mv.setViewName("/main/login");
 		return mv;
 	}
 	@RequestMapping(value = "/signup", method = RequestMethod.GET)

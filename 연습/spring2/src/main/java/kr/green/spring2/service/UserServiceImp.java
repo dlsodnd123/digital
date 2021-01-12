@@ -1,6 +1,7 @@
 package kr.green.spring2.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
 import kr.green.spring2.dao.UserDao;
@@ -11,16 +12,19 @@ public class UserServiceImp implements UserService {
 	
 	@Autowired
 	UserDao userDao;
+	
+	@Autowired
+	BCryptPasswordEncoder passwordEncoder;
 
 	@Override
-	public boolean isUser(String id, String pw) {
+	public boolean login(String id, String pw) {
 		UserVo user = userDao.getUser(id);
 		// 입력한 id가 DB에 일치하는 id가 없으면 false반환
 		if(user == null) {			
 			return false;
 		}
-		// 입력한 id가 DB에 있고, 입력한 pw가 DB에서 가져온 회원정보의 pw랑 같으면 true반환
-		if(user.getPw().equals(pw)) {
+		// 회원정보가 null이 아니면서 암호화된 비밀번호와 일치하면 true반환
+		if(user != null && passwordEncoder.matches(pw, user.getPw())) {
 			return true;
 		}
 		return false; // 비밀번호가 일치않으면 false반환
@@ -32,6 +36,8 @@ public class UserServiceImp implements UserService {
 		UserVo tmp = userDao.getUser(id);
 		System.out.println(tmp);
 		if(tmp == null) {
+			String encPw = passwordEncoder.encode(user.getPw());
+			user.setPw(encPw);
 			userDao.insertUser(user);
 			return true;
 		}

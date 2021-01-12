@@ -136,10 +136,11 @@ public class BoardController {
 	        entity = new ResponseEntity<byte[]>(IOUtils.toByteArray(in),headers,HttpStatus.CREATED);
 	    }catch(Exception e) {
 	        e.printStackTrace();
-	        entity = new ResponseEntity<byte[]>(HttpStatus.BAD_REQUEST);
+	        entity = new ResponseEntity<byte[]>(HttpStatus.BAD_REQUEST);		
 	    }finally {
 	        in.close();
 	    }
 	    return entity;
 	}
+	
 }
