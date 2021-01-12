@@ -29,7 +29,7 @@
   	select * from board where num = #{num} and isDel = 'N'
   </select>
   <!-- 새로운 게시글 등록하는 쿼리문 -->
-  <insert id="insertBoard" parameterType="kr.green.spring.vo.BoardVo">
+  <insert id="insertBoard" useGeneratedKeys="true" keyProperty="board.num" parameterType="kr.green.spring.vo.BoardVo">
   	insert into
   		board(title, writer, content)
   		values(#{board.title}, #{board.writer}, #{board.content})
@@ -57,6 +57,7 @@
   			or writer like concat('%',#{cri.search}, '%'))
   		</if>
   		<if test="cri.type == 2">
+  		
   			and title like concat('%',#{cri.search}, '%') 
   		</if>
   		<if test="cri.type == 3">
@@ -65,6 +66,13 @@
   		<if test="cri.type == 4">
   			and writer like concat('%',#{cri.search}, '%') 
   		</if>
+  </select>
+  <insert id="insertFile">
+  	insert into files(boardNum, oriFilename, filename)
+  		values(${num}, #{oriFilename}, #{filename})
+  </insert>
+  <select id="getFileList" resultType="kr.green.spring.vo.FileVo">
+  	select * from files where boardNum = #{num}
   </select>
 </mapper>
 

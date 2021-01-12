@@ -4,6 +4,7 @@ import java.util.ArrayList;
 
 import kr.green.spring.Pagination.Criteria;
 import kr.green.spring.vo.BoardVo;
+import kr.green.spring.vo.FileVo;
 import kr.green.spring.vo.UserVo;
 
 public interface BoardService {
@@ -21,5 +22,9 @@ public interface BoardService {
 	void view(Integer num);
 
 	int getTotalCount(Criteria cri);
+
+	void registerFile(int num, String originalFilename, String fileName);
+
+	ArrayList<FileVo> getFileList(Integer num);
 
 }

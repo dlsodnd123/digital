@@ -20,8 +20,26 @@
 
  - 검색 : 제목/내용/작성자를 검색
 
- - 좋아요 :  likes 테이블을 추가, ajax를 이용
+ - 첨부파일 : 게시글의 첨부파일을 관리, file 테이블 추가(강사님 깃허브 참고 할것)
+	file테이블 생성 : 어떤 게시글에 첨부파일이 들어있느니 알수있는 테이블
+	 	num : 기본키(자동증가), int, PK, NN, AI
+		boardNum : 게시글 번호, int, NN, 외래키 지정
+		oriFileName : 업로드한 파일의 원복이름, varchar(255), NN
+		fileName : 실제 서버에 업로드된 파일 이름 varchar(255), NN
 
- - 첨부파일 : 게시글의 첨부파일을 관리, file 테이블 추가
+	예시 : 1번 게시글에 첨부 파일 A,B를 등록
+	num	boardNum	oriFileName	fileName
+	1	1		A		xxx_A
+	2	1		B		yyy_B
+
+	이후 작업은 문서 참조
+	
+	의존성 추가
+	servlet-context.xml에 업로드 설정
+	/board/register.jsp에 form태그 옆에 enctype 설정하고, 첨부파일 추가할 수 있는 input태그 추가
+	UploadFileUtils 클래스 추가		
+	
+
+ - 좋아요 :  likes 테이블을 추가, ajax를 이용
 
 
