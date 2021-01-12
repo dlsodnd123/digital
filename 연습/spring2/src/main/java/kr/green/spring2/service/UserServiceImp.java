@@ -17,17 +17,17 @@ public class UserServiceImp implements UserService {
 	BCryptPasswordEncoder passwordEncoder;
 
 	@Override
-	public boolean login(String id, String pw) {
+	public UserVo isUser(String id, String pw) {
 		UserVo user = userDao.getUser(id);
 		// 입력한 id가 DB에 일치하는 id가 없으면 false반환
 		if(user == null) {			
-			return false;
+			return null;
 		}
 		// 회원정보가 null이 아니면서 암호화된 비밀번호와 일치하면 true반환
 		if(user != null && passwordEncoder.matches(pw, user.getPw())) {
-			return true;
+			return user;
 		}
-		return false; // 비밀번호가 일치않으면 false반환
+		return null; // 비밀번호가 불일치
 	}
 
 	@Override

@@ -3,6 +3,7 @@ package kr.green.spring2.vo;
 public class UserVo {
 	private String id;
 	private String pw;
+	private String pw2;
 	private int age;
 	private String name;
 	private String email;
@@ -49,5 +50,12 @@ public class UserVo {
 		return "UserVo [id=" + id + ", pw=" + pw + ", age=" + age + ", name=" + name + ", email=" + email + ", home="
 				+ home + "]";
 	}
+	public String getPw2() {
+		return pw2;
+	}
+	public void setPw2(String pw2) {
+		this.pw2 = pw2;
+	}
+	
 	
 }

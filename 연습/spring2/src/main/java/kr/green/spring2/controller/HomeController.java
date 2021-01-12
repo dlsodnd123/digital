@@ -1,5 +1,7 @@
 package kr.green.spring2.controller;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -34,9 +36,9 @@ public class HomeController {
 	@RequestMapping(value = "/login", method = RequestMethod.POST)
 	public ModelAndView loginPost(ModelAndView mv, String id, String pw) {
 		
-		boolean isUser = userService.login(id, pw);
-		System.out.println(isUser);
-		if(isUser) {
+		UserVo user = userService.isUser(id, pw);
+		mv.addObject("user", user);
+		if(user != null) {
 			// 로그인 성공(isUser = true)시 홈화면으로 이동
 			mv.setViewName("redirect:/");
 		}else {
