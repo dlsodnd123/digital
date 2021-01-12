@@ -53,9 +53,12 @@ public class HomeController {
 	}
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public ModelAndView signupPost(ModelAndView mv, UserVo user) {
-		System.out.println(user);
-		
-		mv.setViewName("redirect:/");
+		boolean isSignup = userService.Singup(user);
+		if(isSignup) {
+			mv.setViewName("redirect:/");
+		}else {
+			mv.setViewName("redirect:/signup");			
+		}
 		return mv;
 	}
 	

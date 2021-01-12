@@ -6,5 +6,9 @@
   <select id="getUser" resultType="kr.green.spring2.vo.UserVo">
     select * from user where id = #{id}
   </select>
-
+  <insert id="insertUser" parameterType="kr.green.spring2.vo.UserVo">
+  	insert into user
+  		(id, pw, age, name, email, home) values(#{user.id}, #{user.pw}, #{user.age}, #{user.name}, #{user.email}, #{user.home})
+  </insert>
+  
 </mapper>

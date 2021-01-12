@@ -26,4 +26,16 @@ public class UserServiceImp implements UserService {
 		return false; // 비밀번호가 일치않으면 false반환
 	}
 
+	@Override
+	public boolean Singup(UserVo user) {
+		String id = user.getId();
+		UserVo tmp = userDao.getUser(id);
+		System.out.println(tmp);
+		if(tmp == null) {
+			userDao.insertUser(user);
+			return true;
+		}
+		return false;
+	}
+
 }
