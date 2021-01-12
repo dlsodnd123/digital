@@ -1,6 +1,7 @@
 package kr.green.spring.controller;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
@@ -71,29 +72,44 @@ public class BoardController {
 		return mv;
 	}
 	@RequestMapping(value = "/board/register", method = RequestMethod.POST)
-	public ModelAndView boardRegisterPost(ModelAndView mv, BoardVo board, MultipartFile file) throws Exception{	
+	public ModelAndView boardRegisterPost(ModelAndView mv, BoardVo board, MultipartFile[] fileList) throws Exception{	
 		boardService.registerBoard(board);
-		String fileName="";
-		if(file != null && file.getOriginalFilename().length() != 0) {
-			fileName = UploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(),file.getBytes());
-			boardService.registerFile(board.getNum(),file.getOriginalFilename(),fileName);
+		
+		if(fileList != null) {
+			for(MultipartFile file : fileList) {
+				if(file != null && file.getOriginalFilename().length() != 0) {
+					String fileName = UploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(),file.getBytes());
+					boardService.registerFile(board.getNum(),file.getOriginalFilename(),fileName);
+				}
+			
+			}
 		}
-		System.out.println("새로 추가된 게시글 번호 : " + board.getNum());
-		System.out.println("추가해야할 파일명 : " + fileName);
 		mv.setViewName("redirect:/board/list");
 		return mv;
 	}
 	@RequestMapping(value = "/board/modify", method = RequestMethod.GET)
 	public ModelAndView boardModifyGet(ModelAndView mv, Integer num) {	
 		BoardVo board = boardService.getBoard(num);
+		ArrayList<FileVo> fList = boardService.getFileList(num);
+		mv.addObject("fList", fList);
 		mv.addObject("board", board);
 		mv.setViewName("/board/modify");
 		return mv;
 	}
 	@RequestMapping(value = "/board/modify", method = RequestMethod.POST)
-	public ModelAndView boardModifyPost(ModelAndView mv, BoardVo board, HttpServletRequest request) {	
+	public ModelAndView boardModifyPost(ModelAndView mv, BoardVo board, HttpServletRequest request, MultipartFile[] fileList) throws IOException, Exception {	
 		UserVo user = userService.getUser(request);
 		boardService.modifyBoard(board, user);
+		if(fileList != null) {
+			for(MultipartFile file : fileList) {
+				if(file != null && file.getOriginalFilename().length() != 0) {
+					String fileName = UploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(),file.getBytes());
+					boardService.registerFile(board.getNum(),file.getOriginalFilename(),fileName);
+				}
+			
+			}
+		}
+		
 		mv.setViewName("redirect:/board/list");
 		return mv;
 	}
@@ -110,7 +126,6 @@ public class BoardController {
 	    InputStream in = null;
 	    ResponseEntity<byte[]> entity = null;
 	    try{
-	        String FormatName = fileName.substring(fileName.lastIndexOf(".")+1);
 	        HttpHeaders headers = new HttpHeaders();
 	        in = new FileInputStream(uploadPath+fileName);
 

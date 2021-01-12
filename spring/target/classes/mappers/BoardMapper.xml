@@ -72,8 +72,11 @@
   		values(${num}, #{oriFilename}, #{filename})
   </insert>
   <select id="getFileList" resultType="kr.green.spring.vo.FileVo">
-  	select * from files where boardNum = #{num}
+  	select * from files where boardNum = #{num} and isDel = 'N'
   </select>
+  <update id="deleteFile">
+  	update files set isDel ='Y' where boardNum = #{num}
+  </update>
 </mapper>
 
 

@@ -48,6 +48,8 @@ public class BoardServiceImp implements BoardService {
 		}
 		// 5-12. 수정된 게시글을 DB에 업데이트
 		boardDao.updateBoard(oriBoard);
+		// 기존 게시글 첨부파일을 삭제
+		boardDao.deleteFile(oriBoard.getNum());
 	}
 
 	@Override
