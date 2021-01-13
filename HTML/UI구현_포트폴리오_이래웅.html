@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>포트폴리오</title>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        ul, ol{
+            list-style: none;
+        }
+        a {
+            text-decoration: none;
+            color: black;
+        }
+        .header{
+            padding: 7px 10px 7px 20px;
+            background-color: cornsilk;
+        }
+        .header::after{
+            content: '';
+            clear: both;
+            display: block;
+        }
+        .left-box li{
+            float: left;
+        }
+        .content{
+            width: 98%;
+            height: 100vh;
+            border: 1px solid black;
+            margin: 15px 5px 5px 5px;
+            
+        }
+        .right-box{
+            float: right;
+        }
+        .left-box li+li{
+            margin-left: 25px;
+        }
+        .left-box li:first-child{
+            margin-right: 40px;
+        }
+        .search{
+            border: 1px solid red;
+            border-radius: 3px;
+            font-size: 18px;
+            margin-right: 5px;
+            padding-bottom: 2px;
+        }
+        .search-btn{
+            font-size: 10px;
+            padding: 3px 15px;
+            background-color: cornsilk;
+            border: 1px solid red;
+            border-radius: 3px;           
+        }
+        .ham-menu {
+            display: none;
+        }
+        /* 640px 이하 기기에서 적용할 css */
+        @media (max-width: 640px) {
+            .left-box li+li{
+                display: none;
+            }
+            .ham-menu{
+                font-size: 20px;
+                background-color: cornsilk;
+                border: none;
+                display: inline;
+            }
+            .search-btn{
+                margin-right: 5px;
+            }
+        }
+    </style>
+    <script src="https://kit.fontawesome.com/372f53c69c.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="header">
+        <div class="left-box">
+            <ul>
+                <li><a href="#">로고</a></li>
+                <li><a href="#">메뉴1</a></li>
+                <li><a href="#">메뉴2</a></li>
+                <li><a href="#">메뉴3</a></li>
+            </ul>
+        </div>
+        <div class="right-box">
+            <input type="text" class="search">
+            <button class="search-btn">검색</button>
+            <button class="ham-menu"><i class="fas fa-bars"></i></button>
+        </div>
+    </div>
+    <div class="content"></div>
+</body>
+</html>
