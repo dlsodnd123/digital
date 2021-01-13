@@ -17,6 +17,9 @@
 		        	<a class="nav-link" href="<%=request.getContextPath()%>/login">로그인</a>
 		      	</li>
 		      	</c:if>
+		      	<li class="nav-item">
+		        	<a class="nav-link" href="<%=request.getContextPath()%>/board/list">게시판</a>
+		      	</li>
 		      	<c:if test="${user != null}">
 		      	<li class="nav-item">
 		        	<a class="nav-link" href="<%=request.getContextPath()%>/logout">로그아웃</a>
