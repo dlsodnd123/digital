@@ -11,6 +11,7 @@ public class BoardVo {
 	private String content;
 	private Date registerDate;
 	private String isDel;
+	private int views;
 	
 	public int getNum() {
 		return num;
@@ -54,10 +55,18 @@ public class BoardVo {
 	public void setIsDel(String isDel) {
 		this.isDel = isDel;
 	}
+	public int getViews() {
+		return views;
+	}
+	public void setViews(int views) {
+		this.views = views;
+	}
 	@Override
 	public String toString() {
 		return "BoardVo [num=" + num + ", title=" + title + ", writer=" + writer + ", content=" + content
-				+ ", registerDate=" + registerDate + ", isDel=" + isDel + "]";
+				+ ", registerDate=" + registerDate + ", isDel=" + isDel + ", views=" + views + "]";
 	}
+	
+	
 	
 }

@@ -64,5 +64,12 @@ public class BoardSerivceImp implements BoardService {
 		boardDao.updateBoard(board);
 	}
 
+	@Override
+	public void views(Integer num) {
+		if(num == null)
+			return ;
+		boardDao.updateViews(num);
+	}
+
 
 }

@@ -29,6 +29,10 @@
 	      <input type="text" class="form-control" name="writer" value="${board.registerDate}" readonly>
 	    </div>
 	    <div class="form-group">
+	      <label>조회수</label>
+	      <input type="text" class="form-control" name="views" value="${board.views}" readonly>
+	    </div>
+	    <div class="form-group">
 	      <label>내용</label>
 	      <textarea class="form-control" rows="10" name="content" readonly>${board.content}</textarea>
 	    </div>
