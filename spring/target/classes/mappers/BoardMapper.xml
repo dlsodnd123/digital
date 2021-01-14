@@ -57,7 +57,6 @@
   			or writer like concat('%',#{cri.search}, '%'))
   		</if>
   		<if test="cri.type == 2">
-  		
   			and title like concat('%',#{cri.search}, '%') 
   		</if>
   		<if test="cri.type == 3">

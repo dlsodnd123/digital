@@ -4,7 +4,23 @@
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="kr.green.test.dao.BoardDao">
 	<select id="getBoardList" resultType="kr.green.test.vo.BoardVo">
-		select * from board where isDel = 'N' order by num desc 
+		select * from board where isDel = 'N' 
+		<if test="cri.type == 1">
+			and (title like concat('%',#{cri.search},'%')
+			or content like concat('%',#{cri.search},'%')
+			or writer like concat('%',#{cri.search},'%'))
+		</if>
+		<if test="cri.type == 2">
+			and title like concat('%',#{cri.search},'%')
+		</if>
+		<if test="cri.type == 3">
+			and content like concat('%',#{cri.search},'%')
+		</if>
+		<if test="cri.type == 4">
+			and writer like concat('%',#{cri.search},'%')
+		</if>
+			order by num desc
+			limit #{cri.pageStart}, #{cri.perPageNum}
 	</select>
 	<select id="getBoard" resultType="kr.green.test.vo.BoardVo">
 		select * from board where num = #{num} and isDel = 'N'
@@ -23,6 +39,24 @@
 	<update id="updateViews" parameterType="Integer">
 		update board
 			set views = views + 1 where num = #{num} and isDel = 'N'
-				
 	</update>
+	<!-- 전체 게시글 수를 알려주는 쿼리문 생성 -->
+	<select id="getTotalCount" resultType="int">
+		select count(*) from board where isDel = 'N'
+		<if test="cri.type == 1">
+			and (title like concat('%',#{cri.search},'%')
+			or content like concat('%',#{cri.search},'%')
+			or writer like concat('%',#{cri.search},'%'))
+		</if>
+		<if test="cri.type == 2">
+			and title like concat('%',#{cri.search},'%')
+		</if>
+		<if test="cri.type == 3">
+			and content like concat('%',#{cri.search},'%')
+		</if>
+		<if test="cri.type == 4">
+			and writer like concat('%',#{cri.search},'%')
+		</if>
+	</select>
+	
 </mapper>

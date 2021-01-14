@@ -2,12 +2,13 @@
 
 <페이지네이션 기능>
 
- - Criteria 클래스 추가 o
+ - Criteria 클래스 추가(현재페이지 정보를 나타내는 클래스)
 
- - PageMaker 클래스 추가 o
-	현재페이지 정보(Criteria cri), displayPageNum, 전체 게시글이 주어졌을 때 객체를 생성하는 생성자 추가 o
+ - PageMaker 클래스 추가(페이지네이션 정보를 나타내는 클래스)
+	현재페이지 정보(Criteria cri), displayPageNum, 전체 게시글의 수가 주어졌을 때 객체를 생성하는 생성자 추가 o
 
  - BoardController
+	리퀘스트 맵핑이 /board/list인 메소드에서 작업
 	서비스에게 전체 게시글 갯수를 알려 달라 고 요청하여 변수(int totalCount)에 저장 o
 	한 페이지네이션에서 보여줄 최대 페이지 수를 임의로 선정하여 변수(int displayPageNum)에 저장 o
 	현재 페이지정보를 화면에서 전달받아옴(매개변수) o
@@ -16,7 +17,8 @@
 	(수정) 전체 게시글을 가져오는 서비스의 getBoradList()를 현재 페이지글을 가져오는 getBoardList(cri)로 수정 o
 
  - BoardServiceImp
-	다오에게 전체 게시글 수를 요청 o
+	getTotalCount()
+		다오에게 전체 게시글 수를 요청 o
 	(수정)다오에게 getBoardList()를 getBoardList(cri) o
 
  - BoardMapper

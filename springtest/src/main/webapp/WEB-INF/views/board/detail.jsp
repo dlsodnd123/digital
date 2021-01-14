@@ -36,7 +36,7 @@
 	      <label>내용</label>
 	      <textarea class="form-control" rows="10" name="content" readonly>${board.content}</textarea>
 	    </div>
-	    <a href="<%=request.getContextPath()%>/board/list"><button type="button" class="btn btn-outline-secondary">목록</button></a>
+	    <a href="<%=request.getContextPath()%>/board/list?page=${cri.page}&type=${cri.type}&search=${cri.search}"><button type="button" class="btn btn-outline-secondary">목록</button></a>
 	    <a href="<%=request.getContextPath()%>/board/register"><button type="button" class="btn btn-outline-secondary">글쓰기</button></a>
 	    <c:if test="${user != null && user.id == board.writer}">
 	    <a href="<%=request.getContextPath()%>/board/modify?num=${board.num}"><button type="button" class="btn btn-outline-secondary">수정</button></a>
