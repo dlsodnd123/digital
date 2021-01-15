@@ -38,12 +38,20 @@
 	
 	<beans:bean id="loginInterceptor" 
 		class="kr.green.spring2.interceptor.LoginInterceptor"></beans:bean>
+	<beans:bean id="authInterceptor" 
+		class="kr.green.spring2.interceptor.AuthInterceptor"></beans:bean>
 		
 	<interceptors>
 		<interceptor>
 			<mapping path="/login"/>
 			<beans:ref bean="loginInterceptor"/>
 		</interceptor>
+		<interceptor>
+	        <mapping path="/board/register"/>
+	        <beans:ref bean="authInterceptor"/>
+		</interceptor>
 	</interceptors>	
+	
+	
 	
 </beans:beans>
