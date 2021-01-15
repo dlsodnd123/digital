@@ -1,5 +1,7 @@
 package kr.green.test.controller;
 
+import java.util.ArrayList;
+
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
@@ -11,6 +13,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.green.test.service.UserService;
+import kr.green.test.vo.TestVo;
 import kr.green.test.vo.UserVo;
 
 /**
@@ -89,7 +92,25 @@ public class HomeController {
 	}
 	@RequestMapping(value = "/test1", method = RequestMethod.GET)
 	public ModelAndView test1Get(ModelAndView mv) {
+		String sutdentName = "홍길동";
+		int studentAge = 18;
+		/* 문제 : 서버에서 보낸 데이터를 이용하여 학생 이름과 나이를 화면에 출력되도록 test1.jsp 코드를 수정해보세요 */
+		mv.addObject("name", sutdentName);
+		mv.addObject("age", studentAge);
 		
+		TestVo testVo = new TestVo("임꺽정", 17);
+		/* 문제 : 서버에서 보낸 testVo 데이터를 이용하여 학생 이름과 나이를 화면에 출력되도록 test1.jsp 코드를 수정해보세요 */
+		mv.addObject("testVo",testVo);
+		
+		/* 문제 : 서버에서 보낸 start와 end를 이용하여 start부터 end사이의 숫자를 출력하는 코드를 test1.jsp 코드를 수정해보세요(c:forEach를 이용)*/
+		mv.addObject("start", 1);
+		mv.addObject("end", 5);
+		
+		ArrayList<TestVo> list = new ArrayList<TestVo>();
+		list.add(new TestVo("김철수", 20));
+		list.add(new TestVo("김영희", 19));
+		/* 문제 : 서버에서 보낸 학생들 정보가 들어있는 list를 이용하여 학생들의 이름과 나이를 출력하는 코드를 test1.jsp 코드를 수정해보세요(c:forEach를 이용)*/
+		mv.addObject("list", list);
 		mv.setViewName("/main/test1");
 		return mv;
 	}

@@ -8,6 +8,14 @@
 <title>Insert title here</title>
 </head>
 <body>
-
+	이름 : ${name} <br>
+	나이 : ${age } <br> <br>
+	이름 : ${testVo.name} <br>
+	나이 : ${testVo.age } <br> <br>
+	<c:forEach begin="${start}" end="${end}" var="index">${index}<br></c:forEach> <br>
+	<c:forEach items="${list}" var="list">
+		이름 : ${list.name}<br>
+		나이 : ${list.age }<br>
+	</c:forEach>
 </body>
 </html>
