@@ -10,7 +10,7 @@ public class Criteria {
 	private int type;	// 1:전체, 2:제목, 3.내용, 4.작성자
 	public Criteria() {
 		this.page = 1;
-		this.perPageNum = 5;
+		this.perPageNum = 10;
 		this.type = 0;
 		this.search = "";
 	}

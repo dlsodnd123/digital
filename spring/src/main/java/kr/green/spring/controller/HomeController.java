@@ -36,7 +36,6 @@ public class HomeController {
 	}
 	@RequestMapping(value = "/signup", method = RequestMethod.POST)
 	public ModelAndView signupPost(ModelAndView mv,UserVo user) {
-		System.out.println(user);
 		//회원가입을 진행시키기 위해 userService에게 일을 시키기위한 메소드를 생성해
 		//보세요.
 		boolean isSignup = userService.signup(user);

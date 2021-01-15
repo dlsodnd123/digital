@@ -51,8 +51,6 @@ public class UserServiceImp implements UserService{
 		//DB에서 가져온 회원 정보의 비밀번호(user.getPw())와 입력받은 비밀번호(pw)를 비교하여
 		//같은면 true, 다르면 false를 반환
 		//입력한 id와 일치하는 회원 정보가 없는 경우
-		System.out.println(pw);
-		System.out.println(user);
 		if(user == null)
 			return null;
 		if(passwordEncoder.matches(pw, user.getPw())) {
