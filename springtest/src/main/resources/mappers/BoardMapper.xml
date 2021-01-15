@@ -25,7 +25,7 @@
 	<select id="getBoard" resultType="kr.green.test.vo.BoardVo">
 		select * from board where num = #{num} and isDel = 'N'
 	</select>
-	<insert id="insertBoard" parameterType="kr.green.test.vo.BoardVo">
+	<insert id="insertBoard" parameterType="kr.green.test.vo.BoardVo" useGeneratedKeys="true" keyProperty="board.num">
 		insert into
 			board(title, writer, content)
 			values(#{board.title}, #{board.writer}, #{board.content})
@@ -58,5 +58,12 @@
 			and writer like concat('%',#{cri.search},'%')
 		</if>
 	</select>
-	
+	<insert id="insertFile">
+		insert into 
+			files(boardNum, oriFilename, filename)
+			values(#{num}, #{oriFilename}, #{fileName})
+	</insert>
+	<select id="getFileList" resultType="kr.green.test.vo.FileVo">
+		select * from files where isDel = 'N' and boardNum = #{num}
+	</select>
 </mapper>

@@ -22,7 +22,7 @@ public class HomeController {
 	private static final Logger logger = LoggerFactory.getLogger(HomeController.class);
 	
 	@Autowired
-	private UserService userService;
+	private UserService userService;	
 	//url이 localhost:8080/test/
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home(ModelAndView mv) {
@@ -85,6 +85,12 @@ public class HomeController {
 	public ModelAndView signoutGet(ModelAndView mv, HttpServletRequest request) {
 		request.getSession().removeAttribute("user");
 		mv.setViewName("redirect:/");
+		return mv;
+	}
+	@RequestMapping(value = "/test1", method = RequestMethod.GET)
+	public ModelAndView test1Get(ModelAndView mv) {
+		
+		mv.setViewName("/main/test1");
 		return mv;
 	}
 }
