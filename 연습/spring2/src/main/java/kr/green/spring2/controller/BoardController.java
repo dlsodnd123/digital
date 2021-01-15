@@ -2,6 +2,7 @@ package kr.green.spring2.controller;
 
 import java.util.ArrayList;
 
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -33,4 +34,16 @@ public class BoardController {
 		return mv;
 	}
 	
+	@RequestMapping(value = "/board/register", method = RequestMethod.GET)
+	public ModelAndView boardRegisterGet(ModelAndView mv) {
+		
+		mv.setViewName("/board/register");
+		return mv;
+	}
+	@RequestMapping(value = "/board/register", method = RequestMethod.POST)
+	public ModelAndView boardRegisterPost(ModelAndView mv, BoardVo board) {
+		boardService.insertBoard(board);
+		mv.setViewName("redirect:/board/list");
+		return mv;
+	}
 }

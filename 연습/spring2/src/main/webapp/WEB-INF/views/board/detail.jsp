@@ -31,8 +31,10 @@
 		  <label for="content">내용:</label>
 		  <textarea class="form-control" rows="10" id="content" name="content" readonly>${board.content}</textarea>
 		</div>
-		<a href="<%=request.getContextPath()%>/board/list"><button type="button" class="btn btn-secondary">목록</button></a>
 	  </form>
+		<a href="<%=request.getContextPath()%>/board/list"><button type="button" class="btn btn-secondary">목록</button></a>
+		<a href="<%=request.getContextPath()%>/board/register"><button type="button" class="btn btn-secondary">글쓰기</button></a> <br> <br>
+		
 	</div>
 </body>
 </html>

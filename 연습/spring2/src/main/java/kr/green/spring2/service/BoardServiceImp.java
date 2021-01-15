@@ -27,4 +27,9 @@ public class BoardServiceImp implements BoardService {
 		BoardVo board = boardDao.getBoard(num);
 		return board;
 	}
+
+	@Override
+	public void insertBoard(BoardVo board) {
+		boardDao.insertBoard(board);
+	}
 }

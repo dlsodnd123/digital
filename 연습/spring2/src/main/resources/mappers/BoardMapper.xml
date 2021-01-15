@@ -9,5 +9,9 @@
 	<select id="getBoard" resultType="kr.green.spring2.vo.BoardVo">
 		select * from board where num = #{num}
 	</select>
-
+	<insert id="insertBoard" parameterType="kr.green.spring2.vo.BoardVo">
+		insert into
+			board(title, writer, content)
+			values(#{board.title}, #{board.writer}, #{board.content})
+	</insert>
 </mapper>
