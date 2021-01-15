@@ -36,7 +36,6 @@ public class BoardController {
 	
 	@RequestMapping(value = "/board/register", method = RequestMethod.GET)
 	public ModelAndView boardRegisterGet(ModelAndView mv) {
-		
 		mv.setViewName("/board/register");
 		return mv;
 	}
@@ -46,4 +45,18 @@ public class BoardController {
 		mv.setViewName("redirect:/board/list");
 		return mv;
 	}
+	@RequestMapping(value = "/board/modify", method = RequestMethod.GET)
+	public ModelAndView boardModifyGet(ModelAndView mv, Integer num) {
+		BoardVo board = boardService.getBoard(num);
+		mv.addObject("board",board);
+		mv.setViewName("/board/modify");
+		return mv;
+	}
+	@RequestMapping(value = "/board/modify", method = RequestMethod.POST)
+	public ModelAndView boardModifyPost(ModelAndView mv, BoardVo board) {
+		System.out.println(board);
+		mv.setViewName("/board/modify");
+		return mv;
+	}
+	
 }

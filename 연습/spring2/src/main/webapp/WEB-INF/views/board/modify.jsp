@@ -5,19 +5,19 @@
 <html>
 <head>
 <meta charset="UTF-8">
-<title>게시글 상세 정보</title>
+<title>Insert title here</title>
 </head>
 <body>
 	<div class="container">
-	  <h2>게시글 상세 내용</h2>
-	  <form action="/action_page.php">
-	    <div class="form-group">
+	  <h2>게시글 수정</h2>
+	  <form action="<%=request.getContextPath()%>/board/modify" method="post">
+	  <div class="form-group">
 	      <label for="num">번호:</label>
 	      <input type="text" class="form-control" id="num" name="num" value="${board.num}" readonly>
 	    </div>
 	    <div class="form-group">
 	      <label for="title">제목:</label>
-	      <input type="text" class="form-control" id="title" name="title" value="${board.title}" readonly>
+	      <input type="text" class="form-control" id="title" name="title" value="${board.title}">
 	    </div>
 	    <div class="form-group">
 	      <label for="writer">작성자:</label>
@@ -29,12 +29,10 @@
 	    </div>
 	    <div class="form-group">
 		  <label for="content">내용:</label>
-		  <textarea class="form-control" rows="10" id="content" name="content" readonly>${board.content}</textarea>
+		  <textarea class="form-control" rows="10" id="content" name="content">${board.content}</textarea>
 		</div>
+	    <button type="submit" class="btn btn-primary">수정</button>
 	  </form>
-		<a href="<%=request.getContextPath()%>/board/list"><button type="button" class="btn btn-secondary">목록</button></a>
-		<a href="<%=request.getContextPath()%>/board/register"><button type="button" class="btn btn-secondary">글쓰기</button></a>
-		<a href="<%=request.getContextPath()%>/board/modify?num=${board.num}"><button type="button" class="btn btn-secondary">수정</button></a> <br> <br>
-	</div>
+	 </div> 
 </body>
 </html>
