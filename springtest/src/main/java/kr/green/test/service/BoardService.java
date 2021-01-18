@@ -27,6 +27,8 @@ public interface BoardService {
 
 	ArrayList<FileVo> getFileList(int num);
 
+	void deleteFile(int num);
+
 
 
 }

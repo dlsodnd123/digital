@@ -1,6 +1,7 @@
 package kr.green.test.controller;
 
 import java.io.FileInputStream;
+import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
 
@@ -94,14 +95,28 @@ public class BoardController {
 	public ModelAndView boardModifyGet(ModelAndView mv, Integer num) {
 		
 		BoardVo board = boardService.getboard(num);
+		ArrayList<FileVo> flieList = boardService.getFileList(num);
+		mv.addObject("flieList", flieList);
 		mv.addObject("board", board);
 		mv.setViewName("/board/modify");
 		return mv;
 	}
 	@RequestMapping(value = "/board/modify", method = RequestMethod.POST)
-	public ModelAndView boardModifyPost(ModelAndView mv, BoardVo board, HttpServletRequest request) {
+	public ModelAndView boardModifyPost(ModelAndView mv, BoardVo board, HttpServletRequest request, MultipartFile[] fileList) throws IOException, Exception {
 		UserVo user = userService.getUser(request);
+		// 내용 수정
 		boardService.modifyBoard(user, board);
+		// 기존 파일 삭제
+		boardService.deleteFile(board.getNum());
+		// 새 첨부파일 업로드 및 DB에 추가
+		if(fileList != null && fileList.length != 0) {
+				for(MultipartFile file : fileList) {
+					if(file != null && file.getOriginalFilename().length() != 0) {
+						String fileName = UploadFileUtils.uploadFile(uploadPath, file.getOriginalFilename(),file.getBytes());
+						boardService.registerFile(fileName, board.getNum(), file.getOriginalFilename());		
+					}
+				}
+			}
 		mv.setViewName("redirect:/board/list");
 		return mv;
 	}
