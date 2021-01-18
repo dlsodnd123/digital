@@ -22,5 +22,28 @@
     <button type="submit" class="btn btn-primary col-12">로그인</button>
   </form>
   </c:if>
+  <c:if test="${user != null}">
+  	<button id="btnAjax1">ajax 버튼1</button>
+  	
+  	
+  	<script>
+  		$(function(){
+  			$('#btnAjax1').click(function(){
+  				var data = {name : 'Hong', age : 21};
+  				$.ajax({
+  					url : '<%=request.getContextPath()%>/ajax1',
+  					type : 'post',
+  					data : data,
+  					success : function(data){
+  						console.log(data);
+  					},
+  					error : function(){
+  						console.log('실패');
+  					}
+  				})
+  			})
+  		})
+  	</script>
+  </c:if>
 </body>
 </html>

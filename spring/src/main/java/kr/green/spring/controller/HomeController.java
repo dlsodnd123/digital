@@ -1,6 +1,6 @@
 package kr.green.spring.controller;
 
-import java.util.*;
+import java.util.ArrayList;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -10,9 +10,11 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.green.spring.service.UserService;
+import kr.green.spring.vo.TestVo;
 import kr.green.spring.vo.UserVo;
 
 @Controller
@@ -86,6 +88,21 @@ public class HomeController {
 		r.getSession().removeAttribute("user");
 		mv.setViewName("redirect:/");
 		return mv;
+	}
+	@RequestMapping(value = "/ajax1", method = RequestMethod.POST)
+	@ResponseBody
+	public String ajax1Post(TestVo testVo) {
+		System.out.println("ajax 테스트 성공!");
+		System.out.println(testVo);
+		return testVo.toString();
+	}
+	@RequestMapping(value = "/dup", method = RequestMethod.POST)
+	@ResponseBody
+	public String dupPost(String id) {
+		UserVo user = userService.getUser(id);
+		if(user == null)
+			return "not user";
+		return "user";
 	}
 }
 

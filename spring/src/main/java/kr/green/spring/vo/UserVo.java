@@ -8,6 +8,7 @@ public class UserVo {
 	private String home;
 	private String name;
 	private Integer age;
+	private int author;
 	
 	public String getId() {
 		return id;
@@ -51,12 +52,19 @@ public class UserVo {
 	public void setAge(Integer age) {
 		this.age = age;
 	}
-	@Override
-	public String toString() {
-		return "UserVo [id=" + id + ", pw=" + pw + ", pw2=" + pw2 + ", email=" + email + ", home=" + home + ", name=" + name
-				+ ", age=" + age + "]";
+	public int getAuthor() {
+		return author;
+	}
+	public void setAuthor(int author) {
+		this.author = author;
 	}
 	public String getTest() {
 		return "테스트입니다";
 	}
+	@Override
+	public String toString() {
+		return "UserVo [id=" + id + ", pw=" + pw + ", pw2=" + pw2 + ", email=" + email + ", home=" + home + ", name="
+				+ name + ", age=" + age + ", author=" + author + "]";
+	}
+	
 }
