@@ -2,6 +2,7 @@ package kr.green.spring2.controller;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -53,9 +54,10 @@ public class BoardController {
 		return mv;
 	}
 	@RequestMapping(value = "/board/modify", method = RequestMethod.POST)
-	public ModelAndView boardModifyPost(ModelAndView mv, BoardVo board) {
+	public ModelAndView boardModifyPost(ModelAndView mv, BoardVo board, HttpServletRequest request) {
 		System.out.println(board);
-		mv.setViewName("/board/modify");
+		boardService.modifyBoard(board, request);
+		mv.setViewName("redirect:/board/list");
 		return mv;
 	}
 	

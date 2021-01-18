@@ -2,6 +2,8 @@ package kr.green.spring2.service;
 
 import java.util.ArrayList;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -31,5 +33,15 @@ public class BoardServiceImp implements BoardService {
 	@Override
 	public void insertBoard(BoardVo board) {
 		boardDao.insertBoard(board);
+	}
+
+	@Override
+	public void modifyBoard(BoardVo board, HttpServletRequest request) {
+		BoardVo oriBoard = boardDao.getBoard(board.getNum()); 
+		if(!oriBoard.getWriter().equals(board.getWriter()) || !oriBoard.getWriter().equals(request.getSession())) {
+			return ;
+		}
+		board.setIsDel("N");
+		boardDao.updateBoard(board);
 	}
 }

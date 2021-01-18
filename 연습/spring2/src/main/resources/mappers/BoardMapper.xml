@@ -14,4 +14,7 @@
 			board(title, writer, content)
 			values(#{board.title}, #{board.writer}, #{board.content})
 	</insert>
+	<update id="updateBoard" parameterType="kr.green.spring2.vo.BoardVo">
+	
+	</update>
 </mapper>
