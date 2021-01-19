@@ -4,6 +4,7 @@ import java.io.FileInputStream;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.ArrayList;
+import java.util.HashMap;
 
 import javax.servlet.http.HttpServletRequest;
 
@@ -14,6 +15,7 @@ import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.ResponseBody;
@@ -27,6 +29,7 @@ import kr.green.spring.service.UserService;
 import kr.green.spring.utils.UploadFileUtils;
 import kr.green.spring.vo.BoardVo;
 import kr.green.spring.vo.FileVo;
+import kr.green.spring.vo.LikeVo;
 import kr.green.spring.vo.UserVo;
 
 @Controller
@@ -54,11 +57,17 @@ public class BoardController {
 		return mv;
 	}
 	@RequestMapping(value = "/board/detail", method = RequestMethod.GET)
-	public ModelAndView boardDetailGet(ModelAndView mv, Integer num, Criteria cri) {
+	public ModelAndView boardDetailGet(ModelAndView mv, Integer num, Criteria cri, HttpServletRequest request) {
 		//해당 게시글의 조회수를 증가
 		boardService.view(num);
 		BoardVo board = boardService.getBoard(num);
 		ArrayList<FileVo> fList = boardService.getFileList(num);
+		
+		
+		UserVo user = userService.getUser(request);
+		LikeVo like = boardService.getLike(num, user);
+		
+		mv.addObject("like", like);
 		mv.addObject("fList", fList);
 		mv.addObject("board", board);
 		mv.addObject("cri", cri);
@@ -141,6 +150,14 @@ public class BoardController {
 	        in.close();
 	    }
 	    return entity;
+	}
+	@RequestMapping(value = "/board/like", method = RequestMethod.POST)
+	@ResponseBody
+	public Object boardLikePost(@RequestBody LikeVo likeVo) {
+		System.out.println("/board/like : " + likeVo);
+		boardService.like(likeVo);
+		HashMap<String, Object> map = new HashMap<String, Object>();
+		return map;
 	}
 	
 }

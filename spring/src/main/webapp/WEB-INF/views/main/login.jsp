@@ -24,8 +24,39 @@
   </c:if>
   <c:if test="${user != null}">
   	<button id="btnAjax1">ajax 버튼1</button>
-  	
-  	
+  	<button id="btnAjax2">ajax 버튼2</button>
+  	<div>
+  		<table class="table table-hover">
+		<thead>
+			<tr>
+				<td><b>아이디</b></td>
+				<td><b>이름</b></td>
+				<td><b>이메일</b></td>
+				<td><b>나이</b></td>
+				<td><b>홈페이지</b></td>
+				<td><b>권한</b></td>
+			</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<td>임시1</td>
+				<td>임시1</td>
+				<td>임시1</td>
+				<td>임시1</td>
+				<td>임시1</td>
+				<td>임시1</td>
+			</tr>
+			<tr>
+				<td>임시2</td>
+				<td>임시2</td>
+				<td>임시2</td>
+				<td>임시2</td>
+				<td>임시2</td>
+				<td>임시2</td>
+			</tr>
+		</tbody>
+	</table>
+  	</div>
   	<script>
   		$(function(){
   			$('#btnAjax1').click(function(){
@@ -35,7 +66,7 @@
   					type : 'post',
   					data : data,
   					success : function(data){
-  						console.log(data);
+  						
   					},
   					error : function(){
   						console.log('실패');
@@ -44,6 +75,45 @@
   			})
   		})
   	</script>
+  	<script>
+  		$('#btnAjax2').click(function(){
+			var sendData = {name : 'Hong', age : 21};
+			$.ajax({
+				url : '<%=request.getContextPath()%>/ajax2',
+				type : 'post',
+				data : JSON.stringify(sendData),
+				dataType:"json",
+		        contentType:"application/json; charset=UTF-8",
+				success : function(data){
+					var str = '';
+					var list = data['list'];
+					for(var i = 0; i<list.length; i++){
+						str += '<tr>'
+							str += '<td>'+list[i]['id']+'</td>'
+							str += '<td>'+list[i]['name']+'</td>'
+							str += '<td>'+list[i]['email']+'</td>'
+							str += '<td>'+list[i]['age']+'</td>'
+							str += '<td>'+list[i]['home']+'</td>'
+							str += '<td>'+list[i]['author']+'</td>'
+							str += '</tr>'
+					}
+					$('tbody').html(str);
+					
+					console.log(data);
+					console.log(data['list'][0]['email']);
+					console.log(data.list[0].email);
+					console.log(data.testVo.name);
+					console.log(data['testVo']['name']);
+				},
+				error : function(){
+					console.log('실패');
+				}
+			})
+		})
+  	</script >
+  	<script type="" src="<%=request.getContextPath()%>/resources/js/test.js">
+  	</script>
   </c:if>
+  
 </body>
 </html>

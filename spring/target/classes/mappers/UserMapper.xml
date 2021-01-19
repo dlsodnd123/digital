@@ -22,6 +22,9 @@
   	insert into user(id,pw,name,age,home,email)
   		values(#{user.id}, #{user.pw}, #{user.name}, #{user.age}, #{user.home}, #{user.email})
   </insert>
+  <update id="updateAuthor">
+  	update user set author = #{user.author} where id = #{user.id}
+  </update>
 </mapper>
 
 
