@@ -11,13 +11,18 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.green.spring2.service.BoardService;
+import kr.green.spring2.service.UserService;
 import kr.green.spring2.vo.BoardVo;
+import kr.green.spring2.vo.UserVo;
 
 @Controller
 public class BoardController {
 
 	@Autowired
 	BoardService boardService;
+	
+	@Autowired
+	UserService userService;
 	
 	@RequestMapping(value = "/board/list", method = RequestMethod.GET)
 	public ModelAndView boardListGet(ModelAndView mv) {
@@ -56,7 +61,9 @@ public class BoardController {
 	@RequestMapping(value = "/board/modify", method = RequestMethod.POST)
 	public ModelAndView boardModifyPost(ModelAndView mv, BoardVo board, HttpServletRequest request) {
 		System.out.println(board);
-		boardService.modifyBoard(board, request);
+		UserVo user = userService.getUser(request);
+		System.out.println("user 정보 : " + user);
+		boardService.modifyBoard(board, user);
 		mv.setViewName("redirect:/board/list");
 		return mv;
 	}

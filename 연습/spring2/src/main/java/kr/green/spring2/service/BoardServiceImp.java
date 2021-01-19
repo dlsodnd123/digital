@@ -9,6 +9,7 @@ import org.springframework.stereotype.Service;
 
 import kr.green.spring2.dao.BoardDao;
 import kr.green.spring2.vo.BoardVo;
+import kr.green.spring2.vo.UserVo;
 
 @Service
 public class BoardServiceImp implements BoardService {
@@ -36,10 +37,16 @@ public class BoardServiceImp implements BoardService {
 	}
 
 	@Override
-	public void modifyBoard(BoardVo board, HttpServletRequest request) {
+	public void modifyBoard(BoardVo board, UserVo user) {
 		BoardVo oriBoard = boardDao.getBoard(board.getNum()); 
-		if(!oriBoard.getWriter().equals(board.getWriter()) || !oriBoard.getWriter().equals(request.getSession())) {
+		if(!oriBoard.getWriter().equals(board.getWriter())) {
+			System.out.println("원본 게시글 작성자와 받아온 게시글 작성자가 다름");
 			return ;
+		}
+		if(!oriBoard.getWriter().equals(user.getId())) {
+			System.out.println("회원 아이디와 원본 작성자가 같지 않음");
+			return ;
+			
 		}
 		board.setIsDel("N");
 		boardDao.updateBoard(board);

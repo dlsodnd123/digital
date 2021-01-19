@@ -1,5 +1,7 @@
 package kr.green.spring2.service;
 
+import javax.servlet.http.HttpServletRequest;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -42,6 +44,12 @@ public class UserServiceImp implements UserService {
 			return true;
 		}
 		return false;
+	}
+
+	@Override
+	public UserVo getUser(HttpServletRequest request) {
+		UserVo user = (UserVo)request.getSession().getAttribute("user");
+		return user;
 	}
 
 }
