@@ -35,8 +35,11 @@
 			<label for="id" class="error" id="id-error"></label>
 		</div>
 		<div class="form-group">
-			<input type="password" class="form-control" id="pw" name="pw" placeholder="비밀번호"value="${user.pw}">
-			<label for="pw" class="error" id="pw-error"></label>
+			<button type="button" class="btn btn-outline-success col-12" id="dup">아이디 중복 검사</button>
+		</div>
+		<div class="form-group">
+			<input type="password" class="form-control" id="pw" name="pw" placeholder="비밀번호"value="">
+			<label for="pw" class="error" id="pw2-error"></label>
 		</div>
 		<div class="form-group">
 			<input type="password" class="form-control" id="pw2" name="pw2" placeholder="비밀번호 확인"value="">
@@ -60,5 +63,39 @@
 		</div>
 		<button class="btn btn-outline-success col-12">회원가입</button>
 	</form>
+	<script type="text/javascript">
+		var dup = false;
+		$('#dup').click(function(){
+			var id = $('input[name=id]').val();
+			if(id == ''){
+				alert('아이디를 입력하세요');
+				return ;
+			}
+			var data = { 'id' : id}
+			$.ajax({
+		        type:'post',
+		        data:data,
+		        url:'<%=request.getContextPath()%>/dup',
+		        success : function(data){
+		            if(data == 'possible'){
+		            	alert('가입가능한 아이디입니다.')
+		            	dup = true;
+		            }else{
+		            	alert('이미 가입된 아이디입니다.')
+		            }
+		        }
+		    });
+		})
+		$('input[name=id]').change(function(){
+			dup = false;
+		})
+		$('form').submit(function(){
+			if(!dup){
+				alert('아이디 중복 검사를 하세요.')
+				return false;
+			}
+			return true;
+		})
+	</script>
 </body>
 </html>

@@ -34,7 +34,7 @@
 			<input type="text" class="form-control" id="id" name="id" placeholder="아이디" value="${user.id}">
 			<label for="id" class="error" id="id-error"></label>
 		</div>
-		<button type="button" class="btn btn-outline-success col-12" id="dup">아이디 중복검사</button>
+		<button type="button" class="btn btn-outline-success col-12" id="dup">아이디 중복 확인</button>
 		<div class="form-group">
 			<input type="password" class="form-control" id="pw" name="pw" placeholder="비밀번호"value="${user.pw}">
 			<label for="pw" class="error" id="pw-error"></label>

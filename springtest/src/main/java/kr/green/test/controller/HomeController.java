@@ -10,6 +10,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.servlet.ModelAndView;
 
 import kr.green.test.service.UserService;
@@ -143,5 +144,14 @@ public class HomeController {
 		
 		mv.setViewName("/main/test2");
 		return mv;
+	}
+	@RequestMapping(value = "/dup", method = RequestMethod.POST)
+	@ResponseBody
+	public String dupGet(String id) {
+		UserVo user = userService.getUser(id);
+		System.out.println(user);
+		if(user == null)
+			return "possible";
+		return "impossible";
 	}
 }
