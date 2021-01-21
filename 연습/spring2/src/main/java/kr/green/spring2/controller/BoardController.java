@@ -34,6 +34,7 @@ public class BoardController {
 	
 	@RequestMapping(value = "/board/detail", method = RequestMethod.GET)
 	public ModelAndView boardDetailGet(ModelAndView mv, Integer num) {
+		boardService.addViews(num);
 		BoardVo board = boardService.getBoard(num);
 		mv.addObject("board",board);
 		mv.setViewName("/board/detail");

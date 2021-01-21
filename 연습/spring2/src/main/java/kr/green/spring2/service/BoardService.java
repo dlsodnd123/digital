@@ -19,5 +19,7 @@ public interface BoardService {
 
 	void deleteBoard(Integer num, UserVo user);
 
+	void addViews(Integer num);
+
 
 }

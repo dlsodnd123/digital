@@ -22,4 +22,7 @@
 	<update id="deleteBoard" parameterType="kr.green.spring2.vo.BoardVo">
 		update board set isDel = #{board.isDel} where num = #{board.num}
 	</update>
+	<update id="updateViews">
+		update board set views = views + 1 where num = #{num}
+	</update>
 </mapper>

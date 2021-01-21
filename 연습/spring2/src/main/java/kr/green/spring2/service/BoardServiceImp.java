@@ -63,4 +63,12 @@ public class BoardServiceImp implements BoardService {
 		System.out.println(board);
 		boardDao.deleteBoard(board);
 	}
+
+	@Override
+	public void addViews(Integer num) {
+		if(num == null) {
+			return;
+		}
+		boardDao.updateViews(num);
+	}
 }

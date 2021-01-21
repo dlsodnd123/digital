@@ -7,7 +7,7 @@
 	
  - BoardVo
 	조회수를 멤버 변수(int views)로 추가 o
-	조회수에 접근하기 위한 getter/setter를 추가 o
+	조회수에 접근하기 위한 getter/setter를 추가  o
 	toString 메소드를 지우고 새로 생성 o
 
  - BoardController
@@ -16,11 +16,11 @@
 
  - BoardServiceImp
  	넘어온 번호가 null이면 메소드 종료 o
-	null이 아니면 다오에게 번호를 주면서 조회수 증가하라고 업데이트 요청 o
+	null이 아니면 다오에게 번호를 주면서 조회수 증가하라고 업데이트 요청 
 
  - BoardDao
-	매개변수가 있으면 @Param("??")을 추가 o
+	매개변수가 있으면 @Param("??")을 추가 
  
  - BoardMapper
-	조회수를 1증가하는 쿼리문 작성 o
+	조회수를 1증가하는 쿼리문 작성 
 	
