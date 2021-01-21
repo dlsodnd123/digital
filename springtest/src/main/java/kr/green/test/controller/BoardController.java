@@ -27,6 +27,7 @@ import kr.green.test.service.BoardService;
 import kr.green.test.service.UserService;
 import kr.green.test.vo.BoardVo;
 import kr.green.test.vo.FileVo;
+import kr.green.test.vo.LikeVo;
 import kr.green.test.vo.UserVo;
 
 @Controller
@@ -149,5 +150,11 @@ public class BoardController {
 	        in.close();
 	    }
 	    return entity;
+	}
+	@RequestMapping(value = "/board/like", method = RequestMethod.POST)
+	@ResponseBody
+	public String boardLikePost(LikeVo likeVo) {
+		boardService.updateLike(likeVo);
+		return "success";
 	}
 }

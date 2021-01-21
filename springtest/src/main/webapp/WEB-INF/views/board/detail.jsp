@@ -26,11 +26,15 @@
 	    </div>
 	    <div class="form-group">
 	      <label>작성일</label>
-	      <input type="text" class="form-control" name="writer" value="${board.registerDate}" readonly>
+	      <input type="text" class="form-control" name="registerDate" value="${board.registerDate}" readonly>
 	    </div>
 	    <div class="form-group">
 	      <label>조회수</label>
 	      <input type="text" class="form-control" name="views" value="${board.views}" readonly>
+	    </div>
+	    <div class="form-group">
+	   	  <button type="button" class="btn btn-outline-info up">추천</button>
+	   	  <button type="button" class="btn btn-outline-info down">비추천</button>
 	    </div>
 	    <div class="form-group">
 	      <label>내용</label>
@@ -57,5 +61,34 @@
 	  	<a href="<%=request.getContextPath()%>/board/list"><button type="button" class="btn btn-outline-secondary">목록</button></a> <br>
 	  </c:if>
 	</div>
+	<script type="text/javascript">
+		$('.btn.up, .btn.down').click(function(){
+			var up = 0;
+			var id = '${user.id}';
+			if(id == ''){
+				alert('회원만 추천/비추천이 가능합니다.')
+				return ;
+			}
+			if($(this).hasClass('up')){
+				up = 1
+			}else{
+				up = -1
+			}
+			console.log(up)
+			var boardNum = $('input[name=num]').val();			
+			var data = { 'boardNum' : boardNum, 'id' : id, 'up' : up }
+			$.ajax({
+		        type:'post',
+		        data:data,
+		        url:'<%=request.getContextPath()%>/board/like',
+		        success : function(data){
+		           		if(up == 1)
+		           			alert('추천하였습니다.');
+		           		else
+		           			alert('비추천하였습니다.')
+		        }
+		    })
+		})
+	</script>
 </body>
 </html>

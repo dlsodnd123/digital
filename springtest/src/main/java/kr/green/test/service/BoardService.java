@@ -5,6 +5,7 @@ import java.util.ArrayList;
 import kr.green.test.pagination.Criteria;
 import kr.green.test.vo.BoardVo;
 import kr.green.test.vo.FileVo;
+import kr.green.test.vo.LikeVo;
 import kr.green.test.vo.UserVo;
 
 public interface BoardService {
@@ -28,6 +29,8 @@ public interface BoardService {
 	ArrayList<FileVo> getFileList(int num);
 
 	void deleteFile(int num);
+
+	void updateLike(LikeVo likeVo);
 
 
 

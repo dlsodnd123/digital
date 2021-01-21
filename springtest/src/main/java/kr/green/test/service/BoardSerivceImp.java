@@ -9,6 +9,7 @@ import kr.green.test.dao.BoardDao;
 import kr.green.test.pagination.Criteria;
 import kr.green.test.vo.BoardVo;
 import kr.green.test.vo.FileVo;
+import kr.green.test.vo.LikeVo;
 import kr.green.test.vo.UserVo;
 
 @Service
@@ -95,6 +96,17 @@ public class BoardSerivceImp implements BoardService {
 	@Override
 	public void deleteFile(int num) {
 		boardDao.deleteFile(num);
+	}
+
+	@Override
+	public void updateLike(LikeVo likeVo) {
+		LikeVo tmpLike = boardDao.getLike(likeVo);
+		if(tmpLike == null) {
+			boardDao.insertLike(likeVo);
+			return ;
+		}
+		tmpLike.setUp(likeVo.getUp());
+		boardDao.updateLike(tmpLike);
 	}
 
 

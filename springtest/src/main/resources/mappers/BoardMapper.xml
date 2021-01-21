@@ -69,4 +69,16 @@
 	<update id="deleteFile" parameterType="int">
 		update files set isDel = 'Y' where boardNum=#{num}
 	</update>
+	<select id="getLike" resultType="kr.green.test.vo.LikeVo">
+		select * from likes where id = #{like.id} and boardNum = #{like.boardNum}
+	</select>
+	<insert id="insertLike" parameterType="kr.green.test.vo.LikeVo">
+		insert into 
+		likes(boardNum, id, up)
+		values(#{like.boardNum}, #{like.id}, #{like.up})
+	</insert>
+	<update id="updateLike" parameterType="kr.green.test.vo.LikeVo">
+		update likes
+			set up = #{like.up} where num = #{like.num}
+	</update>
 </mapper>
