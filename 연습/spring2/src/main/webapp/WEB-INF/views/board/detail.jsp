@@ -33,8 +33,11 @@
 		</div>
 	  </form>
 		<a href="<%=request.getContextPath()%>/board/list"><button type="button" class="btn btn-secondary">목록</button></a>
-		<a href="<%=request.getContextPath()%>/board/register"><button type="button" class="btn btn-secondary">글쓰기</button></a>
-		<a href="<%=request.getContextPath()%>/board/modify?num=${board.num}"><button type="button" class="btn btn-secondary">수정</button></a> <br> <br>
+		<a href="<%=request.getContextPath()%>/board/register"><button type="button" class="btn btn-secondary">글쓰기</button></a> <c:if test="${user.id != board.writer}"><br> <br></c:if>
+		<c:if test="${user.id == board.writer}">
+			<a href="<%=request.getContextPath()%>/board/modify?num=${board.num}"><button type="button" class="btn btn-secondary">수정</button></a>
+			<a href="<%=request.getContextPath()%>/board/delete?num=${board.num}"><button type="button" class="btn btn-secondary">삭제</button></a> <br> <br>
+		</c:if>
 	</div>
 </body>
 </html>
