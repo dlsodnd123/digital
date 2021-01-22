@@ -1,8 +1,11 @@
 package kr.green.test.service;
 
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
 
@@ -17,6 +20,9 @@ public class UserServiceImp implements UserService {
 	
 	@Autowired
 	BCryptPasswordEncoder passwordEncoder;
+	
+	@Autowired
+	private JavaMailSender mailSender;
 
 	@Override
 	public String getEmail(String id) {
@@ -71,6 +77,33 @@ public class UserServiceImp implements UserService {
 	@Override
 	public UserVo getUser(HttpServletRequest request) {
 		return (UserVo)request.getSession().getAttribute("user");
+	}
+
+	@Override
+	public void updateUser(UserVo user) {
+		if(user == null)
+			return ;
+		String encodePw = passwordEncoder.encode(user.getPw());
+		user.setPw(encodePw);
+		userDao.updateUser(user);
+	}
+
+	@Override
+	public void sendMail(String title, String content, String email) {
+		try {
+	        MimeMessage message = mailSender.createMimeMessage();
+	        MimeMessageHelper messageHelper 
+	            = new MimeMessageHelper(message, true, "UTF-8");
+
+	        messageHelper.setFrom("test@naver.com");	// 보내는사람 생략하거나 하면 정상작동을 안함
+	        messageHelper.setTo(email);					// 받는사람 이메일
+	        messageHelper.setSubject(title);			// 메일제목은 생략이 가능하다
+	        messageHelper.setText(content);				// 메일 내용
+
+	        mailSender.send(message);
+	    } catch(Exception e){
+	        System.out.println(e);
+	    }
 	}
 	
 }

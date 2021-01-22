@@ -2,11 +2,15 @@ package kr.green.test.controller;
 
 import java.util.ArrayList;
 
+import javax.mail.internet.MimeMessage;
 import javax.servlet.http.HttpServletRequest;
 
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.mail.javamail.JavaMailSender;
+import org.springframework.mail.javamail.MimeMessageHelper;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,6 +31,7 @@ public class HomeController {
 	
 	@Autowired
 	private UserService userService;	
+	
 	//url이 localhost:8080/test/
 	@RequestMapping(value = "/", method = RequestMethod.GET)
 	public ModelAndView home(ModelAndView mv) {
@@ -35,8 +40,7 @@ public class HomeController {
 		String id = "abcd1234";
 		String email = userService.getEmail(id);
 		UserVo user = userService.getUser(id);
-		System.out.println(email);
-		System.out.println(user);
+
 		mv.setViewName("/main/home");
 		return mv;
 	}
@@ -50,7 +54,6 @@ public class HomeController {
 	public ModelAndView loginPost(ModelAndView mv,String username, String password) {
 
 		UserVo isUser = userService.isUser(username, password);
-		System.out.println("결과 : " + isUser);
 		mv.addObject("user", isUser);
 		if(isUser != null) {
 			mv.setViewName("redirect:/");	
@@ -73,7 +76,6 @@ public class HomeController {
 		System.out.println(user);
 		
 		boolean signup = userService.signup(user);
-		System.out.println(signup);
 		if(signup) {
 			//localhost:8080/test/
 			mv.setViewName("redirect:/");
@@ -117,41 +119,52 @@ public class HomeController {
 	}
 	@RequestMapping(value = "/test2", method = RequestMethod.GET)
 	public ModelAndView test2Get(ModelAndView mv, String name) {
-		System.out.println("/test2 - 이름 : " + name);
 		mv.setViewName("/main/test2");
 		return mv;
 	}
 	@RequestMapping(value = "/test3", method = RequestMethod.GET)
 	public ModelAndView test3Get(ModelAndView mv, TestVo test) {
-		System.out.println("/test3 - 정보 : " + test);
 		mv.setViewName("/main/test2");
 		return mv;
 	}
 	@RequestMapping(value = "/test4", method = RequestMethod.GET)
 	public ModelAndView test4Get(ModelAndView mv, String[] name) {
 		for(String tmpName : name)
-			System.out.println("/test4 - 이름 : " + tmpName);
+			System.out.println(tmpName);
 		mv.setViewName("/main/test2");
 		return mv;
 	}
 	@RequestMapping(value = "/test5", method = RequestMethod.GET)
 	public ModelAndView test5Get(ModelAndView mv, String name) {
 		
-		System.out.println("/test5 - 이름 : " + name);
 		String [] names = name.split(",");
 		for(String tmp : names)
-			System.out.println("이름 : " + tmp);
-		
+			System.out.println(tmp);
 		mv.setViewName("/main/test2");
 		return mv;
 	}
 	@RequestMapping(value = "/dup", method = RequestMethod.POST)
 	@ResponseBody
-	public String dupGet(String id) {
+	public String dupPost(String id) {
 		UserVo user = userService.getUser(id);
-		System.out.println(user);
 		if(user == null)
 			return "possible";
 		return "impossible";
+	}
+	@RequestMapping(value = "/find/pw", method = RequestMethod.POST)
+	@ResponseBody
+	public String findPwPost(String id) {
+		UserVo user = userService.getUser(id);
+		if(user == null)
+			return "fail";
+		System.out.println(user);
+		String pw = "1234";
+		user.setPw(pw);
+		userService.updateUser(user);
+		String title = "비밀번호 변경 메일입니다.";
+		String content = "새 비밀번호 : " + pw;
+		userService.sendMail(title, content, user.getEmail());
+
+		return "success";
 	}
 }
