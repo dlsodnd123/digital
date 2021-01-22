@@ -10,6 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.servlet.ModelAndView;
 
+import kr.green.spring2.pagination.Criteria;
+import kr.green.spring2.pagination.PageMaker;
 import kr.green.spring2.service.BoardService;
 import kr.green.spring2.service.UserService;
 import kr.green.spring2.vo.BoardVo;
@@ -25,8 +27,16 @@ public class BoardController {
 	UserService userService;
 	
 	@RequestMapping(value = "/board/list", method = RequestMethod.GET)
-	public ModelAndView boardListGet(ModelAndView mv) {
-		ArrayList<BoardVo> list = boardService.boardlist();
+	public ModelAndView boardListGet(ModelAndView mv, Criteria cri) {
+		System.out.println(cri);
+		ArrayList<BoardVo> list = boardService.boardlist(cri);
+		
+		int totalCount = boardService.getTotalCount();
+		int displayPageNum = 3;
+		PageMaker pm = new PageMaker(cri, displayPageNum, totalCount);
+		System.out.println(pm);
+		
+		mv.addObject("pm", pm);
 		mv.addObject("list", list);
 		mv.setViewName("/board/list");
 		return mv;

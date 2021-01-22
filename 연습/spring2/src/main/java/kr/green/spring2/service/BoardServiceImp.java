@@ -8,6 +8,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import kr.green.spring2.dao.BoardDao;
+import kr.green.spring2.pagination.Criteria;
 import kr.green.spring2.vo.BoardVo;
 import kr.green.spring2.vo.UserVo;
 
@@ -18,8 +19,8 @@ public class BoardServiceImp implements BoardService {
 	BoardDao boardDao;
 
 	@Override
-	public ArrayList<BoardVo> boardlist() {
-		ArrayList<BoardVo> board = boardDao.getBoardList();
+	public ArrayList<BoardVo> boardlist(Criteria cri) {
+		ArrayList<BoardVo> board = boardDao.getBoardList(cri);
 		return board;
 	}
 
@@ -70,5 +71,10 @@ public class BoardServiceImp implements BoardService {
 			return;
 		}
 		boardDao.updateViews(num);
+	}
+
+	@Override
+	public int getTotalCount() {
+		return boardDao.selectTotalCount();
 	}
 }
