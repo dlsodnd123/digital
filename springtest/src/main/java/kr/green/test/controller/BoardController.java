@@ -59,10 +59,25 @@ public class BoardController {
 		return mv;
 	}
 	@RequestMapping(value = "/board/detail", method = RequestMethod.GET)
-	public ModelAndView boardDetailGet(ModelAndView mv, Integer num, Criteria cri) {
+	public ModelAndView boardDetailGet(ModelAndView mv, Integer num, Criteria cri, HttpServletRequest request) {
+		// 조회수 증가
 		boardService.views(num);
+		// 게시글 정보 가져오기
 		BoardVo board = boardService.getboard(num);
+		//첨부파일 정보 가져오기
 		ArrayList<FileVo> fileList = boardService.getFileList(num);
+		// 로그인된 회원정보 가져오기
+		UserVo user = userService.getUser(request);
+		// 로그인 한 경우에만 추천/비추천 정보를 가져와서 화면에 전달
+		if(user != null) {
+			// 가져온 회원정보의 아이디와 게시글번호를 이용해서  LikeVo 객체를 생성
+			LikeVo like = new LikeVo(user.getId(), num);
+			// 생성된 LikeVo객체를 사용하여 추천정보를 조회해서 가져오기
+			LikeVo dbLike = boardService.getLike(like);
+			// 추천정보를 화면에 전달
+			mv.addObject("likeVo", dbLike);
+		}
+		
 		mv.addObject("fList", fileList);
 		mv.addObject("cri", cri);
 		mv.addObject("board", board);		

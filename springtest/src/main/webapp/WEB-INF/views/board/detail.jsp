@@ -33,8 +33,8 @@
 	      <input type="text" class="form-control" name="views" value="${board.views}" readonly>
 	    </div>
 	    <div class="form-group">
-	   	  <button type="button" class="btn btn-outline-info up">추천</button>
-	   	  <button type="button" class="btn btn-outline-info down">비추천</button>
+	   	  <button type="button" class="btn btn-<c:if test="${likeVo == null || likeVo.up != 1 }">outline-</c:if>info up">추천</button>
+	   	  <button type="button" class="btn btn-<c:if test="${likeVo == null || likeVo.up != -1 }">outline-</c:if>info down">비추천</button>
 	    </div>
 	    <div class="form-group">
 	      <label>내용</label>
@@ -62,30 +62,70 @@
 	  </c:if>
 	</div>
 	<script type="text/javascript">
-		$('.btn.up, .btn.down').click(function(){
-			var up = 0;
+		var up = '${likeVo.up}';
+		console.log(up);
+		$('.btn.up, .btn.down').click(function(){	
 			var id = '${user.id}';
 			if(id == ''){
 				alert('회원만 추천/비추천이 가능합니다.')
 				return ;
 			}
+			// 추천 버튼을 클릭하면
 			if($(this).hasClass('up')){
-				up = 1
+				// 추천 상태에서 추천버튼을 클릭하면 up을 0으로 추천 상태가 
+				if(up == 1)
+					up = 0;
+				//아닌상황에서 추천버튼을 클릭하면 up을 1로
+				else
+					up = 1;
+			// 비추천 버튼을 클릭하면
 			}else{
-				up = -1
+				// 비추천 상태에서 비추천 버튼을 클릭하면 up을 0으로 비추천 상태가 
+				if(up == -1)
+					up = 0;
+				// 아닌상황에서 비추천 버튼을 클릭하면 up을 -1로
+				else
+					up = -1;
 			}
-			console.log(up)
+			// 추천/비추천인 경우
+			if(up != 0){
+				/*
+					추천/비추천 버튼 모두에 btn-secondary클래스 제거, btn-outline-secondary클래스 추가
+	 			 	클릭한 버튼에 btn-secondary 클래스 추가, btn-outline-secondary클래스 제거
+				*/
+				$('.btn.up, .btn.down').removeClass('btn-info').addClass('btn-outline-info')
+				$(this).addClass('btn-info').removeClass('btn-outline-info');
+			}
+			// 추천/비추천을 취소한 경우
+			else{
+				/*
+					클릭한 버튼에 btn-secondary 클래스 제거, btn-outline-secondary클래스 추가
+				*/
+				$(this).removeClass('btn-info').addClass('btn-outline-info');
+			}
+			
 			var boardNum = $('input[name=num]').val();			
 			var data = { 'boardNum' : boardNum, 'id' : id, 'up' : up }
+			var obj = $(this)
 			$.ajax({
 		        type:'post',
 		        data:data,
 		        url:'<%=request.getContextPath()%>/board/like',
 		        success : function(data){
-		           		if(up == 1)
+		           		if(up == 1){
 		           			alert('추천하였습니다.');
-		           		else
-		           			alert('비추천하였습니다.')
+		        		}else if(up == -1){
+		           			alert('비추천하였습니다.');
+		           		}else{
+		           			// 클릭된 버튼이 추천이면 추천이 취소되었습니다.
+		           			if(obj.hasClass('up'))
+		           				alert('추천이 취소하였습니다.')
+		           			// 아니면 비추천이 취소되었습니다.
+		           			else
+		           				alert('비추천이 취소하였습니다.')
+		           		}
+		           			
+		           			
 		        }
 		    })
 		})

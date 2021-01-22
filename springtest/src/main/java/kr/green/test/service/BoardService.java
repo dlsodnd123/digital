@@ -32,6 +32,7 @@ public interface BoardService {
 
 	void updateLike(LikeVo likeVo);
 
+	LikeVo getLike(LikeVo like);
 
 
 }
