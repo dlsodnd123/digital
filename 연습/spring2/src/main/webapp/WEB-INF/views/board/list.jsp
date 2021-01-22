@@ -14,12 +14,12 @@
 	  <table class="table table-striped">
 	  	<div class="input-group mb-3">
 	  		<select>
-	  			<option>전체</option>
-	  			<option>제목</option>
-	  			<option>작성자</option>
-	  			<option>내용</option>
+	  			<option value="1" name="type">전체</option>
+	  			<option value="2" name="type">제목</option>
+	  			<option value="3" name="type">작성자</option>
+	  			<option value="4" name="type">내용</option>
 	  		</select>
-		    <input type="text" class="form-control" placeholder="Search">
+		    <input type="text" class="form-control" placeholder="Search" name="search">
 		    <div class="input-group-append">
 		      <button class="btn btn-success" type="submit">검색</button>  
 		     </div>
